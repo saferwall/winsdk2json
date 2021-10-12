@@ -5,7 +5,7 @@
 // https://docs.microsoft.com/en-us/cpp/cpp/fundamental-types-cpp
 // https://docs.microsoft.com/en-us/cpp/cpp/data-type-range
 
-package main
+package parser
 
 import (
 	"log"
