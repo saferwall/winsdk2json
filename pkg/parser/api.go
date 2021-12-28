@@ -9,6 +9,8 @@ import (
 
 	"regexp"
 	"strings"
+
+	"github.com/saferwall/winsdk2json/pkg/utils"
 )
 
 const (
@@ -43,7 +45,7 @@ type API struct {
 }
 
 func parseAPIParameter(params string) APIParam {
-	m := regSubMatchToMapString(RegAPIParams, params)
+	m := utils.RegSubMatchToMapString(RegAPIParams, params)
 	apiParam := APIParam{
 		Annotation: m["Anno"],
 		Name:       m["Name"],
@@ -59,8 +61,8 @@ func parseAPIParameter(params string) APIParam {
 	return apiParam
 }
 
-func parseAPI(apiPrototype string) API {
-	m := regSubMatchToMapString(RegProto, apiPrototype)
+func ParseAPI(apiPrototype string) API {
+	m := utils.RegSubMatchToMapString(RegProto, apiPrototype)
 	api := API{
 		Attribute:         m["Attr"],
 		CallingConvention: m["CallConv"],
@@ -83,13 +85,13 @@ func parseAPI(apiPrototype string) API {
 	split := re.Split(m["Params"], -1)
 	for i, v := range split {
 		// Quick hack:
-		ss := strings.Split(standardizeSpaces(v), " ")
+		ss := strings.Split(utils.StandardizeSpaces(v), " ")
 		if len(ss) == 2 {
 			// Force In for API without annotations.
 			v = "_In_ " + v
 		} else {
 			if i+1 < len(split) {
-				vv := standardizeSpaces(split[i+1])
+				vv := utils.StandardizeSpaces(split[i+1])
 				if !strings.HasPrefix(vv, "In") &&
 					!strings.HasPrefix(vv, "Out") &&
 					!strings.HasPrefix(vv, "_In") &&

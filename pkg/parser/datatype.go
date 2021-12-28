@@ -11,6 +11,8 @@ import (
 	"log"
 	"regexp"
 	"strings"
+
+	"github.com/saferwall/winsdk2json/pkg/utils"
 )
 
 const (
@@ -102,14 +104,14 @@ var (
 	}
 
 	// Maps a type to its typedef alias.
-	typedefs = map[string]string{}
+	Typedefs = map[string]string{}
 
 	// Maps a type to its dataType object.
 	dataTypes = map[string]dataType{}
 )
 
 // Fill in built in types.
-func initBuiltInTypes() {
+func InitBuiltInTypes() {
 	for _, t := range oneByteTypes {
 		dataTypes[t] = dataType{Name: t, Size: 1, Kind: typeScalar}
 		dataTypes[t+"*"] = dataType{Name: t + "*", Size: 1, Kind: typePtrScalar}
@@ -158,12 +160,12 @@ func initBuiltInTypes() {
 
 // Create custom data types: CHAR, DWORD ..
 // usually typedefs to built in types.
-func initCustomTypes(winStructs []Struct) {
+func InitCustomTypes(winStructs []Struct) {
 	// We repeat this process 2 times as some types won't be know only after
 	// first iteration.
 	for i := 0; i < 3; i++ {
 
-		for k, v := range typedefs {
+		for k, v := range Typedefs {
 			// No need to go further if the type is already known.
 			if _, ok := dataTypes[k]; ok {
 				continue
@@ -235,7 +237,7 @@ func typefromString(t string) dataType {
 	t = strings.ReplaceAll(t, "CONST ", "")
 	t = strings.ReplaceAll(t, " FAR", "")
 	t = strings.ReplaceAll(t, " NEAR", "")
-	t = spaceFieldsJoin(t)
+	t = utils.SpaceFieldsJoin(t)
 
 	if dt, ok := dataTypes[t]; ok {
 		return dt
@@ -246,22 +248,22 @@ func typefromString(t string) dataType {
 	return dataType{Name: t, Kind: typeStruct}
 }
 
-func parseTypedefs(data []byte) {
+func ParseTypedefs(data []byte) {
 
 	// Retrieve all typedeffed names.
 	re := regexp.MustCompile(regAllTypedef)
 	matches := re.FindAllStringSubmatch(string(data), -1)
 	for _, match := range matches {
 		// Strip extra white spaces from typedef statement.
-		srcName := standardizeSpaces(match[2])
-		newName := standardizeSpaces(match[4])
+		srcName := utils.StandardizeSpaces(match[2])
+		newName := utils.StandardizeSpaces(match[4])
 
 		// the newName in typedef could include multiple names:
 		// i.e:typedef _Null_terminated_ CHAR *NPSTR, *LPSTR, *PSTR;
 		elements := strings.Split(newName, ",")
 		for _, val := range elements {
 			src := srcName
-			dest := spaceFieldsJoin(val)
+			dest := utils.SpaceFieldsJoin(val)
 
 			// Take out some modifiers like `CONST`, `near`, `far`,
 			// as they don't affect the type, but more a hint for the compiler.
@@ -275,7 +277,7 @@ func parseTypedefs(data []byte) {
 				dest = dest[1:]
 			}
 
-			typedefs[dest] = src
+			Typedefs[dest] = src
 
 		}
 	}

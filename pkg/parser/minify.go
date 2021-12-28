@@ -8,6 +8,8 @@ import (
 	"log"
 	"regexp"
 	"strings"
+
+	"github.com/saferwall/winsdk2json/pkg/utils"
 )
 
 const (
@@ -72,12 +74,12 @@ func findParamIndexByName(api API, target string) int {
 }
 
 func getNameFromAnnotation(param APIParam) string {
-	m := regSubMatchToMapString(reOutWritesBytesTo, param.Annotation)
+	m := utils.RegSubMatchToMapString(reOutWritesBytesTo, param.Annotation)
 	if len(m) > 0 {
 		return m["c"]
 	}
 
-	m = regSubMatchToMapString(reInOutReadWriteBytes, param.Annotation)
+	m = utils.RegSubMatchToMapString(reInOutReadWriteBytes, param.Annotation)
 	if len(m) > 0 {
 		return m["s"]
 	}
@@ -121,7 +123,7 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 
 }
 
-func minifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
+func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 	mapis := make(map[string]map[string]APIMini)
 	for dllname, v := range apis {
 		if _, ok := mapis[dllname]; !ok {
@@ -174,7 +176,7 @@ func minifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 	return mapis
 }
 
-func minifyStructAndUnions(winStructs []Struct) []StructUnionMini {
+func MinifyStructAndUnions(winStructs []Struct) []StructUnionMini {
 	var structsAndUnionsMini []StructUnionMini
 	for _, winStruct := range winStructs {
 		structUnionMini := StructUnionMini{}

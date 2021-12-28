@@ -7,6 +7,8 @@ package parser
 import (
 	"regexp"
 	"strings"
+
+	"github.com/saferwall/winsdk2json/pkg/utils"
 )
 
 var (
@@ -64,8 +66,8 @@ type Struct struct {
 
 // Delete all white spaces from a C structure.
 func stripStruct(s string) string {
-	s = stripComments(s)
-	s = standardizeSpaces(s)
+	s = utils.StripComments(s)
+	s = utils.StandardizeSpaces(s)
 	s = strings.ReplaceAll(s, "; ", ";")
 	s = strings.ReplaceAll(s, " { ", "{")
 	s = strings.ReplaceAll(s, " } ", "}")
@@ -98,8 +100,8 @@ func parseStructBody(body string) []StructMember {
 		mu := strings.Index(memberStr, "union{")
 		ms := strings.Index(memberStr, "struct{")
 		if mu < 0 && ms < 0 {
-			mMap := regSubMatchToMapString(regStructMember, memberStr)
-			sm.Type = spaceFieldsJoin(mMap["Type"])
+			mMap := utils.RegSubMatchToMapString(regStructMember, memberStr)
+			sm.Type = utils.SpaceFieldsJoin(mMap["Type"])
 			sm.Name = mMap["Name"]
 			pos += semiColPos + 1 // for the ;
 		} else {
@@ -115,10 +117,10 @@ func parseStructBody(body string) []StructMember {
 				l = len("struct{") + ms
 			}
 
-			endStructPos := findClosingBracket([]byte(body), pos+l+1) + 1
-			semiColPos = findClosingSemicolon([]byte(body), endStructPos)
+			endStructPos := utils.FindClosingBracket([]byte(body), pos+l+1) + 1
+			semiColPos = utils.FindClosingSemicolon([]byte(body), endStructPos)
 			structBody := body[pos+l : endStructPos-1]
-			sm.Name = spaceFieldsJoin(body[endStructPos:semiColPos])
+			sm.Name = utils.SpaceFieldsJoin(body[endStructPos:semiColPos])
 			sm.Body = parseStructBody(structBody)
 			pos = semiColPos + 1 // for the ;
 		}
@@ -150,7 +152,7 @@ func parseStruct(structBeg, structBody, structEnd string) Struct {
 	}
 
 	// Get struct name and potential aliases.
-	structEnd = spaceFieldsJoin(structEnd)
+	structEnd = utils.SpaceFieldsJoin(structEnd)
 	n := strings.Split(structEnd, ",")
 	if len(n) > 0 {
 		winStruct.Name = n[0]
@@ -165,7 +167,7 @@ func parseStruct(structBeg, structBody, structEnd string) Struct {
 	return winStruct
 }
 
-func getAllStructs(data []byte) ([]string, []Struct) {
+func GetAllStructs(data []byte) ([]string, []Struct) {
 
 	var winstructs []Struct
 	var strStructs []string
@@ -174,8 +176,8 @@ func getAllStructs(data []byte) ([]string, []Struct) {
 	matches := re.FindAllStringIndex(string(data), -1)
 	for _, m := range matches {
 
-		endPos := findClosingBracket(data, m[1])
-		endStruct := findClosingSemicolon(data, endPos+1)
+		endPos := utils.FindClosingBracket(data, m[1])
+		endStruct := utils.FindClosingSemicolon(data, endPos+1)
 
 		structBeg := string(data[m[0]:m[1]])
 		structBody := string(data[m[1]:endPos])

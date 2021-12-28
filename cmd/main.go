@@ -15,6 +15,8 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/saferwall/winsdk2json/pkg/parser"
+	"github.com/saferwall/winsdk2json/pkg/utils"
 )
 
 const (
@@ -54,12 +56,12 @@ func getDLLName(file, apiname, sdkpath string) (string, error) {
 	cat := strings.TrimSuffix(filepath.Base(file), ".h")
 	functionName := "nf-" + cat + "-" + strings.ToLower(apiname) + ".md"
 	mdFile := path.Join(sdkpath, "sdk-api-src", "content", cat, functionName)
-	mdFileContent, err := ReadAll(mdFile)
+	mdFileContent, err := utils.ReadAll(mdFile)
 	if err != nil {
 		log.Printf("Failed to find file: %s", mdFile)
 		return "", err
 	}
-	m := regSubMatchToMapString(RegDllName, string(mdFileContent))
+	m := utils.RegSubMatchToMapString(RegDllName, string(mdFileContent))
 	return strings.ToLower(m["DLL"]), nil
 }
 
@@ -67,8 +69,8 @@ func main() {
 
 	// Parse arguments.
 	sdkumPath := flag.String("sdk", "", "The path to the windows sdk directory i.e C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\")
-	sdkapiPath := flag.String("sdk-api", "sdk-api", "The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
-	hookapisPath := flag.String("hookapis", "hookapis.txt", "The path to a a text file thats defines which APIs to trace, new line separated.")
+	sdkapiPath := flag.String("sdk-api", "C:\\Code\\sdk-api", "The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
+	hookapisPath := flag.String("hookapis", "..\\assets\\hookapis.md", "The path to a a text file thats defines which APIs to trace, new line separated.")
 	printretval := flag.Bool("printretval", false, "Print return value type for each API")
 	printanno := flag.Bool("printanno", false, "Print list of annotation values")
 	minify := flag.Bool("minify", false, "Mininify json")
@@ -80,39 +82,39 @@ func main() {
 		os.Exit(0)
 	}
 
-	if !Exists(*sdkumPath) {
+	if !utils.Exists(*sdkumPath) {
 		log.Fatal("Windows sdk directory does not exist")
 	}
 
-	if !Exists(*sdkapiPath) {
+	if !utils.Exists(*sdkapiPath) {
 		log.Fatal("sdk-api directory does not exist")
 	}
-	if !Exists(*hookapisPath) {
-		log.Fatal("hookapis.txt does not exists")
+	if !utils.Exists(*hookapisPath) {
+		log.Fatal("hookapis.md does not exists")
 	}
 
 	// Read the list of APIs we are interested to hook.
-	wantedAPIs, err := readLines(*hookapisPath)
+	wantedAPIs, err := utils.ReadLines(*hookapisPath)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	if len(wantedAPIs) == 0 {
-		log.Fatalln("hookapis.txt is empty")
+		log.Fatalln("hookapis.md is empty")
 	}
 
 	// Initialize built-in compiler data types.
-	initBuiltInTypes()
+	parser.InitBuiltInTypes()
 
 	// Get the list of files in the Windows SDK.
-	files, err := WalkAllFilesInDir(*sdkumPath)
+	files, err := utils.WalkAllFilesInDir(*sdkumPath)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	// Defines some vars.
-	m := make(map[string]map[string]API)
+	m := make(map[string]map[string]parser.API)
 	var winStructsRaw []string
-	var winStructs []Struct
+	var winStructs []parser.Struct
 	funcPtrs := make([]string, 0)
 	var interestingHeaders = []string{
 		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h",
@@ -141,44 +143,44 @@ func main() {
 
 		// Read Win32 include API headers.
 		log.Printf("Processing %s ...\n", file)
-		data, err := ReadAll(file)
+		data, err := utils.ReadAll(file)
 		if err != nil {
 			log.Fatalln(err)
 		}
 
 		// Parse typedefs.
-		parseTypedefs(data)
+		parser.ParseTypedefs(data)
 
 		// Start parsing all struct in header file.
-		a, b := getAllStructs(data)
+		a, b := parser.GetAllStructs(data)
 		winStructsRaw = append(winStructsRaw, a...)
 		winStructs = append(winStructs, b...)
 
 		// Extract all function pointers.
-		functionPointers := parseFunctionPointers(string(data))
+		functionPointers := parser.ParseFunctionPointers(string(data))
 		funcPtrs = append(funcPtrs, functionPointers...)
 
 		// Grab all API prototypes.
 		// 1. Ignore: FORCEINLINE
-		r := regexp.MustCompile(RegAPIs)
+		r := regexp.MustCompile(parser.RegAPIs)
 		matches := r.FindAllString(string(data), -1)
 		for _, v := range matches {
 			prototype := removeAnnotations(v)
-			prototype = standardizeSpaces(prototype)
+			prototype = utils.StandardizeSpaces(prototype)
 			prototype = standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
 			// Only parse APIs we want to hook.
-			mProto := regSubMatchToMapString(RegProto, prototype)
-			if strings.Contains(v, "WSAStartup") {
+			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
+			if strings.Contains(v, "HeapFree") {
 				log.Print()
 			}
-			if !StringInSlice(mProto["ApiName"], wantedAPIs) {
+			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {
 				continue
 			}
 
 			// Parse the API prototype.
-			papi := parseAPI(prototype)
+			papi := parser.ParseAPI(prototype)
 
 			// Find which DLL this API belongs to. Unfortunately, the sdk does
 			// not give you this information, we look into the sdk-api markdown
@@ -190,7 +192,7 @@ func main() {
 				continue
 			}
 			if _, ok := m[dllname]; !ok {
-				m[dllname] = make(map[string]API)
+				m[dllname] = make(map[string]parser.API)
 			}
 			m[dllname][papi.Name] = papi
 			parsedAPI++
@@ -199,20 +201,20 @@ func main() {
 
 		// Write raw prototypes to a text file.
 		if len(prototypes) > 0 {
-			WriteStrSliceToFile("dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
+			utils.WriteStrSliceToFile("dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
 		}
 	}
 
 	// Marshall and write to json file.
 	if len(m) > 0 {
 		data, _ := json.MarshalIndent(m, "", " ")
-		WriteBytesFile("json/apis.json", bytes.NewReader(data))
+		utils.WriteBytesFile("json/apis.json", bytes.NewReader(data))
 	}
 
 	// Write struct results.
-	WriteStrSliceToFile("dump/winstructs.h", winStructsRaw)
+	utils.WriteStrSliceToFile("dump/winstructs.h", winStructsRaw)
 	d, _ := json.MarshalIndent(winStructs, "", " ")
-	WriteBytesFile("json/structs.json", bytes.NewReader(d))
+	utils.WriteBytesFile("json/structs.json", bytes.NewReader(d))
 
 	if *printretval {
 		for dll, v := range m {
@@ -220,7 +222,7 @@ func main() {
 			log.Println("====================")
 			for api, vv := range v {
 				log.Printf("API: %s:%s() => %s\n", vv.CallingConvention, api, vv.ReturnValueType)
-				if !StringInSlice(api, wantedAPIs) {
+				if !utils.StringInSlice(api, wantedAPIs) {
 					log.Printf("Not found")
 				}
 			}
@@ -230,14 +232,14 @@ func main() {
 	log.Printf("Parsed API count: %d, Wanted API Count: %d", parsedAPI, len(wantedAPIs))
 
 	// Init custom types.
-	initCustomTypes(winStructs)
+	parser.InitCustomTypes(winStructs)
 
 	if *printanno || *minify {
-		data, err := ReadAll("json/apis.json")
+		data, err := utils.ReadAll("json/apis.json")
 		if err != nil {
 			log.Fatalln(err)
 		}
-		apis := make(map[string]map[string]API)
+		apis := make(map[string]map[string]parser.API)
 		err = json.Unmarshal(data, &apis)
 		if err != nil {
 			log.Fatalln(err)
@@ -249,12 +251,12 @@ func main() {
 			for _, v := range apis {
 				for _, vv := range v {
 					for _, param := range vv.Params {
-						if !StringInSlice(param.Annotation, annotations) {
+						if !utils.StringInSlice(param.Annotation, annotations) {
 							annotations = append(annotations, param.Annotation)
 							// log.Println(param.Annotation)
 						}
 
-						if !StringInSlice(param.Type, types) {
+						if !utils.StringInSlice(param.Type, types) {
 							types = append(types, param.Type)
 							log.Println(param.Type)
 						}
@@ -265,12 +267,12 @@ func main() {
 
 		if *minify {
 			// Minifi APIs.
-			data, _ := json.Marshal(minifyAPIs(apis))
-			WriteBytesFile("json/mini-apis.json", bytes.NewReader(data))
+			data, _ := json.Marshal(parser.MinifyAPIs(apis))
+			utils.WriteBytesFile("json/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.
-			data, _ = json.Marshal(minifyStructAndUnions(winStructs))
-			WriteBytesFile("json/mini-structs.json", bytes.NewReader(data))
+			data, _ = json.Marshal(parser.MinifyStructAndUnions(winStructs))
+			utils.WriteBytesFile("json/mini-structs.json", bytes.NewReader(data))
 		}
 		os.Exit(0)
 	}

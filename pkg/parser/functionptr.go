@@ -13,7 +13,7 @@ var (
 	regFunctionPtr = `typedef[\w\s]+\(WINAPI \*(?P<Name>\w+)\)\(`
 )
 
-func parseFunctionPointers(data string) []string {
+func ParseFunctionPointers(data string) []string {
 
 	var funcPtrs []string
 	r := regexp.MustCompile(regFunctionPtr)

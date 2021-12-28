@@ -2,7 +2,7 @@
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
-package main
+package utils
 
 import (
 	"bufio"
@@ -43,7 +43,7 @@ func WriteStrSliceToFile(filename string, data []string) (int, error) {
 }
 
 // Read a whole file into the memory and store it as array of lines
-func readLines(path string) (lines []string, err error) {
+func ReadLines(path string) (lines []string, err error) {
 
 	var (
 		part   []byte
@@ -104,7 +104,7 @@ func regexp2FindAllString(re *regexp2.Regexp, s string) []string {
 	return matches
 }
 
-func regSubMatchToMapString(regEx, s string) (paramsMap map[string]string) {
+func RegSubMatchToMapString(regEx, s string) (paramsMap map[string]string) {
 
 	r := regexp.MustCompile(regEx)
 	match := r.FindStringSubmatch(s)
@@ -134,18 +134,18 @@ func difference(a, b []string) []string {
 }
 
 // Group multi-whitespaces to one whitespace.
-func standardizeSpaces(s string) string {
+func StandardizeSpaces(s string) string {
 	return strings.Join(strings.Fields(s), " ")
 }
 
 // Strip all whitespaces.
-func spaceFieldsJoin(s string) string {
+func SpaceFieldsJoin(s string) string {
 	return strings.Join(strings.Fields(s), "")
 }
 
 // Remove C language comments.
 // Removes both single line and multi-line comments.
-func stripComments(s string) string {
+func StripComments(s string) string {
 
 	// Remove first the single line ones.
 	regSingleLine := regexp.MustCompile(`//.*`)
@@ -157,7 +157,7 @@ func stripComments(s string) string {
 	return s
 }
 
-func findClosingBracket(text []byte, openPos int) int {
+func FindClosingBracket(text []byte, openPos int) int {
 	closePos := openPos
 	counter := 1
 	for counter > 0 {
@@ -172,7 +172,7 @@ func findClosingBracket(text []byte, openPos int) int {
 	return closePos
 }
 
-func findClosingSemicolon(text []byte, pos int) int {
+func FindClosingSemicolon(text []byte, pos int) int {
 	for text[pos] != ';' {
 		pos++
 	}
