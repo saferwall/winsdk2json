@@ -21,7 +21,7 @@ const (
 	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI)?( )?(?P<RetValType>[A-Za-z]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
 
 	// RegAPIParams parses params.
-	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_(O|o)ut[\w(),+ *]+|_In[\w()]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`
+	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_Frees_ptr_opt_|_(O|o)ut[\w(),+ *]+|_In[\w()]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`
 
 	// RegParam extacts API parameters.
 	RegParam = `, `
@@ -98,6 +98,7 @@ func ParseAPI(apiPrototype string) API {
 					!strings.HasPrefix(vv, "IN") &&
 					!strings.HasPrefix(vv, "OUT") &&
 					!strings.HasPrefix(vv, "_Reserved") &&
+					!strings.HasPrefix(vv, "_Frees_ptr_opt_") &&
 					!strings.HasPrefix(vv, "_When") &&
 					!strings.HasPrefix(vv, "__out") &&
 					!strings.HasPrefix(vv, "_Out") {

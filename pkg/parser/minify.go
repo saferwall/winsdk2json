@@ -54,7 +54,7 @@ type APIMini struct {
 }
 
 var (
-	reAnnotationIn = regexp.MustCompile(`(?i)_In_|IN|_In_opt[\w]+|In_reads[\w()]+`)
+	reAnnotationIn = regexp.MustCompile(`(?i)_In_|IN|_In_opt[\w]+|In_reads[\w()]+|_Frees_ptr_opt_`)
 	// __out_data_source
 	reAnnotationOut      = regexp.MustCompile(`(?i)_Out_|OUT|_Out_opt[\w]+|_Out_writes[\w()]+|_Outptr_`)
 	reAnnotationIntOut   = regexp.MustCompile(`(?i)_Inout[\w]+`)
@@ -130,6 +130,10 @@ func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 			mapis[dllname] = make(map[string]APIMini)
 		}
 		for apiname, vv := range v {
+
+			if apiname == "HeapFree" {
+				log.Print("HeapFree")
+			}
 
 			// Return type.
 			returnType := false

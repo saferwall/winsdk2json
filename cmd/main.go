@@ -24,9 +24,12 @@ const (
 	RegDllName = `req\.dll: (?P<DLL>[\w]+\.dll)`
 )
 
+// removeAnnotations should only remove function annotations
+// and not function arguments annotations.
 func removeAnnotations(apiPrototype string) string {
 	apiPrototype = strings.Replace(apiPrototype, "_Must_inspect_result_", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, "__drv_aliasesMem", "", -1)
+	apiPrototype = strings.Replace(apiPrototype, "__drv_freesMem(Mem)", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, "_Success_(return != 0 && return < nBufferLength)", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, "_Success_(return != 0 && return < cchBuffer)", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, "_Success_(return != FALSE)", "", -1)
@@ -169,7 +172,7 @@ func main() {
 			prototype = utils.StandardizeSpaces(prototype)
 			prototype = standardize(prototype)
 			prototypes = append(prototypes, prototype)
-
+			
 			// Only parse APIs we want to hook.
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
 			if strings.Contains(v, "HeapFree") {
@@ -201,20 +204,26 @@ func main() {
 
 		// Write raw prototypes to a text file.
 		if len(prototypes) > 0 {
-			utils.WriteStrSliceToFile("dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
+			_, err = utils.WriteStrSliceToFile("../dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
+			if err != nil {
+				log.Fatalf("Failed to dump prototype %s", filepath.Base(file)+".inc")
+			}
 		}
 	}
 
 	// Marshall and write to json file.
 	if len(m) > 0 {
 		data, _ := json.MarshalIndent(m, "", " ")
-		utils.WriteBytesFile("json/apis.json", bytes.NewReader(data))
+		_, err = utils.WriteBytesFile("../json/apis.json", bytes.NewReader(data))
+		if err != nil {
+			log.Fatalf("Failed to dump apis.json")
+		}
 	}
 
 	// Write struct results.
-	utils.WriteStrSliceToFile("dump/winstructs.h", winStructsRaw)
+	utils.WriteStrSliceToFile("../dump/winstructs.h", winStructsRaw)
 	d, _ := json.MarshalIndent(winStructs, "", " ")
-	utils.WriteBytesFile("json/structs.json", bytes.NewReader(d))
+	utils.WriteBytesFile("../json/structs.json", bytes.NewReader(d))
 
 	if *printretval {
 		for dll, v := range m {
@@ -235,7 +244,7 @@ func main() {
 	parser.InitCustomTypes(winStructs)
 
 	if *printanno || *minify {
-		data, err := utils.ReadAll("json/apis.json")
+		data, err := utils.ReadAll("../json/apis.json")
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -268,11 +277,11 @@ func main() {
 		if *minify {
 			// Minifi APIs.
 			data, _ := json.Marshal(parser.MinifyAPIs(apis))
-			utils.WriteBytesFile("json/mini-apis.json", bytes.NewReader(data))
+			utils.WriteBytesFile("../json/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.
 			data, _ = json.Marshal(parser.MinifyStructAndUnions(winStructs))
-			utils.WriteBytesFile("json/mini-structs.json", bytes.NewReader(data))
+			utils.WriteBytesFile("../json/mini-structs.json", bytes.NewReader(data))
 		}
 		os.Exit(0)
 	}
