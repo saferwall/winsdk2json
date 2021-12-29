@@ -24,6 +24,7 @@ var rePrototypeTests = []struct {
 }{
 	{sdkDir + "\\um\\fileapi.h", 96},
 	{sdkDir + "\\um\\processthreadsapi.h", 94},
+	{sdkDir + "\\um\\shellapi.h", 94},
 }
 
 var reTypedefsTests = []struct {

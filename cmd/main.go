@@ -173,11 +173,16 @@ func main() {
 			prototype = standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			// Only parse APIs we want to hook.
-			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
-			if strings.Contains(v, "GetVolumePathNamesForVolumeNameW") {
+			if strings.Contains(v, "ShellExecuteW") {
 				log.Print()
 			}
+
+			// Only parse APIs we want to hook.
+			if strings.HasPrefix(prototype, "SHSTDAPI_(HINSTANCE)") {
+				prototype = strings.ReplaceAll(prototype, "SHSTDAPI_(HINSTANCE)", "")
+				prototype = "HINSTANCE SHSTDAPI" + prototype
+			}
+			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
 			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {
 				continue
 			}

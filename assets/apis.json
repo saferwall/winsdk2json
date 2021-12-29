@@ -3145,6 +3145,82 @@
    ]
   }
  },
+ "shell32.dll": {
+  "ShellExecuteA": {
+   "callconv": "SHSTDAPI",
+   "name": "ShellExecuteA",
+   "retVal": "HINSTANCE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HWND",
+     "name": "hwnd"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpOperation"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFile"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpParameters"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "INT",
+     "name": "nShowCmd"
+    }
+   ]
+  },
+  "ShellExecuteW": {
+   "callconv": "SHSTDAPI",
+   "name": "ShellExecuteW",
+   "retVal": "HINSTANCE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HWND",
+     "name": "hwnd"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpOperation"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFile"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpParameters"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "INT",
+     "name": "nShowCmd"
+    }
+   ]
+  }
+ },
  "winhttp.dll": {
   "WinHttpConnect": {
    "callconv": "WINAPI",

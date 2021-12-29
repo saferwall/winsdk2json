@@ -151,4 +151,8 @@ Process32Next
 Process32NextW
 GetModuleHandleA
 GetModuleHandleW
+ShellExecuteA
 ShellExecuteW
+ShellExecuteExA
+ShellExecuteExW
+SHEmptyRecycleBinW
