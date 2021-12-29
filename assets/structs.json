@@ -10533,6 +10533,809 @@
   ]
  },
  {
+  "name": "DRAGINFOA",
+  "typedef_name": "_DRAGINFOA",
+  "pointer_alias": "LPDRAGINFOA",
+  "Members": [
+   {
+    "name": "uSize",
+    "type": "UINT"
+   },
+   {
+    "name": "pt",
+    "type": "POINT"
+   },
+   {
+    "name": "fNC",
+    "type": "BOOL"
+   },
+   {
+    "name": "lpFileList",
+    "type": "PZZSTR"
+   },
+   {
+    "name": "grfKeyState",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "DRAGINFOW",
+  "typedef_name": "_DRAGINFOW",
+  "pointer_alias": "LPDRAGINFOW",
+  "Members": [
+   {
+    "name": "uSize",
+    "type": "UINT"
+   },
+   {
+    "name": "pt",
+    "type": "POINT"
+   },
+   {
+    "name": "fNC",
+    "type": "BOOL"
+   },
+   {
+    "name": "lpFileList",
+    "type": "PZZWSTR"
+   },
+   {
+    "name": "grfKeyState",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "APPBARDATA",
+  "typedef_name": "_AppBarData",
+  "pointer_alias": "PAPPBARDATA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hWnd",
+    "type": "HWND"
+   },
+   {
+    "name": "uCallbackMessage",
+    "type": "UINT"
+   },
+   {
+    "name": "uEdge",
+    "type": "UINT"
+   },
+   {
+    "name": "rc",
+    "type": "RECT"
+   },
+   {
+    "name": "lParam",
+    "type": "LPARAM"
+   }
+  ]
+ },
+ {
+  "name": "SHFILEOPSTRUCTA",
+  "typedef_name": "_SHFILEOPSTRUCTA",
+  "pointer_alias": "LPSHFILEOPSTRUCTA",
+  "Members": [
+   {
+    "name": "hwnd",
+    "type": "HWND"
+   },
+   {
+    "name": "wFunc",
+    "type": "UINT"
+   },
+   {
+    "name": "pFrom",
+    "type": "PCZZSTR"
+   },
+   {
+    "name": "pTo",
+    "type": "PCZZSTR"
+   },
+   {
+    "name": "fFlags",
+    "type": "FILEOP_FLAGS"
+   },
+   {
+    "name": "fAnyOperationsAborted",
+    "type": "BOOL"
+   },
+   {
+    "name": "hNameMappings",
+    "type": "LPVOID"
+   },
+   {
+    "name": "lpszProgressTitle",
+    "type": "PCSTR"
+   }
+  ]
+ },
+ {
+  "name": "SHFILEOPSTRUCTW",
+  "typedef_name": "_SHFILEOPSTRUCTW",
+  "pointer_alias": "LPSHFILEOPSTRUCTW",
+  "Members": [
+   {
+    "name": "hwnd",
+    "type": "HWND"
+   },
+   {
+    "name": "wFunc",
+    "type": "UINT"
+   },
+   {
+    "name": "pFrom",
+    "type": "PCZZWSTR"
+   },
+   {
+    "name": "pTo",
+    "type": "PCZZWSTR"
+   },
+   {
+    "name": "fFlags",
+    "type": "FILEOP_FLAGS"
+   },
+   {
+    "name": "fAnyOperationsAborted",
+    "type": "BOOL"
+   },
+   {
+    "name": "hNameMappings",
+    "type": "LPVOID"
+   },
+   {
+    "name": "lpszProgressTitle",
+    "type": "PCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "SHNAMEMAPPINGA",
+  "typedef_name": "_SHNAMEMAPPINGA",
+  "pointer_alias": "LPSHNAMEMAPPINGA",
+  "Members": [
+   {
+    "name": "pszOldPath",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pszNewPath",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cchOldPath",
+    "type": "int"
+   },
+   {
+    "name": "cchNewPath",
+    "type": "int"
+   }
+  ]
+ },
+ {
+  "name": "SHNAMEMAPPINGW",
+  "typedef_name": "_SHNAMEMAPPINGW",
+  "pointer_alias": "LPSHNAMEMAPPINGW",
+  "Members": [
+   {
+    "name": "pszOldPath",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pszNewPath",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "cchOldPath",
+    "type": "int"
+   },
+   {
+    "name": "cchNewPath",
+    "type": "int"
+   }
+  ]
+ },
+ {
+  "name": "SHELLEXECUTEINFOA",
+  "typedef_name": "_SHELLEXECUTEINFOA",
+  "pointer_alias": "LPSHELLEXECUTEINFOA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "fMask",
+    "type": "ULONG"
+   },
+   {
+    "name": "hwnd",
+    "type": "HWND"
+   },
+   {
+    "name": "lpVerb",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "lpFile",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "lpParameters",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "lpDirectory",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "nShow",
+    "type": "int"
+   },
+   {
+    "name": "hInstApp",
+    "type": "HINSTANCE"
+   },
+   {
+    "name": "lpIDList",
+    "type": "void*"
+   },
+   {
+    "name": "lpClass",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "hkeyClass",
+    "type": "HKEY"
+   },
+   {
+    "name": "dwHotKey",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hIcon",
+      "type": "HANDLE"
+     },
+     {
+      "name": "hMonitor",
+      "type": "HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "hProcess",
+    "type": "HANDLE"
+   }
+  ]
+ },
+ {
+  "name": "SHELLEXECUTEINFOW",
+  "typedef_name": "_SHELLEXECUTEINFOW",
+  "pointer_alias": "LPSHELLEXECUTEINFOW",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "fMask",
+    "type": "ULONG"
+   },
+   {
+    "name": "hwnd",
+    "type": "HWND"
+   },
+   {
+    "name": "lpVerb",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "lpFile",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "lpParameters",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "lpDirectory",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "nShow",
+    "type": "int"
+   },
+   {
+    "name": "hInstApp",
+    "type": "HINSTANCE"
+   },
+   {
+    "name": "lpIDList",
+    "type": "void*"
+   },
+   {
+    "name": "lpClass",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "hkeyClass",
+    "type": "HKEY"
+   },
+   {
+    "name": "dwHotKey",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hIcon",
+      "type": "HANDLE"
+     },
+     {
+      "name": "hMonitor",
+      "type": "HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "hProcess",
+    "type": "HANDLE"
+   }
+  ]
+ },
+ {
+  "name": "SHCREATEPROCESSINFOW",
+  "typedef_name": "_SHCREATEPROCESSINFOW",
+  "pointer_alias": "PSHCREATEPROCESSINFOW",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "fMask",
+    "type": "ULONG"
+   },
+   {
+    "name": "hwnd",
+    "type": "HWND"
+   },
+   {
+    "name": "pszFile",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "pszParameters",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "pszCurrentDirectory",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "hUserToken",
+    "type": "HANDLE"
+   },
+   {
+    "name": "lpProcessAttributes",
+    "type": "LPSECURITY_ATTRIBUTES"
+   },
+   {
+    "name": "lpThreadAttributes",
+    "type": "LPSECURITY_ATTRIBUTES"
+   },
+   {
+    "name": "bInheritHandles",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwCreationFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "lpStartupInfo",
+    "type": "LPSTARTUPINFOW"
+   },
+   {
+    "name": "lpProcessInformation",
+    "type": "LPPROCESS_INFORMATION"
+   }
+  ]
+ },
+ {
+  "name": "ASSOCIATIONELEMENT",
+  "typedef_name": "ASSOCIATIONELEMENT",
+  "Members": [
+   {
+    "name": "ac",
+    "type": "ASSOCCLASS"
+   },
+   {
+    "name": "hkClass",
+    "type": "HKEY"
+   },
+   {
+    "name": "pszClass",
+    "type": "PCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "SHQUERYRBINFO",
+  "typedef_name": "_SHQUERYRBINFO",
+  "pointer_alias": "LPSHQUERYRBINFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "i64Size",
+    "type": "__int64"
+   },
+   {
+    "name": "i64NumItems",
+    "type": "__int64"
+   },
+   {
+    "name": "DWORDLONG",
+    "type": "else"
+   },
+   {
+    "name": "i64NumItems",
+    "type": "DWORDLONG"
+   }
+  ]
+ },
+ {
+  "name": "NOTIFYICONDATAA",
+  "typedef_name": "_NOTIFYICONDATAA",
+  "pointer_alias": "PNOTIFYICONDATAA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hWnd",
+    "type": "HWND"
+   },
+   {
+    "name": "uID",
+    "type": "UINT"
+   },
+   {
+    "name": "uFlags",
+    "type": "UINT"
+   },
+   {
+    "name": "uCallbackMessage",
+    "type": "UINT"
+   },
+   {
+    "name": "hIcon",
+    "type": "HICON"
+   },
+   {
+    "name": "szTip",
+    "type": "CHAR"
+   },
+   {
+    "name": "szTip",
+    "type": "CHAR"
+   },
+   {
+    "name": "dwState",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwStateMask",
+    "type": "DWORD"
+   },
+   {
+    "name": "szInfo",
+    "type": "CHAR"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "uTimeout",
+      "type": "UINT"
+     },
+     {
+      "name": "uVersion",
+      "type": "UINT"
+     }
+    ]
+   },
+   {
+    "name": "CHAR",
+    "type": "endif"
+   },
+   {
+    "name": "dwInfoFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "guidItem",
+    "type": "GUID"
+   },
+   {
+    "name": "hBalloonIcon",
+    "type": "HICON"
+   }
+  ]
+ },
+ {
+  "name": "NOTIFYICONDATAW",
+  "typedef_name": "_NOTIFYICONDATAW",
+  "pointer_alias": "PNOTIFYICONDATAW",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hWnd",
+    "type": "HWND"
+   },
+   {
+    "name": "uID",
+    "type": "UINT"
+   },
+   {
+    "name": "uFlags",
+    "type": "UINT"
+   },
+   {
+    "name": "uCallbackMessage",
+    "type": "UINT"
+   },
+   {
+    "name": "hIcon",
+    "type": "HICON"
+   },
+   {
+    "name": "szTip",
+    "type": "WCHAR"
+   },
+   {
+    "name": "szTip",
+    "type": "WCHAR"
+   },
+   {
+    "name": "dwState",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwStateMask",
+    "type": "DWORD"
+   },
+   {
+    "name": "szInfo",
+    "type": "WCHAR"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "uTimeout",
+      "type": "UINT"
+     },
+     {
+      "name": "uVersion",
+      "type": "UINT"
+     }
+    ]
+   },
+   {
+    "name": "WCHAR",
+    "type": "endif"
+   },
+   {
+    "name": "dwInfoFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "guidItem",
+    "type": "GUID"
+   },
+   {
+    "name": "hBalloonIcon",
+    "type": "HICON"
+   }
+  ]
+ },
+ {
+  "name": "NOTIFYICONIDENTIFIER",
+  "typedef_name": "_NOTIFYICONIDENTIFIER",
+  "pointer_alias": "PNOTIFYICONIDENTIFIER",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hWnd",
+    "type": "HWND"
+   },
+   {
+    "name": "uID",
+    "type": "UINT"
+   },
+   {
+    "name": "guidItem",
+    "type": "GUID"
+   }
+  ]
+ },
+ {
+  "name": "SHFILEINFOA",
+  "typedef_name": "_SHFILEINFOA",
+  "Members": [
+   {
+    "name": "hIcon",
+    "type": "HICON"
+   },
+   {
+    "name": "iIcon",
+    "type": "int"
+   },
+   {
+    "name": "dwAttributes",
+    "type": "DWORD"
+   },
+   {
+    "name": "szDisplayName",
+    "type": "CHAR"
+   },
+   {
+    "name": "szTypeName",
+    "type": "CHAR"
+   }
+  ]
+ },
+ {
+  "name": "SHFILEINFOW",
+  "typedef_name": "_SHFILEINFOW",
+  "Members": [
+   {
+    "name": "hIcon",
+    "type": "HICON"
+   },
+   {
+    "name": "iIcon",
+    "type": "int"
+   },
+   {
+    "name": "dwAttributes",
+    "type": "DWORD"
+   },
+   {
+    "name": "szDisplayName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "szTypeName",
+    "type": "WCHAR"
+   }
+  ]
+ },
+ {
+  "name": "SHSTOCKICONINFO",
+  "typedef_name": "_SHSTOCKICONINFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hIcon",
+    "type": "HICON"
+   },
+   {
+    "name": "iSysImageIndex",
+    "type": "int"
+   },
+   {
+    "name": "iIcon",
+    "type": "int"
+   },
+   {
+    "name": "szPath",
+    "type": "WCHAR"
+   }
+  ]
+ },
+ {
+  "name": "OPEN_PRINTER_PROPS_INFOA",
+  "typedef_name": "_OPEN_PRINTER_PROPS_INFOA",
+  "pointer_alias": "POPEN_PRINTER_PROPS_INFOA",
+  "Members": [
+   {
+    "name": "dwSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszSheetName",
+    "type": "LPSTR"
+   },
+   {
+    "name": "uSheetIndex",
+    "type": "UINT"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "bModal",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "OPEN_PRINTER_PROPS_INFOW",
+  "typedef_name": "_OPEN_PRINTER_PROPS_INFOW",
+  "pointer_alias": "POPEN_PRINTER_PROPS_INFOW",
+  "Members": [
+   {
+    "name": "dwSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszSheetName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "uSheetIndex",
+    "type": "UINT"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "bModal",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "NC_ADDRESS",
+  "typedef_name": "tagNC_ADDRESS",
+  "pointer_alias": "PNC_ADDRESS",
+  "Members": [
+   {
+    "name": "NET_ADDRESS_INFO_",
+    "type": "struct"
+   },
+   {
+    "name": "PortNumber",
+    "type": "USHORT"
+   },
+   {
+    "name": "PrefixLength",
+    "type": "BYTE"
+   }
+  ]
+ },
+ {
   "name": "SYSTEM_INFO",
   "typedef_name": "_SYSTEM_INFO",
   "pointer_alias": "LPSYSTEM_INFO",

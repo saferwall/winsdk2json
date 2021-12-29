@@ -123,7 +123,7 @@ func main() {
 		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h",
 		"\\winbase.h", "\\urlmon.h", "\\memoryapi.h", "\\tlhelp32.h", "\\debugapi.h", "\\handleapi.h", "\\heapapi.h", "\\winsvc.h",
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h",
-		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h",
+		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
 	}
 
@@ -175,7 +175,7 @@ func main() {
 			
 			// Only parse APIs we want to hook.
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
-			if strings.Contains(v, "HeapFree") {
+			if strings.Contains(v, "GetTickCount") {
 				log.Print()
 			}
 			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {

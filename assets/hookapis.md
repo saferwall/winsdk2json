@@ -137,3 +137,12 @@ connect
 WSAStartup
 getaddrinfo
 GetProcessHeap
+Thread32First
+Thread32Next
+Process32First
+Process32FirstW
+Process32Next
+Process32NextW
+GetModuleHandleA
+GetModuleHandleW
+ShellExecuteW

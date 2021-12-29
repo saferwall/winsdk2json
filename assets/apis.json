@@ -2303,6 +2303,30 @@
    "retVal": "DWORD",
    "params": []
   },
+  "GetModuleHandleA": {
+   "callconv": "WINAPI",
+   "name": "GetModuleHandleA",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpModuleName"
+    }
+   ]
+  },
+  "GetModuleHandleW": {
+   "callconv": "WINAPI",
+   "name": "GetModuleHandleW",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpModuleName"
+    }
+   ]
+  },
   "GetProcAddress": {
    "callconv": "WINAPI",
    "name": "GetProcAddress",
@@ -2605,6 +2629,74 @@
     }
    ]
   },
+  "Process32First": {
+   "callconv": "WINAPI",
+   "name": "Process32First",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPPROCESSENTRY32",
+     "name": "lppe"
+    }
+   ]
+  },
+  "Process32FirstW": {
+   "callconv": "WINAPI",
+   "name": "Process32FirstW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPPROCESSENTRY32W",
+     "name": "lppe"
+    }
+   ]
+  },
+  "Process32Next": {
+   "callconv": "WINAPI",
+   "name": "Process32Next",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPPROCESSENTRY32",
+     "name": "lppe"
+    }
+   ]
+  },
+  "Process32NextW": {
+   "callconv": "WINAPI",
+   "name": "Process32NextW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPPROCESSENTRY32W",
+     "name": "lppe"
+    }
+   ]
+  },
   "ReadProcessMemory": {
    "callconv": "WINAPI",
    "name": "ReadProcessMemory",
@@ -2692,6 +2784,40 @@
      "anno": "_In_",
      "type": "UINT",
      "name": "uExitCode"
+    }
+   ]
+  },
+  "Thread32First": {
+   "callconv": "WINAPI",
+   "name": "Thread32First",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPTHREADENTRY32",
+     "name": "lpte"
+    }
+   ]
+  },
+  "Thread32Next": {
+   "callconv": "WINAPI",
+   "name": "Thread32Next",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " HANDLE",
+     "name": "hSnapshot"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPTHREADENTRY32",
+     "name": "lpte"
     }
    ]
   },

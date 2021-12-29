@@ -130,8 +130,7 @@ func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 			mapis[dllname] = make(map[string]APIMini)
 		}
 		for apiname, vv := range v {
-
-			if apiname == "HeapFree" {
+			if apiname == "GetTickCount" {
 				log.Print("HeapFree")
 			}
 
@@ -142,7 +141,7 @@ func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 			}
 
 			propertiesCount := 0
-			var paramsMini []APIParamMini
+			paramsMini := make([]APIParamMini, 0)
 			for _, param := range vv.Params {
 				parammini := APIParamMini{}
 				if reAnnotationIn.MatchString(param.Annotation) {

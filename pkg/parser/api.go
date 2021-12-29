@@ -73,6 +73,7 @@ func ParseAPI(apiPrototype string) API {
 	// Treat the VOID case.
 	if m["Params"] == " VOID " {
 		api.CountParams = 0
+		api.Params = []APIParam{}
 		return api
 	}
 
