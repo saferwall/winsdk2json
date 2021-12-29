@@ -172,10 +172,10 @@ func main() {
 			prototype = utils.StandardizeSpaces(prototype)
 			prototype = standardize(prototype)
 			prototypes = append(prototypes, prototype)
-			
+
 			// Only parse APIs we want to hook.
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
-			if strings.Contains(v, "GetTickCount") {
+			if strings.Contains(v, "GetVolumePathNamesForVolumeNameW") {
 				log.Print()
 			}
 			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {

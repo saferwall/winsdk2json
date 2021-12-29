@@ -33,7 +33,10 @@ Here is an example:
 
 The malware sandbox hooking module makes use of this to implement a generic hook handler that does not require to implement a handler for each API we need to hook.
 
+## Lessons Learned
 
+- SAL annotations
+- Some Windows APIs does not have a ANSI alternative: i.e OpenMutexW
 ## Challenges
 
 - Not a consistent way of defines functions prototypes or structs.

@@ -2229,6 +2229,69 @@
     }
    ]
   },
+  "FindFirstVolumeW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstVolumeW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_Out_writes_(cchBufferLength)",
+     "type": "LPWSTR",
+     "name": "lpszVolumeName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cchBufferLength"
+    }
+   ]
+  },
+  "FindNextVolumeW": {
+   "callconv": "WINAPI",
+   "name": "FindNextVolumeW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "HANDLE",
+     "name": "hFindVolume"
+    },
+    {
+     "anno": "_Out_writes_(cchBufferLength)",
+     "type": "LPWSTR",
+     "name": "lpszVolumeName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cchBufferLength"
+    }
+   ]
+  },
+  "GetDriveTypeA": {
+   "callconv": "WINAPI",
+   "name": "GetDriveTypeA",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpRootPathName"
+    }
+   ]
+  },
+  "GetDriveTypeW": {
+   "callconv": "WINAPI",
+   "name": "GetDriveTypeW",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpRootPathName"
+    }
+   ]
+  },
   "GetFileAttributesA": {
    "callconv": "WINAPI",
    "name": "GetFileAttributesA",
@@ -2461,6 +2524,33 @@
     }
    ]
   },
+  "GetVolumePathNamesForVolumeNameW": {
+   "callconv": "WINAPI",
+   "name": "GetVolumePathNamesForVolumeNameW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszVolumeName"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(cchBufferLength,*lpcchReturnLength) _Post_ _NullNull_terminated_",
+     "type": "LPWCH",
+     "name": "lpszVolumePathNames"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cchBufferLength"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PDWORD",
+     "name": "lpcchReturnLength"
+    }
+   ]
+  },
   "HeapAlloc": {
    "callconv": "WINAPI",
    "name": "HeapAlloc",
@@ -2604,6 +2694,28 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpNewFileName"
+    }
+   ]
+  },
+  "OpenMutexW": {
+   "callconv": "WINAPI",
+   "name": "OpenMutexW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpName"
     }
    ]
   },
