@@ -1,0 +1,3875 @@
+{
+ "advapi32.dll": {
+  "ControlService": {
+   "callconv": "WINAPI",
+   "name": "ControlService",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwControl"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPSERVICE_STATUS",
+     "name": "lpServiceStatus"
+    }
+   ]
+  },
+  "ControlServiceExA": {
+   "callconv": "WINAPI",
+   "name": "ControlServiceExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwControl"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwInfoLevel"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "PVOID",
+     "name": "pControlParams"
+    }
+   ]
+  },
+  "ControlServiceExW": {
+   "callconv": "WINAPI",
+   "name": "ControlServiceExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwControl"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwInfoLevel"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "PVOID",
+     "name": "pControlParams"
+    }
+   ]
+  },
+  "CreateServiceA": {
+   "callconv": "WINAPI",
+   "name": "CreateServiceA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hSCManager"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpServiceName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDisplayName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwServiceType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwStartType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwErrorControl"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpBinaryPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpLoadOrderGroup"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwTagId"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDependencies"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpServiceStartName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpPassword"
+    }
+   ]
+  },
+  "CreateServiceW": {
+   "callconv": "WINAPI",
+   "name": "CreateServiceW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hSCManager"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpServiceName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDisplayName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwServiceType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwStartType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwErrorControl"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpBinaryPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpLoadOrderGroup"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwTagId"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDependencies"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpServiceStartName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpPassword"
+    }
+   ]
+  },
+  "DuplicateToken": {
+   "callconv": "WINAPI",
+   "name": "DuplicateToken",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "ExistingTokenHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "SECURITY_IMPERSONATION_LEVEL",
+     "name": "ImpersonationLevel"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "DuplicateTokenHandle"
+    }
+   ]
+  },
+  "DuplicateTokenEx": {
+   "callconv": "WINAPI",
+   "name": "DuplicateTokenEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hExistingToken"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpTokenAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "SECURITY_IMPERSONATION_LEVEL",
+     "name": "ImpersonationLevel"
+    },
+    {
+     "anno": "_In_",
+     "type": "TOKEN_TYPE",
+     "name": "TokenType"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "phNewToken"
+    }
+   ]
+  },
+  "GetTokenInformation": {
+   "callconv": "WINAPI",
+   "name": "GetTokenInformation",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "TokenHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "TOKEN_INFORMATION_CLASS",
+     "name": "TokenInformationClass"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(TokenInformationLength,*ReturnLength)",
+     "type": "LPVOID",
+     "name": "TokenInformation"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "TokenInformationLength"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PDWORD",
+     "name": "ReturnLength"
+    }
+   ]
+  },
+  "ImpersonateLoggedOnUser": {
+   "callconv": "WINAPI",
+   "name": "ImpersonateLoggedOnUser",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hToken"
+    }
+   ]
+  },
+  "LogonUserA": {
+   "callconv": "WINAPI",
+   "name": "LogonUserA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpszUsername"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszDomain"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszPassword"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLogonType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLogonProvider"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "phToken"
+    }
+   ]
+  },
+  "LogonUserW": {
+   "callconv": "WINAPI",
+   "name": "LogonUserW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszUsername"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszDomain"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszPassword"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLogonType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLogonProvider"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "phToken"
+    }
+   ]
+  },
+  "LookupAccountSidA": {
+   "callconv": "WINAPI",
+   "name": "LookupAccountSidA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSystemName"
+    },
+    {
+     "anno": "_In_",
+     "type": "PSID",
+     "name": "Sid"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*cchName, *cchName + 1)",
+     "type": "LPSTR",
+     "name": "Name"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "cchName"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*cchReferencedDomainName, *cchReferencedDomainName + 1)",
+     "type": "LPSTR",
+     "name": "ReferencedDomainName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "cchReferencedDomainName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PSID_NAME_USE",
+     "name": "peUse"
+    }
+   ]
+  },
+  "LookupAccountSidW": {
+   "callconv": "WINAPI",
+   "name": "LookupAccountSidW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSystemName"
+    },
+    {
+     "anno": "_In_",
+     "type": "PSID",
+     "name": "Sid"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*cchName, *cchName + 1)",
+     "type": "LPWSTR",
+     "name": "Name"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "cchName"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*cchReferencedDomainName, *cchReferencedDomainName + 1)",
+     "type": "LPWSTR",
+     "name": "ReferencedDomainName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "cchReferencedDomainName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PSID_NAME_USE",
+     "name": "peUse"
+    }
+   ]
+  },
+  "LookupPrivilegeValueA": {
+   "callconv": "WINAPI",
+   "name": "LookupPrivilegeValueA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSystemName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PLUID",
+     "name": "lpLuid"
+    }
+   ]
+  },
+  "LookupPrivilegeValueW": {
+   "callconv": "WINAPI",
+   "name": "LookupPrivilegeValueW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSystemName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PLUID",
+     "name": "lpLuid"
+    }
+   ]
+  },
+  "OpenProcessToken": {
+   "callconv": "WINAPI",
+   "name": "OpenProcessToken",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "ProcessHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "DesiredAccess"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "TokenHandle"
+    }
+   ]
+  },
+  "OpenSCManagerA": {
+   "callconv": "WINAPI",
+   "name": "OpenSCManagerA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpMachineName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDatabaseName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "OpenSCManagerW": {
+   "callconv": "WINAPI",
+   "name": "OpenSCManagerW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpMachineName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDatabaseName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "OpenServiceA": {
+   "callconv": "WINAPI",
+   "name": "OpenServiceA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hSCManager"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpServiceName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "OpenServiceW": {
+   "callconv": "WINAPI",
+   "name": "OpenServiceW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hSCManager"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpServiceName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "OpenThreadToken": {
+   "callconv": "WINAPI",
+   "name": "OpenThreadToken",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "ThreadHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "DesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "OpenAsSelf"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "PHANDLE",
+     "name": "TokenHandle"
+    }
+   ]
+  },
+  "RegCloseKey": {
+   "callconv": "APIENTRY",
+   "name": "RegCloseKey",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    }
+   ]
+  },
+  "RegCreateKeyA": {
+   "callconv": "APIENTRY",
+   "name": "RegCreateKeyA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegCreateKeyExA": {
+   "callconv": "APIENTRY",
+   "name": "RegCreateKeyExA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "Reserved"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOptions"
+    },
+    {
+     "anno": "_In_",
+     "type": "REGSAM",
+     "name": "samDesired"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "CONST LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwDisposition"
+    }
+   ]
+  },
+  "RegCreateKeyExW": {
+   "callconv": "APIENTRY",
+   "name": "RegCreateKeyExW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "Reserved"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPWSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOptions"
+    },
+    {
+     "anno": "_In_",
+     "type": "REGSAM",
+     "name": "samDesired"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "CONST LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwDisposition"
+    }
+   ]
+  },
+  "RegCreateKeyW": {
+   "callconv": "APIENTRY",
+   "name": "RegCreateKeyW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegDeleteKeyA": {
+   "callconv": "APIENTRY",
+   "name": "RegDeleteKeyA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    }
+   ]
+  },
+  "RegDeleteKeyW": {
+   "callconv": "APIENTRY",
+   "name": "RegDeleteKeyW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    }
+   ]
+  },
+  "RegDeleteValueA": {
+   "callconv": "APIENTRY",
+   "name": "RegDeleteValueA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpValueName"
+    }
+   ]
+  },
+  "RegDeleteValueW": {
+   "callconv": "APIENTRY",
+   "name": "RegDeleteValueW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpValueName"
+    }
+   ]
+  },
+  "RegEnumKeyExA": {
+   "callconv": "APIENTRY",
+   "name": "RegEnumKeyExA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIndex"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchName,*lpcchName + 1)",
+     "type": "LPSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "lpcchName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchClass,*lpcchClass + 1)",
+     "type": "LPSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcchClass"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "PFILETIME",
+     "name": "lpftLastWriteTime"
+    }
+   ]
+  },
+  "RegEnumKeyExW": {
+   "callconv": "APIENTRY",
+   "name": "RegEnumKeyExW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIndex"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchName,*lpcchName + 1)",
+     "type": "LPWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "lpcchName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchClass,*lpcchClass + 1)",
+     "type": "LPWSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcchClass"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "PFILETIME",
+     "name": "lpftLastWriteTime"
+    }
+   ]
+  },
+  "RegEnumKeyW": {
+   "callconv": "APIENTRY",
+   "name": "RegEnumKeyW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIndex"
+    },
+    {
+     "anno": "_Out_writes_opt_(cchName)",
+     "type": "LPWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cchName"
+    }
+   ]
+  },
+  "RegEnumValueA": {
+   "callconv": "APIENTRY",
+   "name": "RegEnumValueA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIndex"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchValueName,*lpcchValueName + 1)",
+     "type": "LPSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "lpcchValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpType"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY)",
+     "type": "LPBYTE",
+     "name": "lpData"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbData"
+    }
+   ]
+  },
+  "RegEnumValueW": {
+   "callconv": "APIENTRY",
+   "name": "RegEnumValueW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIndex"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchValueName,*lpcchValueName + 1)",
+     "type": "LPWSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "lpcchValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpType"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY)",
+     "type": "LPBYTE",
+     "name": "lpData"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbData"
+    }
+   ]
+  },
+  "RegOpenKeyA": {
+   "callconv": "APIENTRY",
+   "name": "RegOpenKeyA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegOpenKeyExA": {
+   "callconv": "APIENTRY",
+   "name": "RegOpenKeyExA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD",
+     "name": "ulOptions"
+    },
+    {
+     "anno": "_In_",
+     "type": "REGSAM",
+     "name": "samDesired"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegOpenKeyExW": {
+   "callconv": "APIENTRY",
+   "name": "RegOpenKeyExW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD",
+     "name": "ulOptions"
+    },
+    {
+     "anno": "_In_",
+     "type": "REGSAM",
+     "name": "samDesired"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegOpenKeyW": {
+   "callconv": "APIENTRY",
+   "name": "RegOpenKeyW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PHKEY",
+     "name": "phkResult"
+    }
+   ]
+  },
+  "RegQueryInfoKeyA": {
+   "callconv": "APIENTRY",
+   "name": "RegQueryInfoKeyA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchClass,*lpcchClass + 1)",
+     "type": "LPSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcchClass"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcSubKeys"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxSubKeyLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxClassLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcValues"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxValueNameLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxValueLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbSecurityDescriptor"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "PFILETIME",
+     "name": "lpftLastWriteTime"
+    }
+   ]
+  },
+  "RegQueryInfoKeyW": {
+   "callconv": "APIENTRY",
+   "name": "RegQueryInfoKeyW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(*lpcchClass,*lpcchClass + 1)",
+     "type": "LPWSTR",
+     "name": "lpClass"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPDWORD",
+     "name": "lpcchClass"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcSubKeys"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxSubKeyLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxClassLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcValues"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxValueNameLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbMaxValueLen"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpcbSecurityDescriptor"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "PFILETIME",
+     "name": "lpftLastWriteTime"
+    }
+   ]
+  },
+  "RegQueryValueExA": {
+   "callconv": "APIENTRY",
+   "name": "RegQueryValueExA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpType"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY)",
+     "type": "LPBYTE",
+     "name": "lpData"
+    },
+    {
+     "anno": "_When_(lpData == NULL,_Out_opt_) _When_(lpData != NULL,_Inout_opt_)",
+     "type": "LPDWORD",
+     "name": "lpcbData"
+    }
+   ]
+  },
+  "RegQueryValueExW": {
+   "callconv": "APIENTRY",
+   "name": "RegQueryValueExW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPDWORD",
+     "name": "lpReserved"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpType"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY)",
+     "type": "LPBYTE",
+     "name": "lpData"
+    },
+    {
+     "anno": "_When_(lpData == NULL,_Out_opt_) _When_(lpData != NULL,_Inout_opt_)",
+     "type": "LPDWORD",
+     "name": "lpcbData"
+    }
+   ]
+  },
+  "RegSetValueExA": {
+   "callconv": "APIENTRY",
+   "name": "RegSetValueExA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "Reserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwType"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbData)",
+     "type": "CONST BYTE*",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cbData"
+    }
+   ]
+  },
+  "RegSetValueExW": {
+   "callconv": "APIENTRY",
+   "name": "RegSetValueExW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpValueName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "Reserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwType"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbData)",
+     "type": "CONST BYTE*",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cbData"
+    }
+   ]
+  },
+  "StartServiceA": {
+   "callconv": "WINAPI",
+   "name": "StartServiceA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwNumServiceArgs"
+    },
+    {
+     "anno": "_In_reads_opt_(dwNumServiceArgs)",
+     "type": "LPCSTR*",
+     "name": "lpServiceArgVectors"
+    }
+   ]
+  },
+  "StartServiceW": {
+   "callconv": "WINAPI",
+   "name": "StartServiceW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwNumServiceArgs"
+    },
+    {
+     "anno": "_In_reads_opt_(dwNumServiceArgs)",
+     "type": "LPCWSTR*",
+     "name": "lpServiceArgVectors"
+    }
+   ]
+  }
+ },
+ "bcrypt.dll": {
+  "BCryptDecrypt": {
+   "callconv": "WINAPI",
+   "name": "BCryptDecrypt",
+   "retVal": "NTSTATUS",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "BCRYPT_KEY_HANDLE",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbInput)",
+     "type": "PUCHAR",
+     "name": "pbInput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbInput"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "VOID*",
+     "name": "pPaddingInfo"
+    },
+    {
+     "anno": "_Inout_updates_bytes_opt_(cbIV)",
+     "type": "PUCHAR",
+     "name": "pbIV"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbIV"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(cbOutput, *pcbResult)",
+     "type": "PUCHAR",
+     "name": "pbOutput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbOutput"
+    },
+    {
+     "anno": "_Out_",
+     "type": "ULONG*",
+     "name": "pcbResult"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "BCryptEncrypt": {
+   "callconv": "WINAPI",
+   "name": "BCryptEncrypt",
+   "retVal": "NTSTATUS",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "BCRYPT_KEY_HANDLE",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbInput)",
+     "type": "PUCHAR",
+     "name": "pbInput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbInput"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "VOID*",
+     "name": "pPaddingInfo"
+    },
+    {
+     "anno": "_Inout_updates_bytes_opt_(cbIV)",
+     "type": "PUCHAR",
+     "name": "pbIV"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbIV"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(cbOutput, *pcbResult)",
+     "type": "PUCHAR",
+     "name": "pbOutput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbOutput"
+    },
+    {
+     "anno": "_Out_",
+     "type": "ULONG*",
+     "name": "pcbResult"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "BCryptHashData": {
+   "callconv": "WINAPI",
+   "name": "BCryptHashData",
+   "retVal": "NTSTATUS",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "BCRYPT_HASH_HANDLE",
+     "name": "hHash"
+    },
+    {
+     "anno": "_In_reads_bytes_(cbInput)",
+     "type": "PUCHAR",
+     "name": "pbInput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbInput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "dwFlags"
+    }
+   ]
+  }
+ },
+ "kernel32.dll": {
+  "CloseHandle": {
+   "callconv": "WINAPI",
+   "name": "CloseHandle",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hObject"
+    }
+   ]
+  },
+  "CopyFileA": {
+   "callconv": "WINAPI",
+   "name": "CopyFileA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bFailIfExists"
+    }
+   ]
+  },
+  "CopyFileExW": {
+   "callconv": "WINAPI",
+   "name": "CopyFileExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPPROGRESS_ROUTINE",
+     "name": "lpProgressRoutine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpData"
+    },
+    {
+     "anno": "_When_(pbCancel != NULL, _Pre_satisfies_(*pbCancel == FALSE)) _Inout_opt_",
+     "type": "LPBOOL",
+     "name": "pbCancel"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCopyFlags"
+    }
+   ]
+  },
+  "CopyFileW": {
+   "callconv": "WINAPI",
+   "name": "CopyFileW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bFailIfExists"
+    }
+   ]
+  },
+  "CreateDirectoryA": {
+   "callconv": "WINAPI",
+   "name": "CreateDirectoryA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    }
+   ]
+  },
+  "CreateDirectoryExA": {
+   "callconv": "WINAPI",
+   "name": "CreateDirectoryExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpTemplateDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpNewDirectory"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    }
+   ]
+  },
+  "CreateDirectoryExW": {
+   "callconv": "WINAPI",
+   "name": "CreateDirectoryExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpTemplateDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpNewDirectory"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    }
+   ]
+  },
+  "CreateDirectoryW": {
+   "callconv": "WINAPI",
+   "name": "CreateDirectoryW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    }
+   ]
+  },
+  "CreateFileA": {
+   "callconv": "WINAPI",
+   "name": "CreateFileA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwShareMode"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationDisposition"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlagsAndAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "HANDLE",
+     "name": "hTemplateFile"
+    }
+   ]
+  },
+  "CreateFileW": {
+   "callconv": "WINAPI",
+   "name": "CreateFileW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwShareMode"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSecurityAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationDisposition"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlagsAndAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "HANDLE",
+     "name": "hTemplateFile"
+    }
+   ]
+  },
+  "CreateMutexA": {
+   "callconv": "WINAPI",
+   "name": "CreateMutexA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpMutexAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInitialOwner"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "CreateMutexExA": {
+   "callconv": "WINAPI",
+   "name": "CreateMutexExA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpMutexAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "CreateMutexExW": {
+   "callconv": "WINAPI",
+   "name": "CreateMutexExW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpMutexAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
+  "CreateMutexW": {
+   "callconv": "WINAPI",
+   "name": "CreateMutexW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpMutexAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInitialOwner"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "CreateProcessA": {
+   "callconv": "WINAPI",
+   "name": "CreateProcessA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpApplicationName"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPSTR",
+     "name": "lpCommandLine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpProcessAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpThreadAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandles"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpEnvironment"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpCurrentDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPSTARTUPINFOA",
+     "name": "lpStartupInfo"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPPROCESS_INFORMATION",
+     "name": "lpProcessInformation"
+    }
+   ]
+  },
+  "CreateProcessW": {
+   "callconv": "WINAPI",
+   "name": "CreateProcessW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpApplicationName"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPWSTR",
+     "name": "lpCommandLine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpProcessAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpThreadAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandles"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpEnvironment"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpCurrentDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPSTARTUPINFOW",
+     "name": "lpStartupInfo"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPPROCESS_INFORMATION",
+     "name": "lpProcessInformation"
+    }
+   ]
+  },
+  "CreateThread": {
+   "callconv": "WINAPI",
+   "name": "CreateThread",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpThreadAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwStackSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPTHREAD_START_ROUTINE",
+     "name": "lpStartAddress"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpParameter"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpThreadId"
+    }
+   ]
+  },
+  "CreateToolhelp32Snapshot": {
+   "callconv": "WINAPI",
+   "name": "CreateToolhelp32Snapshot",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": " DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "th32ProcessID"
+    }
+   ]
+  },
+  "DeleteFileA": {
+   "callconv": "WINAPI",
+   "name": "DeleteFileA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    }
+   ]
+  },
+  "DeleteFileW": {
+   "callconv": "WINAPI",
+   "name": "DeleteFileW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    }
+   ]
+  },
+  "GetFileAttributesA": {
+   "callconv": "WINAPI",
+   "name": "GetFileAttributesA",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    }
+   ]
+  },
+  "GetFileAttributesExA": {
+   "callconv": "WINAPI",
+   "name": "GetFileAttributesExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "GET_FILEEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FILE_ATTRIBUTE_DATA))",
+     "type": "LPVOID",
+     "name": "lpFileInformation"
+    }
+   ]
+  },
+  "GetFileAttributesExW": {
+   "callconv": "WINAPI",
+   "name": "GetFileAttributesExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "GET_FILEEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FILE_ATTRIBUTE_DATA))",
+     "type": "LPVOID",
+     "name": "lpFileInformation"
+    }
+   ]
+  },
+  "GetFileAttributesW": {
+   "callconv": "WINAPI",
+   "name": "GetFileAttributesW",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    }
+   ]
+  },
+  "GetLogicalDrives": {
+   "callconv": "WINAPI",
+   "name": "GetLogicalDrives",
+   "retVal": "DWORD",
+   "params": []
+  },
+  "GetProcAddress": {
+   "callconv": "WINAPI",
+   "name": "GetProcAddress",
+   "retVal": "FARPROC",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HMODULE",
+     "name": "hModule"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpProcName"
+    }
+   ]
+  },
+  "GetProcessHeap": {
+   "callconv": "WINAPI",
+   "name": "GetProcessHeap",
+   "retVal": "HANDLE",
+   "params": []
+  },
+  "GetThreadContext": {
+   "callconv": "WINAPI",
+   "name": "GetThreadContext",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hThread"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPCONTEXT",
+     "name": "lpContext"
+    }
+   ]
+  },
+  "GetVolumeInformationA": {
+   "callconv": "WINAPI",
+   "name": "GetVolumeInformationA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpRootPathName"
+    },
+    {
+     "anno": "_Out_writes_opt_(nVolumeNameSize)",
+     "type": "LPSTR",
+     "name": "lpVolumeNameBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nVolumeNameSize"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpVolumeSerialNumber"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpMaximumComponentLength"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpFileSystemFlags"
+    },
+    {
+     "anno": "_Out_writes_opt_(nFileSystemNameSize)",
+     "type": "LPSTR",
+     "name": "lpFileSystemNameBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nFileSystemNameSize"
+    }
+   ]
+  },
+  "GetVolumeInformationW": {
+   "callconv": "WINAPI",
+   "name": "GetVolumeInformationW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpRootPathName"
+    },
+    {
+     "anno": "_Out_writes_opt_(nVolumeNameSize)",
+     "type": "LPWSTR",
+     "name": "lpVolumeNameBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nVolumeNameSize"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpVolumeSerialNumber"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpMaximumComponentLength"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpFileSystemFlags"
+    },
+    {
+     "anno": "_Out_writes_opt_(nFileSystemNameSize)",
+     "type": "LPWSTR",
+     "name": "lpFileSystemNameBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nFileSystemNameSize"
+    }
+   ]
+  },
+  "HeapAlloc": {
+   "callconv": "WINAPI",
+   "name": "HeapAlloc",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hHeap"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwBytes"
+    }
+   ]
+  },
+  "HeapFree": {
+   "callconv": "WINAPI",
+   "name": "HeapFree",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "HANDLE",
+     "name": "hHeap"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Frees_ptr_opt_",
+     "type": "LPVOID",
+     "name": "lpMem"
+    }
+   ]
+  },
+  "LoadLibraryA": {
+   "callconv": "WINAPI",
+   "name": "LoadLibraryA",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpLibFileName"
+    }
+   ]
+  },
+  "LoadLibraryExA": {
+   "callconv": "WINAPI",
+   "name": "LoadLibraryExA",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpLibFileName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "LoadLibraryExW": {
+   "callconv": "WINAPI",
+   "name": "LoadLibraryExW",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpLibFileName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "LoadLibraryW": {
+   "callconv": "WINAPI",
+   "name": "LoadLibraryW",
+   "retVal": "HMODULE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpLibFileName"
+    }
+   ]
+  },
+  "MoveFileA": {
+   "callconv": "WINAPI",
+   "name": "MoveFileA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpNewFileName"
+    }
+   ]
+  },
+  "MoveFileW": {
+   "callconv": "WINAPI",
+   "name": "MoveFileW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpNewFileName"
+    }
+   ]
+  },
+  "OpenProcess": {
+   "callconv": "WINAPI",
+   "name": "OpenProcess",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwProcessId"
+    }
+   ]
+  },
+  "ReadProcessMemory": {
+   "callconv": "WINAPI",
+   "name": "ReadProcessMemory",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCVOID",
+     "name": "lpBaseAddress"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_(nSize,*lpNumberOfBytesRead)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "nSize"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "SIZE_T*",
+     "name": "lpNumberOfBytesRead"
+    }
+   ]
+  },
+  "ResumeThread": {
+   "callconv": "WINAPI",
+   "name": "ResumeThread",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hThread"
+    }
+   ]
+  },
+  "SetThreadContext": {
+   "callconv": "WINAPI",
+   "name": "SetThreadContext",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hThread"
+    },
+    {
+     "anno": "_In_",
+     "type": "CONST CONTEXT*",
+     "name": "lpContext"
+    }
+   ]
+  },
+  "Sleep": {
+   "callconv": "WINAPI",
+   "name": "Sleep",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMilliseconds"
+    }
+   ]
+  },
+  "TerminateProcess": {
+   "callconv": "WINAPI",
+   "name": "TerminateProcess",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uExitCode"
+    }
+   ]
+  },
+  "VirtualAlloc": {
+   "callconv": "WINAPI",
+   "name": "VirtualAlloc",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flAllocationType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flProtect"
+    }
+   ]
+  },
+  "VirtualAllocEx": {
+   "callconv": "WINAPI",
+   "name": "VirtualAllocEx",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flAllocationType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flProtect"
+    }
+   ]
+  },
+  "VirtualFree": {
+   "callconv": "WINAPI",
+   "name": "VirtualFree",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_When_(dwFreeType == MEM_DECOMMIT,_Post_invalid_) _When_(dwFreeType == MEM_RELEASE,)",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFreeType"
+    }
+   ]
+  },
+  "VirtualFreeEx": {
+   "callconv": "WINAPI",
+   "name": "VirtualFreeEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFreeType"
+    }
+   ]
+  },
+  "VirtualProtect": {
+   "callconv": "WINAPI",
+   "name": "VirtualProtect",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flNewProtect"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PDWORD",
+     "name": "lpflOldProtect"
+    }
+   ]
+  },
+  "VirtualProtectEx": {
+   "callconv": "WINAPI",
+   "name": "VirtualProtectEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flNewProtect"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PDWORD",
+     "name": "lpflOldProtect"
+    }
+   ]
+  },
+  "VirtualQuery": {
+   "callconv": "WINAPI",
+   "name": "VirtualQuery",
+   "retVal": "T",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_(dwLength,return)",
+     "type": "PMEMORY_BASIC_INFORMATION",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwLength"
+    }
+   ]
+  },
+  "VirtualQueryEx": {
+   "callconv": "WINAPI",
+   "name": "VirtualQueryEx",
+   "retVal": "T",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_(dwLength,return)",
+     "type": "PMEMORY_BASIC_INFORMATION",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwLength"
+    }
+   ]
+  }
+ },
+ "winhttp.dll": {
+  "WinHttpConnect": {
+   "callconv": "WINAPI",
+   "name": "WinHttpConnect",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hSession"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR",
+     "name": "pswzServerName"
+    },
+    {
+     "anno": "IN",
+     "type": "INTERNET_PORT",
+     "name": "nServerPort"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwReserved"
+    }
+   ]
+  },
+  "WinHttpOpen": {
+   "callconv": "WINAPI",
+   "name": "WinHttpOpen",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_opt_z_",
+     "type": "LPCWSTR",
+     "name": "pszAgentW"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAccessType"
+    },
+    {
+     "anno": "_In_opt_z_",
+     "type": "LPCWSTR",
+     "name": "pszProxyW"
+    },
+    {
+     "anno": "_In_opt_z_",
+     "type": "LPCWSTR",
+     "name": "pszProxyBypassW"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "WinHttpOpenRequest": {
+   "callconv": "WINAPI",
+   "name": "WinHttpOpenRequest",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hConnect"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR",
+     "name": "pwszVerb"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR",
+     "name": "pwszObjectName"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR",
+     "name": "pwszVersion"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR",
+     "name": "pwszReferrer"
+    },
+    {
+     "anno": "IN",
+     "type": "LPCWSTR FAR *",
+     "name": "ppwszAcceptTypes"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "WinHttpQueryDataAvailable": {
+   "callconv": "WINAPI",
+   "name": "WinHttpQueryDataAvailable",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "_out_data_source(NETWORK)",
+     "type": "LPDWORD",
+     "name": "lpdwNumberOfBytesAvailable"
+    }
+   ]
+  },
+  "WinHttpReadData": {
+   "callconv": "WINAPI",
+   "name": "WinHttpReadData",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_(dwNumberOfBytesToRead, *lpdwNumberOfBytesRead) __out_data_source(NETWORK)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwNumberOfBytesToRead"
+    },
+    {
+     "anno": "OUT",
+     "type": "LPDWORD",
+     "name": "lpdwNumberOfBytesRead"
+    }
+   ]
+  },
+  "WinHttpReceiveResponse": {
+   "callconv": "WINAPI",
+   "name": "WinHttpReceiveResponse",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "IN",
+     "type": "LPVOID",
+     "name": "lpReserved"
+    }
+   ]
+  },
+  "WinHttpSendRequest": {
+   "callconv": "WINAPI",
+   "name": "WinHttpSendRequest",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "IN",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "_In_reads_opt_(dwHeadersLength)",
+     "type": "LPCWSTR",
+     "name": "lpszHeaders"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwHeadersLength"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(dwOptionalLength)",
+     "type": "LPVOID",
+     "name": "lpOptional"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwOptionalLength"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD",
+     "name": "dwTotalLength"
+    },
+    {
+     "anno": "IN",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  }
+ },
+ "wininet.dll": {
+  "HttpOpenRequestA": {
+   "callconv": "WINAPI",
+   "name": "HttpOpenRequestA",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hConnect"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszVerb"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszObjectName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszVersion"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszReferrer"
+    },
+    {
+     "anno": "_In_opt_z_",
+     "type": "LPCSTR FAR *",
+     "name": "lplpszAcceptTypes"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "HttpOpenRequestW": {
+   "callconv": "WINAPI",
+   "name": "HttpOpenRequestW",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hConnect"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszVerb"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszObjectName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszVersion"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszReferrer"
+    },
+    {
+     "anno": "_In_opt_z_",
+     "type": "LPCWSTR FAR *",
+     "name": "lplpszAcceptTypes"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "HttpSendRequestA": {
+   "callconv": "WINAPI",
+   "name": "HttpSendRequestA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "_In_reads_opt_(dwHeadersLength)",
+     "type": "LPCSTR",
+     "name": "lpszHeaders"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwHeadersLength"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(dwOptionalLength)",
+     "type": "LPVOID",
+     "name": "lpOptional"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOptionalLength"
+    }
+   ]
+  },
+  "HttpSendRequestW": {
+   "callconv": "WINAPI",
+   "name": "HttpSendRequestW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hRequest"
+    },
+    {
+     "anno": "_In_reads_opt_(dwHeadersLength)",
+     "type": "LPCWSTR",
+     "name": "lpszHeaders"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwHeadersLength"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(dwOptionalLength)",
+     "type": "LPVOID",
+     "name": "lpOptional"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOptionalLength"
+    }
+   ]
+  },
+  "InternetConnectA": {
+   "callconv": "WINAPI",
+   "name": "InternetConnectA",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hInternet"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpszServerName"
+    },
+    {
+     "anno": "_In_",
+     "type": "INTERNET_PORT",
+     "name": "nServerPort"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszUserName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszPassword"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetConnectW": {
+   "callconv": "WINAPI",
+   "name": "InternetConnectW",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hInternet"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszServerName"
+    },
+    {
+     "anno": "_In_",
+     "type": "INTERNET_PORT",
+     "name": "nServerPort"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszUserName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszPassword"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetCrackUrlA": {
+   "callconv": "WINAPI",
+   "name": "InternetCrackUrlA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_reads_(dwUrlLength)",
+     "type": "LPCSTR",
+     "name": "lpszUrl"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwUrlLength"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPURL_COMPONENTSA",
+     "name": "lpUrlComponents"
+    }
+   ]
+  },
+  "InternetCrackUrlW": {
+   "callconv": "WINAPI",
+   "name": "InternetCrackUrlW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_reads_(dwUrlLength)",
+     "type": "LPCWSTR",
+     "name": "lpszUrl"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwUrlLength"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPURL_COMPONENTSW",
+     "name": "lpUrlComponents"
+    }
+   ]
+  },
+  "InternetOpenA": {
+   "callconv": "WINAPI",
+   "name": "InternetOpenA",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszAgent"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAccessType"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszProxy"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpszProxyBypass"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "InternetOpenUrlA": {
+   "callconv": "WINAPI",
+   "name": "InternetOpenUrlA",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hInternet"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpszUrl"
+    },
+    {
+     "anno": "_In_reads_opt_(dwHeadersLength)",
+     "type": "LPCSTR",
+     "name": "lpszHeaders"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwHeadersLength"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetOpenUrlW": {
+   "callconv": "WINAPI",
+   "name": "InternetOpenUrlW",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hInternet"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszUrl"
+    },
+    {
+     "anno": "_In_reads_opt_(dwHeadersLength)",
+     "type": "LPCWSTR",
+     "name": "lpszHeaders"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwHeadersLength"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetOpenW": {
+   "callconv": "WINAPI",
+   "name": "InternetOpenW",
+   "retVal": "HINTERNET",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszAgent"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAccessType"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszProxy"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpszProxyBypass"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "InternetQueryOptionA": {
+   "callconv": "WINAPI",
+   "name": "InternetQueryOptionA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HINTERNET",
+     "name": "hInternet"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOption"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(*lpdwBufferLength, *lpdwBufferLength) __out_data_source(NETWORK)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "lpdwBufferLength"
+    }
+   ]
+  },
+  "InternetReadFile": {
+   "callconv": "WINAPI",
+   "name": "InternetReadFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_writes_bytes_(dwNumberOfBytesToRead) __out_data_source(NETWORK)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwNumberOfBytesToRead"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPDWORD",
+     "name": "lpdwNumberOfBytesRead"
+    }
+   ]
+  },
+  "InternetReadFileExA": {
+   "callconv": "WINAPI",
+   "name": "InternetReadFileExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_ __out_data_source(NETWORK)",
+     "type": "LPINTERNET_BUFFERSA",
+     "name": "lpBuffersOut"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetReadFileExW": {
+   "callconv": "WINAPI",
+   "name": "InternetReadFileExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_ __out_data_source(NETWORK)",
+     "type": "LPINTERNET_BUFFERSW",
+     "name": "lpBuffersOut"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "DWORD_PTR",
+     "name": "dwContext"
+    }
+   ]
+  },
+  "InternetWriteFile": {
+   "callconv": "WINAPI",
+   "name": "InternetWriteFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HINTERNET",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_reads_bytes_(dwNumberOfBytesToWrite)",
+     "type": "LPCVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwNumberOfBytesToWrite"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPDWORD",
+     "name": "lpdwNumberOfBytesWritten"
+    }
+   ]
+  }
+ },
+ "ws2_32.dll": {
+  "WSAStartup": {
+   "callconv": "WSAAPI",
+   "name": "WSAStartup",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "WORD",
+     "name": "wVersionRequested"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPWSADATA",
+     "name": "lpWSAData"
+    }
+   ]
+  },
+  "accept": {
+   "callconv": "WSAAPI",
+   "name": "accept",
+   "retVal": "SOCKET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_Out_writes_bytes_opt_(*addrlen) struct sockaddr FAR",
+     "type": "*",
+     "name": "addr"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "int FAR *",
+     "name": "addrlen"
+    }
+   ]
+  },
+  "bind": {
+   "callconv": "WSAAPI",
+   "name": "bind",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_In_reads_bytes_(namelen)",
+     "type": "const struct sockaddr FAR *",
+     "name": "name"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "namelen"
+    }
+   ]
+  },
+  "connect": {
+   "callconv": "WSAAPI",
+   "name": "connect",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_In_reads_bytes_(namelen)",
+     "type": "const struct sockaddr FAR *",
+     "name": "name"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "namelen"
+    }
+   ]
+  },
+  "listen": {
+   "callconv": "WSAAPI",
+   "name": "listen",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "backlog"
+    }
+   ]
+  },
+  "recv": {
+   "callconv": "WSAAPI",
+   "name": "recv",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_(len, return) __out_data_source(NETWORK) char FAR",
+     "type": "*",
+     "name": "buf"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "len"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "flags"
+    }
+   ]
+  },
+  "send": {
+   "callconv": "WSAAPI",
+   "name": "send",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SOCKET",
+     "name": "s"
+    },
+    {
+     "anno": "_In_reads_bytes_(len)",
+     "type": "const char FAR *",
+     "name": "buf"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "len"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "flags"
+    }
+   ]
+  },
+  "socket": {
+   "callconv": "WSAAPI",
+   "name": "socket",
+   "retVal": "SOCKET",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "af"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "type"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "protocol"
+    }
+   ]
+  }
+ }
+}

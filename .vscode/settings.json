@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "debug.log": true,
+        "main.exe": true
+    }
+}
