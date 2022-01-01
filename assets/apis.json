@@ -76,6 +76,182 @@
     }
    ]
   },
+  "CreateProcessAsUserA": {
+   "callconv": "WINAPI",
+   "name": "CreateProcessAsUserA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HANDLE",
+     "name": "hToken"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpApplicationName"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPSTR",
+     "name": "lpCommandLine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpProcessAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpThreadAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandles"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpEnvironment"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpCurrentDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPSTARTUPINFOA",
+     "name": "lpStartupInfo"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPPROCESS_INFORMATION",
+     "name": "lpProcessInformation"
+    }
+   ]
+  },
+  "CreateProcessAsUserW": {
+   "callconv": "WINAPI",
+   "name": "CreateProcessAsUserW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HANDLE",
+     "name": "hToken"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpApplicationName"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPWSTR",
+     "name": "lpCommandLine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpProcessAttributes"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpThreadAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandles"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpEnvironment"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpCurrentDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPSTARTUPINFOW",
+     "name": "lpStartupInfo"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPPROCESS_INFORMATION",
+     "name": "lpProcessInformation"
+    }
+   ]
+  },
+  "CreateProcessWithTokenW": {
+   "callconv": "WINAPI",
+   "name": "CreateProcessWithTokenW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hToken"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLogonFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpApplicationName"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPWSTR",
+     "name": "lpCommandLine"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationFlags"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpEnvironment"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpCurrentDirectory"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPSTARTUPINFOW",
+     "name": "lpStartupInfo"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPPROCESS_INFORMATION",
+     "name": "lpProcessInformation"
+    }
+   ]
+  },
   "CreateServiceA": {
    "callconv": "WINAPI",
    "name": "CreateServiceA",
@@ -217,6 +393,70 @@
      "anno": "_In_opt_",
      "type": "LPCWSTR",
      "name": "lpPassword"
+    }
+   ]
+  },
+  "CryptAcquireContextA": {
+   "callconv": "WINAPI",
+   "name": "CryptAcquireContextA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "HCRYPTPROV*",
+     "name": "phProv"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "szContainer"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "szProvider"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwProvType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "CryptAcquireContextW": {
+   "callconv": "WINAPI",
+   "name": "CryptAcquireContextW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "HCRYPTPROV*",
+     "name": "phProv"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "szContainer"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "szProvider"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwProvType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
     }
    ]
   },

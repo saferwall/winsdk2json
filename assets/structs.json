@@ -13952,6 +13952,6643 @@
   ]
  },
  {
+  "name": "VTableProvStruc",
+  "typedef_name": "_VTableProvStruc",
+  "pointer_alias": "PVTableProvStruc",
+  "Members": [
+   {
+    "name": "Version",
+    "type": "DWORD"
+   },
+   {
+    "name": "FuncVerifyImage",
+    "type": "FARPROC"
+   },
+   {
+    "name": "FuncReturnhWnd",
+    "type": "FARPROC"
+   },
+   {
+    "name": "dwProvType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbContextInfo",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbContextInfo",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszProvName",
+    "type": "LPSTR"
+   }
+  ]
+ },
+ {
+  "name": "CMS_KEY_INFO",
+  "typedef_name": "_CMS_KEY_INFO",
+  "pointer_alias": "PCMS_KEY_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "Algid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "pbOID",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbOID",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "HMAC_INFO",
+  "typedef_name": "_HMAC_Info",
+  "pointer_alias": "PHMAC_INFO",
+  "Members": [
+   {
+    "name": "HashAlgid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "pbInnerString",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbInnerString",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbOuterString",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbOuterString",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "SCHANNEL_ALG",
+  "typedef_name": "_SCHANNEL_ALG",
+  "pointer_alias": "PSCHANNEL_ALG",
+  "Members": [
+   {
+    "name": "dwUse",
+    "type": "DWORD"
+   },
+   {
+    "name": "Algid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "cBits",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReserved",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "PROV_ENUMALGS",
+  "typedef_name": "_PROV_ENUMALGS",
+  "Members": [
+   {
+    "name": "aiAlgid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "dwBitLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwNameLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "szName",
+    "type": "CHAR"
+   }
+  ]
+ },
+ {
+  "name": "PROV_ENUMALGS_EX",
+  "typedef_name": "_PROV_ENUMALGS_EX",
+  "Members": [
+   {
+    "name": "aiAlgid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "dwDefaultLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMinLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMaxLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwProtocols",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwNameLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "szName",
+    "type": "CHAR"
+   },
+   {
+    "name": "dwLongNameLen",
+    "type": "DWORD"
+   },
+   {
+    "name": "szLongName",
+    "type": "CHAR"
+   }
+  ]
+ },
+ {
+  "name": "BLOBHEADER",
+  "typedef_name": "_PUBLICKEYSTRUC",
+  "pointer_alias": "UBLICKEYSTRUC",
+  "Members": [
+   {
+    "name": "bType",
+    "type": "BYTE"
+   },
+   {
+    "name": "bVersion",
+    "type": "BYTE"
+   },
+   {
+    "name": "reserved",
+    "type": "WORD"
+   },
+   {
+    "name": "aiKeyAlg",
+    "type": "ALG_ID"
+   }
+  ]
+ },
+ {
+  "name": "RSAPUBKEY",
+  "typedef_name": "_RSAPUBKEY",
+  "Members": [
+   {
+    "name": "magic",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlen",
+    "type": "DWORD"
+   },
+   {
+    "name": "pubexp",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "DHPUBKEY",
+  "typedef_name": "_PUBKEY",
+  "pointer_alias": "SSPUBKEY",
+  "_pointer_alias": "EAPUBKEY",
+  "Members": [
+   {
+    "name": "magic",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlen",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "DSSSEED",
+  "typedef_name": "_DSSSEED",
+  "Members": [
+   {
+    "name": "counter",
+    "type": "DWORD"
+   },
+   {
+    "name": "seed",
+    "type": "BYTE"
+   }
+  ]
+ },
+ {
+  "name": "DHPUBKEY_VER3",
+  "typedef_name": "_PUBKEYVER3",
+  "pointer_alias": "SSPUBKEY_VER3",
+  "Members": [
+   {
+    "name": "magic",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenP",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenQ",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenJ",
+    "type": "DWORD"
+   },
+   {
+    "name": "DSSSeed",
+    "type": "DSSSEED"
+   }
+  ]
+ },
+ {
+  "name": "DHPRIVKEY_VER3",
+  "typedef_name": "_PRIVKEYVER3",
+  "pointer_alias": "SSPRIVKEY_VER3",
+  "Members": [
+   {
+    "name": "magic",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenP",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenQ",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenJ",
+    "type": "DWORD"
+   },
+   {
+    "name": "bitlenX",
+    "type": "DWORD"
+   },
+   {
+    "name": "DSSSeed",
+    "type": "DSSSEED"
+   }
+  ]
+ },
+ {
+  "name": "KEY_TYPE_SUBTYPE",
+  "typedef_name": "_KEY_TYPE_SUBTYPE",
+  "pointer_alias": "PKEY_TYPE_SUBTYPE",
+  "Members": [
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "Type",
+    "type": "GUID"
+   },
+   {
+    "name": "Subtype",
+    "type": "GUID"
+   }
+  ]
+ },
+ {
+  "name": "CERT_FORTEZZA_DATA_PROP",
+  "typedef_name": "_CERT_FORTEZZA_DATA_PROP",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "CertIndex",
+    "type": "int"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_RC4_KEY_STATE",
+  "typedef_name": "_CRYPT_RC4_KEY_STATE",
+  "pointer_alias": "PCRYPT_RC4_KEY_STATE",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_DES_KEY_STATE",
+  "typedef_name": "_CRYPT_DES_KEY_STATE",
+  "pointer_alias": "PCRYPT_DES_KEY_STATE",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_3DES_KEY_STATE",
+  "typedef_name": "_CRYPT_3DES_KEY_STATE",
+  "pointer_alias": "PCRYPT_3DES_KEY_STATE",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_AES_128_KEY_STATE",
+  "typedef_name": "_CRYPT_AES_128_KEY_STATE",
+  "pointer_alias": "PCRYPT_AES_128_KEY_STATE",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_AES_256_KEY_STATE",
+  "typedef_name": "_CRYPT_AES_256_KEY_STATE",
+  "pointer_alias": "PCRYPT_AES_256_KEY_STATE",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_INTEGER_BLOB",
+  "typedef_name": "_CRYPTOAPI_BLOB",
+  "pointer_alias": "PCRYPT_INTEGER_BLOB",
+  "_pointer_alias": "RYPT_UINT_BLOB",
+  "Members": [
+   {
+    "name": "cbData",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbData",
+    "type": "BYTE*"
+   }
+  ]
+ },
+ {
+  "name": "CMS_DH_KEY_INFO",
+  "typedef_name": "_CMS_DH_KEY_INFO",
+  "pointer_alias": "PCMS_DH_KEY_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "Algid",
+    "type": "ALG_ID"
+   },
+   {
+    "name": "pszContentEncObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "PubInfo",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "pReserved",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_BIT_BLOB",
+  "typedef_name": "_CRYPT_BIT_BLOB",
+  "pointer_alias": "PCRYPT_BIT_BLOB",
+  "Members": [
+   {
+    "name": "cbData",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbData",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cUnusedBits",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ALGORITHM_IDENTIFIER",
+  "typedef_name": "_CRYPT_ALGORITHM_IDENTIFIER",
+  "pointer_alias": "PCRYPT_ALGORITHM_IDENTIFIER",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Parameters",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_OBJID_TABLE",
+  "typedef_name": "_CRYPT_OBJID_TABLE",
+  "pointer_alias": "PCRYPT_OBJID_TABLE",
+  "Members": [
+   {
+    "name": "dwAlgId",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszObjId",
+    "type": "LPCSTR"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_HASH_INFO",
+  "typedef_name": "_CRYPT_HASH_INFO",
+  "pointer_alias": "PCRYPT_HASH_INFO",
+  "Members": [
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Hash",
+    "type": "CRYPT_HASH_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_EXTENSION",
+  "typedef_name": "_CERT_EXTENSION",
+  "pointer_alias": "PCERT_EXTENSION",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "fCritical",
+    "type": "BOOL"
+   },
+   {
+    "name": "Value",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ATTRIBUTE_TYPE_VALUE",
+  "typedef_name": "_CRYPT_ATTRIBUTE_TYPE_VALUE",
+  "pointer_alias": "PCRYPT_ATTRIBUTE_TYPE_VALUE",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Value",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ATTRIBUTE",
+  "typedef_name": "_CRYPT_ATTRIBUTE",
+  "pointer_alias": "PCRYPT_ATTRIBUTE",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cValue",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgValue",
+    "type": "PCRYPT_ATTR_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ATTRIBUTES",
+  "typedef_name": "_CRYPT_ATTRIBUTES",
+  "pointer_alias": "PCRYPT_ATTRIBUTES",
+  "Members": [
+   {
+    "name": "cAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_RDN_ATTR",
+  "typedef_name": "_CERT_RDN_ATTR",
+  "pointer_alias": "PCERT_RDN_ATTR",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "dwValueType",
+    "type": "DWORD"
+   },
+   {
+    "name": "Value",
+    "type": "CERT_RDN_VALUE_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_RDN",
+  "typedef_name": "_CERT_RDN",
+  "pointer_alias": "PCERT_RDN",
+  "Members": [
+   {
+    "name": "cRDNAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgRDNAttr",
+    "type": "PCERT_RDN_ATTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_NAME_INFO",
+  "typedef_name": "_CERT_NAME_INFO",
+  "pointer_alias": "PCERT_NAME_INFO",
+  "Members": [
+   {
+    "name": "cRDN",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgRDN",
+    "type": "PCERT_RDN"
+   }
+  ]
+ },
+ {
+  "name": "CERT_NAME_VALUE",
+  "typedef_name": "_CERT_NAME_VALUE",
+  "pointer_alias": "PCERT_NAME_VALUE",
+  "Members": [
+   {
+    "name": "dwValueType",
+    "type": "DWORD"
+   },
+   {
+    "name": "Value",
+    "type": "CERT_RDN_VALUE_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_PUBLIC_KEY_INFO",
+  "typedef_name": "_CERT_PUBLIC_KEY_INFO",
+  "pointer_alias": "PCERT_PUBLIC_KEY_INFO",
+  "Members": [
+   {
+    "name": "Algorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "PublicKey",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ECC_PRIVATE_KEY_INFO",
+  "typedef_name": "_CRYPT_ECC_PRIVATE_KEY_INFO",
+  "pointer_alias": "PCRYPT_ECC_PRIVATE_KEY_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "PrivateKey",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "szCurveOid",
+    "type": "LPSTR"
+   },
+   {
+    "name": "PublicKey",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PRIVATE_KEY_INFO",
+  "typedef_name": "_CRYPT_PRIVATE_KEY_INFO",
+  "pointer_alias": "PCRYPT_PRIVATE_KEY_INFO",
+  "Members": [
+   {
+    "name": "Version",
+    "type": "DWORD"
+   },
+   {
+    "name": "Algorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "PrivateKey",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "pAttributes",
+    "type": "PCRYPT_ATTRIBUTES"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ENCRYPTED_PRIVATE_KEY_INFO",
+  "typedef_name": "_CRYPT_ENCRYPTED_PRIVATE_KEY_INFO",
+  "pointer_alias": "PCRYPT_ENCRYPTED_PRIVATE_KEY_INFO",
+  "Members": [
+   {
+    "name": "EncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedPrivateKey",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PKCS8_IMPORT_PARAMS",
+  "typedef_name": "_CRYPT_PKCS8_IMPORT_PARAMS",
+  "pointer_alias": "PCRYPT_PKCS8_IMPORT_PARAMS",
+  "_pointer_alias": "RYPT_PRIVATE_KEY_BLOB_AND_PARAMS",
+  "Members": [
+   {
+    "name": "PrivateKey",
+    "type": "CRYPT_DIGEST_BLOB"
+   },
+   {
+    "name": "pResolvehCryptProvFunc",
+    "type": "PCRYPT_RESOLVE_HCRYPTPROV_FUNC"
+   },
+   {
+    "name": "pVoidResolveFunc",
+    "type": "LPVOID"
+   },
+   {
+    "name": "pDecryptPrivateKeyFunc",
+    "type": "PCRYPT_DECRYPT_PRIVATE_KEY_FUNC"
+   },
+   {
+    "name": "pVoidDecryptFunc",
+    "type": "LPVOID"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PKCS8_EXPORT_PARAMS",
+  "typedef_name": "_CRYPT_PKCS8_EXPORT_PARAMS",
+  "pointer_alias": "PCRYPT_PKCS8_EXPORT_PARAMS",
+  "Members": [
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV"
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszPrivateKeyObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pEncryptPrivateKeyFunc",
+    "type": "PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC"
+   },
+   {
+    "name": "pVoidEncryptFunc",
+    "type": "LPVOID"
+   }
+  ]
+ },
+ {
+  "name": "CERT_INFO",
+  "typedef_name": "_CERT_INFO",
+  "pointer_alias": "PCERT_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "SignatureAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Issuer",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "NotBefore",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NotAfter",
+    "type": "FILETIME"
+   },
+   {
+    "name": "Subject",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "SubjectPublicKeyInfo",
+    "type": "CERT_PUBLIC_KEY_INFO"
+   },
+   {
+    "name": "IssuerUniqueId",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "SubjectUniqueId",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRL_ENTRY",
+  "typedef_name": "_CRL_ENTRY",
+  "pointer_alias": "PCRL_ENTRY",
+  "Members": [
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "RevocationDate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRL_INFO",
+  "typedef_name": "_CRL_INFO",
+  "pointer_alias": "PCRL_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "SignatureAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Issuer",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "ThisUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NextUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "cCRLEntry",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCRLEntry",
+    "type": "PCRL_ENTRY"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CERT_OR_CRL_BLOB",
+  "typedef_name": "_CERT_OR_CRL_BLOB",
+  "pointer_alias": "PCERT_OR_CRL_BLOB",
+  "Members": [
+   {
+    "name": "dwChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "cbEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbEncoded",
+    "type": "BYTE*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_OR_CRL_BUNDLE",
+  "typedef_name": "_CERT_OR_CRL_BUNDLE",
+  "pointer_alias": "PCERT_OR_CRL_BUNDLE",
+  "Members": [
+   {
+    "name": "cItem",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgItem",
+    "type": "PCERT_OR_CRL_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REQUEST_INFO",
+  "typedef_name": "_CERT_REQUEST_INFO",
+  "pointer_alias": "PCERT_REQUEST_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "Subject",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "SubjectPublicKeyInfo",
+    "type": "CERT_PUBLIC_KEY_INFO"
+   },
+   {
+    "name": "cAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttribute",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_KEYGEN_REQUEST_INFO",
+  "typedef_name": "_CERT_KEYGEN_REQUEST_INFO",
+  "pointer_alias": "PCERT_KEYGEN_REQUEST_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "SubjectPublicKeyInfo",
+    "type": "CERT_PUBLIC_KEY_INFO"
+   },
+   {
+    "name": "pwszChallengeString",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SIGNED_CONTENT_INFO",
+  "typedef_name": "_CERT_SIGNED_CONTENT_INFO",
+  "pointer_alias": "PCERT_SIGNED_CONTENT_INFO",
+  "Members": [
+   {
+    "name": "ToBeSigned",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "SignatureAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Signature",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CTL_USAGE",
+  "typedef_name": "_CTL_USAGE",
+  "pointer_alias": "PCTL_USAGE",
+  "_pointer_alias": "ERT_ENHKEY_USAGE",
+  "Members": [
+   {
+    "name": "cUsageIdentifier",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpszUsageIdentifier",
+    "type": "LPSTR*"
+   }
+  ]
+ },
+ {
+  "name": "CTL_ENTRY",
+  "typedef_name": "_CTL_ENTRY",
+  "pointer_alias": "PCTL_ENTRY",
+  "Members": [
+   {
+    "name": "SubjectIdentifier",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "cAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttribute",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CTL_INFO",
+  "typedef_name": "_CTL_INFO",
+  "pointer_alias": "PCTL_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "SubjectUsage",
+    "type": "CTL_USAGE"
+   },
+   {
+    "name": "ListIdentifier",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "SequenceNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "ThisUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NextUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "SubjectAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "cCTLEntry",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCTLEntry",
+    "type": "PCTL_ENTRY"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIME_STAMP_REQUEST_INFO",
+  "typedef_name": "_CRYPT_TIME_STAMP_REQUEST_INFO",
+  "pointer_alias": "PCRYPT_TIME_STAMP_REQUEST_INFO",
+  "Members": [
+   {
+    "name": "pszTimeStampAlgorithm",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pszContentType",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Content",
+    "type": "CRYPT_OBJID_BLOB"
+   },
+   {
+    "name": "cAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttribute",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ENROLLMENT_NAME_VALUE_PAIR",
+  "typedef_name": "_CRYPT_ENROLLMENT_NAME_VALUE_PAIR",
+  "pointer_alias": "PCRYPT_ENROLLMENT_NAME_VALUE_PAIR",
+  "Members": [
+   {
+    "name": "pwszName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pwszValue",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_CSP_PROVIDER",
+  "typedef_name": "_CRYPT_CSP_PROVIDER",
+  "pointer_alias": "PCRYPT_CSP_PROVIDER",
+  "Members": [
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszProviderName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "Signature",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ENCODE_PARA",
+  "typedef_name": "_CRYPT_ENCODE_PARA",
+  "pointer_alias": "PCRYPT_ENCODE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pfnAlloc",
+    "type": "PFN_CRYPT_ALLOC"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CRYPT_FREE"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_DECODE_PARA",
+  "typedef_name": "_CRYPT_DECODE_PARA",
+  "pointer_alias": "PCRYPT_DECODE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pfnAlloc",
+    "type": "PFN_CRYPT_ALLOC"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CRYPT_FREE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_EXTENSIONS",
+  "typedef_name": "_CERT_EXTENSIONS",
+  "pointer_alias": "PCERT_EXTENSIONS",
+  "Members": [
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CERT_AUTHORITY_KEY_ID_INFO",
+  "typedef_name": "_CERT_AUTHORITY_KEY_ID_INFO",
+  "pointer_alias": "PCERT_AUTHORITY_KEY_ID_INFO",
+  "Members": [
+   {
+    "name": "KeyId",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "CertIssuer",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "CertSerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_PRIVATE_KEY_VALIDITY",
+  "typedef_name": "_CERT_PRIVATE_KEY_VALIDITY",
+  "pointer_alias": "PCERT_PRIVATE_KEY_VALIDITY",
+  "Members": [
+   {
+    "name": "NotBefore",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NotAfter",
+    "type": "FILETIME"
+   }
+  ]
+ },
+ {
+  "name": "CERT_KEY_ATTRIBUTES_INFO",
+  "typedef_name": "_CERT_KEY_ATTRIBUTES_INFO",
+  "pointer_alias": "PCERT_KEY_ATTRIBUTES_INFO",
+  "Members": [
+   {
+    "name": "KeyId",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "IntendedKeyUsage",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "pPrivateKeyUsagePeriod",
+    "type": "PCERT_PRIVATE_KEY_VALIDITY"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_ID",
+  "typedef_name": "_CERT_POLICY_ID",
+  "pointer_alias": "PCERT_POLICY_ID",
+  "Members": [
+   {
+    "name": "cCertPolicyElementId",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpszCertPolicyElementId",
+    "type": "LPSTR*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_KEY_USAGE_RESTRICTION_INFO",
+  "typedef_name": "_CERT_KEY_USAGE_RESTRICTION_INFO",
+  "pointer_alias": "PCERT_KEY_USAGE_RESTRICTION_INFO",
+  "Members": [
+   {
+    "name": "cCertPolicyId",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCertPolicyId",
+    "type": "PCERT_POLICY_ID"
+   },
+   {
+    "name": "RestrictedKeyUsage",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_OTHER_NAME",
+  "typedef_name": "_CERT_OTHER_NAME",
+  "pointer_alias": "PCERT_OTHER_NAME",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Value",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_ALT_NAME_ENTRY",
+  "typedef_name": "_CERT_ALT_NAME_ENTRY",
+  "pointer_alias": "PCERT_ALT_NAME_ENTRY",
+  "Members": [
+   {
+    "name": "dwAltNameChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pOtherName",
+      "type": "PCERT_OTHER_NAME"
+     },
+     {
+      "name": "pwszRfc822Name",
+      "type": "LPWSTR"
+     },
+     {
+      "name": "pwszDNSName",
+      "type": "LPWSTR"
+     },
+     {
+      "name": "DirectoryName",
+      "type": "CERT_NAME_BLOB"
+     },
+     {
+      "name": "pwszURL",
+      "type": "LPWSTR"
+     },
+     {
+      "name": "IPAddress",
+      "type": "CRYPT_DATA_BLOB"
+     },
+     {
+      "name": "pszRegisteredID",
+      "type": "LPSTR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CERT_ALT_NAME_INFO",
+  "typedef_name": "_CERT_ALT_NAME_INFO",
+  "pointer_alias": "PCERT_ALT_NAME_INFO",
+  "Members": [
+   {
+    "name": "cAltEntry",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAltEntry",
+    "type": "PCERT_ALT_NAME_ENTRY"
+   }
+  ]
+ },
+ {
+  "name": "CERT_BASIC_CONSTRAINTS_INFO",
+  "typedef_name": "_CERT_BASIC_CONSTRAINTS_INFO",
+  "pointer_alias": "PCERT_BASIC_CONSTRAINTS_INFO",
+  "Members": [
+   {
+    "name": "SubjectType",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "fPathLenConstraint",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwPathLenConstraint",
+    "type": "DWORD"
+   },
+   {
+    "name": "cSubtreesConstraint",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgSubtreesConstraint",
+    "type": "CERT_NAME_BLOB*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_BASIC_CONSTRAINTS2_INFO",
+  "typedef_name": "_CERT_BASIC_CONSTRAINTS2_INFO",
+  "pointer_alias": "PCERT_BASIC_CONSTRAINTS2_INFO",
+  "Members": [
+   {
+    "name": "fCA",
+    "type": "BOOL"
+   },
+   {
+    "name": "fPathLenConstraint",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwPathLenConstraint",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_QUALIFIER_INFO",
+  "typedef_name": "_CERT_POLICY_QUALIFIER_INFO",
+  "pointer_alias": "PCERT_POLICY_QUALIFIER_INFO",
+  "Members": [
+   {
+    "name": "pszPolicyQualifierId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Qualifier",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_INFO",
+  "typedef_name": "_CERT_POLICY_INFO",
+  "pointer_alias": "PCERT_POLICY_INFO",
+  "Members": [
+   {
+    "name": "pszPolicyIdentifier",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cPolicyQualifier",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgPolicyQualifier",
+    "type": "CERT_POLICY_QUALIFIER_INFO*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICIES_INFO",
+  "typedef_name": "_CERT_POLICIES_INFO",
+  "pointer_alias": "PCERT_POLICIES_INFO",
+  "Members": [
+   {
+    "name": "cPolicyInfo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgPolicyInfo",
+    "type": "CERT_POLICY_INFO*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_QUALIFIER_NOTICE_REFERENCE",
+  "typedef_name": "_CERT_POLICY_QUALIFIER_NOTICE_REFERENCE",
+  "pointer_alias": "PCERT_POLICY_QUALIFIER_NOTICE_REFERENCE",
+  "Members": [
+   {
+    "name": "pszOrganization",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cNoticeNumbers",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgNoticeNumbers",
+    "type": "int*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_QUALIFIER_USER_NOTICE",
+  "typedef_name": "_CERT_POLICY_QUALIFIER_USER_NOTICE",
+  "pointer_alias": "PCERT_POLICY_QUALIFIER_USER_NOTICE",
+  "Members": [
+   {
+    "name": "pNoticeReference",
+    "type": "CERT_POLICY_QUALIFIER_NOTICE_REFERENCE*"
+   },
+   {
+    "name": "pszDisplayText",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CPS_URLS",
+  "typedef_name": "_CPS_URLS",
+  "pointer_alias": "PCPS_URLS",
+  "Members": [
+   {
+    "name": "pszURL",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER*"
+   },
+   {
+    "name": "pDigest",
+    "type": "CRYPT_DATA_BLOB*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY95_QUALIFIER1",
+  "typedef_name": "_CERT_POLICY95_QUALIFIER1",
+  "pointer_alias": "PCERT_POLICY95_QUALIFIER1",
+  "Members": [
+   {
+    "name": "pszPracticesReference",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pszNoticeIdentifier",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pszNSINoticeIdentifier",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cCPSURLs",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCPSURLs",
+    "type": "CPS_URLS*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_MAPPING",
+  "typedef_name": "_CERT_POLICY_MAPPING",
+  "pointer_alias": "PCERT_POLICY_MAPPING",
+  "Members": [
+   {
+    "name": "pszIssuerDomainPolicy",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pszSubjectDomainPolicy",
+    "type": "LPSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_MAPPINGS_INFO",
+  "typedef_name": "_CERT_POLICY_MAPPINGS_INFO",
+  "pointer_alias": "PCERT_POLICY_MAPPINGS_INFO",
+  "Members": [
+   {
+    "name": "cPolicyMapping",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgPolicyMapping",
+    "type": "PCERT_POLICY_MAPPING"
+   }
+  ]
+ },
+ {
+  "name": "CERT_POLICY_CONSTRAINTS_INFO",
+  "typedef_name": "_CERT_POLICY_CONSTRAINTS_INFO",
+  "pointer_alias": "PCERT_POLICY_CONSTRAINTS_INFO",
+  "Members": [
+   {
+    "name": "fRequireExplicitPolicy",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwRequireExplicitPolicySkipCerts",
+    "type": "DWORD"
+   },
+   {
+    "name": "fInhibitPolicyMapping",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwInhibitPolicyMappingSkipCerts",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY",
+  "typedef_name": "_CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY",
+  "pointer_alias": "PCRYPT_CONTENT_INFO_SEQUENCE_OF_ANY",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "cValue",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgValue",
+    "type": "PCRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_CONTENT_INFO",
+  "typedef_name": "_CRYPT_CONTENT_INFO",
+  "pointer_alias": "PCRYPT_CONTENT_INFO",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Content",
+    "type": "CRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_SEQUENCE_OF_ANY",
+  "typedef_name": "_CRYPT_SEQUENCE_OF_ANY",
+  "pointer_alias": "PCRYPT_SEQUENCE_OF_ANY",
+  "Members": [
+   {
+    "name": "cValue",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgValue",
+    "type": "PCRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_AUTHORITY_KEY_ID2_INFO",
+  "typedef_name": "_CERT_AUTHORITY_KEY_ID2_INFO",
+  "pointer_alias": "PCERT_AUTHORITY_KEY_ID2_INFO",
+  "Members": [
+   {
+    "name": "KeyId",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "AuthorityCertIssuer",
+    "type": "CERT_ALT_NAME_INFO"
+   },
+   {
+    "name": "AuthorityCertSerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_ACCESS_DESCRIPTION",
+  "typedef_name": "_CERT_ACCESS_DESCRIPTION",
+  "pointer_alias": "PCERT_ACCESS_DESCRIPTION",
+  "Members": [
+   {
+    "name": "pszAccessMethod",
+    "type": "LPSTR"
+   },
+   {
+    "name": "AccessLocation",
+    "type": "CERT_ALT_NAME_ENTRY"
+   }
+  ]
+ },
+ {
+  "name": "CERT_AUTHORITY_INFO_ACCESS",
+  "typedef_name": "_CERT_AUTHORITY_INFO_ACCESS",
+  "pointer_alias": "PCERT_AUTHORITY_INFO_ACCESS",
+  "_pointer_alias": "ERT_SUBJECT_INFO_ACCESS",
+  "Members": [
+   {
+    "name": "cAccDescr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAccDescr",
+    "type": "PCERT_ACCESS_DESCRIPTION"
+   }
+  ]
+ },
+ {
+  "name": "CRL_DIST_POINT_NAME",
+  "typedef_name": "_CRL_DIST_POINT_NAME",
+  "pointer_alias": "PCRL_DIST_POINT_NAME",
+  "Members": [
+   {
+    "name": "dwDistPointNameChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "FullName",
+      "type": "CERT_ALT_NAME_INFO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CRL_DIST_POINT",
+  "typedef_name": "_CRL_DIST_POINT",
+  "pointer_alias": "PCRL_DIST_POINT",
+  "Members": [
+   {
+    "name": "DistPointName",
+    "type": "CRL_DIST_POINT_NAME"
+   },
+   {
+    "name": "ReasonFlags",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "CRLIssuer",
+    "type": "CERT_ALT_NAME_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CRL_DIST_POINTS_INFO",
+  "typedef_name": "_CRL_DIST_POINTS_INFO",
+  "pointer_alias": "PCRL_DIST_POINTS_INFO",
+  "Members": [
+   {
+    "name": "cDistPoint",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgDistPoint",
+    "type": "PCRL_DIST_POINT"
+   }
+  ]
+ },
+ {
+  "name": "CROSS_CERT_DIST_POINTS_INFO",
+  "typedef_name": "_CROSS_CERT_DIST_POINTS_INFO",
+  "pointer_alias": "PCROSS_CERT_DIST_POINTS_INFO",
+  "Members": [
+   {
+    "name": "dwSyncDeltaTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "cDistPoint",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgDistPoint",
+    "type": "PCERT_ALT_NAME_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_PAIR",
+  "typedef_name": "_CERT_PAIR",
+  "pointer_alias": "PCERT_PAIR",
+  "Members": [
+   {
+    "name": "Forward",
+    "type": "CERT_BLOB"
+   },
+   {
+    "name": "Reverse",
+    "type": "CERT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRL_ISSUING_DIST_POINT",
+  "typedef_name": "_CRL_ISSUING_DIST_POINT",
+  "pointer_alias": "PCRL_ISSUING_DIST_POINT",
+  "Members": [
+   {
+    "name": "DistPointName",
+    "type": "CRL_DIST_POINT_NAME"
+   },
+   {
+    "name": "fOnlyContainsUserCerts",
+    "type": "BOOL"
+   },
+   {
+    "name": "fOnlyContainsCACerts",
+    "type": "BOOL"
+   },
+   {
+    "name": "OnlySomeReasonFlags",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "fIndirectCRL",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "CERT_GENERAL_SUBTREE",
+  "typedef_name": "_CERT_GENERAL_SUBTREE",
+  "pointer_alias": "PCERT_GENERAL_SUBTREE",
+  "Members": [
+   {
+    "name": "Base",
+    "type": "CERT_ALT_NAME_ENTRY"
+   },
+   {
+    "name": "dwMinimum",
+    "type": "DWORD"
+   },
+   {
+    "name": "fMaximum",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwMaximum",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_NAME_CONSTRAINTS_INFO",
+  "typedef_name": "_CERT_NAME_CONSTRAINTS_INFO",
+  "pointer_alias": "PCERT_NAME_CONSTRAINTS_INFO",
+  "Members": [
+   {
+    "name": "cPermittedSubtree",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgPermittedSubtree",
+    "type": "PCERT_GENERAL_SUBTREE"
+   },
+   {
+    "name": "cExcludedSubtree",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExcludedSubtree",
+    "type": "PCERT_GENERAL_SUBTREE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_DSS_PARAMETERS",
+  "typedef_name": "_CERT_DSS_PARAMETERS",
+  "pointer_alias": "PCERT_DSS_PARAMETERS",
+  "Members": [
+   {
+    "name": "p",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "q",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "g",
+    "type": "CRYPT_UINT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_DH_PARAMETERS",
+  "typedef_name": "_CERT_DH_PARAMETERS",
+  "pointer_alias": "PCERT_DH_PARAMETERS",
+  "Members": [
+   {
+    "name": "p",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "g",
+    "type": "CRYPT_UINT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_ECC_SIGNATURE",
+  "typedef_name": "_CERT_ECC_SIGNATURE",
+  "pointer_alias": "PCERT_ECC_SIGNATURE",
+  "Members": [
+   {
+    "name": "r",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "s",
+    "type": "CRYPT_UINT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_X942_DH_VALIDATION_PARAMS",
+  "typedef_name": "_CERT_X942_DH_VALIDATION_PARAMS",
+  "pointer_alias": "PCERT_X942_DH_VALIDATION_PARAMS",
+  "Members": [
+   {
+    "name": "seed",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "pgenCounter",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_X942_DH_PARAMETERS",
+  "typedef_name": "_CERT_X942_DH_PARAMETERS",
+  "pointer_alias": "PCERT_X942_DH_PARAMETERS",
+  "Members": [
+   {
+    "name": "p",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "g",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "q",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "j",
+    "type": "CRYPT_UINT_BLOB"
+   },
+   {
+    "name": "pValidationParams",
+    "type": "PCERT_X942_DH_VALIDATION_PARAMS"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_X942_OTHER_INFO",
+  "typedef_name": "_CRYPT_X942_OTHER_INFO",
+  "pointer_alias": "PCRYPT_X942_OTHER_INFO",
+  "Members": [
+   {
+    "name": "pszContentEncryptionObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "rgbCounter",
+    "type": "BYTE"
+   },
+   {
+    "name": "rgbKeyLength",
+    "type": "BYTE"
+   },
+   {
+    "name": "PubInfo",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ECC_CMS_SHARED_INFO",
+  "typedef_name": "_CRYPT_ECC_CMS_SHARED_INFO",
+  "pointer_alias": "PCRYPT_ECC_CMS_SHARED_INFO",
+  "Members": [
+   {
+    "name": "Algorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EntityUInfo",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "rgbSuppPubInfo",
+    "type": "BYTE"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_RC2_CBC_PARAMETERS",
+  "typedef_name": "_CRYPT_RC2_CBC_PARAMETERS",
+  "pointer_alias": "PCRYPT_RC2_CBC_PARAMETERS",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "fIV",
+    "type": "BOOL"
+   },
+   {
+    "name": "rgbIV",
+    "type": "BYTE"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_SMIME_CAPABILITY",
+  "typedef_name": "_CRYPT_SMIME_CAPABILITY",
+  "pointer_alias": "PCRYPT_SMIME_CAPABILITY",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Parameters",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_SMIME_CAPABILITIES",
+  "typedef_name": "_CRYPT_SMIME_CAPABILITIES",
+  "pointer_alias": "PCRYPT_SMIME_CAPABILITIES",
+  "Members": [
+   {
+    "name": "cCapability",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCapability",
+    "type": "PCRYPT_SMIME_CAPABILITY"
+   }
+  ]
+ },
+ {
+  "name": "CERT_QC_STATEMENT",
+  "typedef_name": "_CERT_QC_STATEMENT",
+  "pointer_alias": "PCERT_QC_STATEMENT",
+  "Members": [
+   {
+    "name": "pszStatementId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "StatementInfo",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_QC_STATEMENTS_EXT_INFO",
+  "typedef_name": "_CERT_QC_STATEMENTS_EXT_INFO",
+  "pointer_alias": "PCERT_QC_STATEMENTS_EXT_INFO",
+  "Members": [
+   {
+    "name": "cStatement",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgStatement",
+    "type": "PCERT_QC_STATEMENT"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_MASK_GEN_ALGORITHM",
+  "typedef_name": "_CRYPT_MASK_GEN_ALGORITHM",
+  "pointer_alias": "PCRYPT_MASK_GEN_ALGORITHM",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_RSA_SSA_PSS_PARAMETERS",
+  "typedef_name": "_CRYPT_RSA_SSA_PSS_PARAMETERS",
+  "pointer_alias": "PCRYPT_RSA_SSA_PSS_PARAMETERS",
+  "Members": [
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "MaskGenAlgorithm",
+    "type": "CRYPT_MASK_GEN_ALGORITHM"
+   },
+   {
+    "name": "dwSaltLength",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwTrailerField",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PSOURCE_ALGORITHM",
+  "typedef_name": "_CRYPT_PSOURCE_ALGORITHM",
+  "pointer_alias": "PCRYPT_PSOURCE_ALGORITHM",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "EncodingParameters",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_RSAES_OAEP_PARAMETERS",
+  "typedef_name": "_CRYPT_RSAES_OAEP_PARAMETERS",
+  "pointer_alias": "PCRYPT_RSAES_OAEP_PARAMETERS",
+  "Members": [
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "MaskGenAlgorithm",
+    "type": "CRYPT_MASK_GEN_ALGORITHM"
+   },
+   {
+    "name": "PSourceAlgorithm",
+    "type": "CRYPT_PSOURCE_ALGORITHM"
+   }
+  ]
+ },
+ {
+  "name": "CMC_TAGGED_ATTRIBUTE",
+  "typedef_name": "_CMC_TAGGED_ATTRIBUTE",
+  "pointer_alias": "PCMC_TAGGED_ATTRIBUTE",
+  "Members": [
+   {
+    "name": "dwBodyPartID",
+    "type": "DWORD"
+   },
+   {
+    "name": "Attribute",
+    "type": "CRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CMC_TAGGED_CERT_REQUEST",
+  "typedef_name": "_CMC_TAGGED_CERT_REQUEST",
+  "pointer_alias": "PCMC_TAGGED_CERT_REQUEST",
+  "Members": [
+   {
+    "name": "dwBodyPartID",
+    "type": "DWORD"
+   },
+   {
+    "name": "SignedCertRequest",
+    "type": "CRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMC_TAGGED_REQUEST",
+  "typedef_name": "_CMC_TAGGED_REQUEST",
+  "pointer_alias": "PCMC_TAGGED_REQUEST",
+  "Members": [
+   {
+    "name": "dwTaggedRequestChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pTaggedCertRequest",
+      "type": "PCMC_TAGGED_CERT_REQUEST"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CMC_TAGGED_CONTENT_INFO",
+  "typedef_name": "_CMC_TAGGED_CONTENT_INFO",
+  "pointer_alias": "PCMC_TAGGED_CONTENT_INFO",
+  "Members": [
+   {
+    "name": "dwBodyPartID",
+    "type": "DWORD"
+   },
+   {
+    "name": "EncodedContentInfo",
+    "type": "CRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMC_TAGGED_OTHER_MSG",
+  "typedef_name": "_CMC_TAGGED_OTHER_MSG",
+  "pointer_alias": "PCMC_TAGGED_OTHER_MSG",
+  "Members": [
+   {
+    "name": "dwBodyPartID",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Value",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMC_DATA_INFO",
+  "typedef_name": "_CMC_DATA_INFO",
+  "pointer_alias": "PCMC_DATA_INFO",
+  "Members": [
+   {
+    "name": "cTaggedAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedAttribute",
+    "type": "PCMC_TAGGED_ATTRIBUTE"
+   },
+   {
+    "name": "cTaggedRequest",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedRequest",
+    "type": "PCMC_TAGGED_REQUEST"
+   },
+   {
+    "name": "cTaggedContentInfo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedContentInfo",
+    "type": "PCMC_TAGGED_CONTENT_INFO"
+   },
+   {
+    "name": "cTaggedOtherMsg",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedOtherMsg",
+    "type": "PCMC_TAGGED_OTHER_MSG"
+   }
+  ]
+ },
+ {
+  "name": "CMC_RESPONSE_INFO",
+  "typedef_name": "_CMC_RESPONSE_INFO",
+  "pointer_alias": "PCMC_RESPONSE_INFO",
+  "Members": [
+   {
+    "name": "cTaggedAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedAttribute",
+    "type": "PCMC_TAGGED_ATTRIBUTE"
+   },
+   {
+    "name": "cTaggedContentInfo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedContentInfo",
+    "type": "PCMC_TAGGED_CONTENT_INFO"
+   },
+   {
+    "name": "cTaggedOtherMsg",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgTaggedOtherMsg",
+    "type": "PCMC_TAGGED_OTHER_MSG"
+   }
+  ]
+ },
+ {
+  "name": "CMC_PEND_INFO",
+  "typedef_name": "_CMC_PEND_INFO",
+  "pointer_alias": "PCMC_PEND_INFO",
+  "Members": [
+   {
+    "name": "PendToken",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "PendTime",
+    "type": "FILETIME"
+   }
+  ]
+ },
+ {
+  "name": "CMC_STATUS_INFO",
+  "typedef_name": "_CMC_STATUS_INFO",
+  "pointer_alias": "PCMC_STATUS_INFO",
+  "Members": [
+   {
+    "name": "dwStatus",
+    "type": "DWORD"
+   },
+   {
+    "name": "cBodyList",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgdwBodyList",
+    "type": "DWORD*"
+   },
+   {
+    "name": "pwszStatusString",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "dwOtherInfoChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "dwFailInfo",
+      "type": "DWORD"
+     },
+     {
+      "name": "pPendInfo",
+      "type": "PCMC_PEND_INFO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CMC_ADD_EXTENSIONS_INFO",
+  "typedef_name": "_CMC_ADD_EXTENSIONS_INFO",
+  "pointer_alias": "PCMC_ADD_EXTENSIONS_INFO",
+  "Members": [
+   {
+    "name": "dwCmcDataReference",
+    "type": "DWORD"
+   },
+   {
+    "name": "cCertReference",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgdwCertReference",
+    "type": "DWORD*"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CMC_ADD_ATTRIBUTES_INFO",
+  "typedef_name": "_CMC_ADD_ATTRIBUTES_INFO",
+  "pointer_alias": "PCMC_ADD_ATTRIBUTES_INFO",
+  "Members": [
+   {
+    "name": "dwCmcDataReference",
+    "type": "DWORD"
+   },
+   {
+    "name": "cCertReference",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgdwCertReference",
+    "type": "DWORD*"
+   },
+   {
+    "name": "cAttribute",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttribute",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_TEMPLATE_EXT",
+  "typedef_name": "_CERT_TEMPLATE_EXT",
+  "pointer_alias": "PCERT_TEMPLATE_EXT",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "dwMajorVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "fMinorVersion",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwMinorVersion",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_HASHED_URL",
+  "typedef_name": "_CERT_HASHED_URL",
+  "pointer_alias": "PCERT_HASHED_URL",
+  "Members": [
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Hash",
+    "type": "CRYPT_HASH_BLOB"
+   },
+   {
+    "name": "pwszUrl",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_DETAILS",
+  "typedef_name": "_CERT_LOGOTYPE_DETAILS",
+  "pointer_alias": "PCERT_LOGOTYPE_DETAILS",
+  "Members": [
+   {
+    "name": "pwszMimeType",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "cHashedUrl",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgHashedUrl",
+    "type": "PCERT_HASHED_URL"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_REFERENCE",
+  "typedef_name": "_CERT_LOGOTYPE_REFERENCE",
+  "pointer_alias": "PCERT_LOGOTYPE_REFERENCE",
+  "Members": [
+   {
+    "name": "cHashedUrl",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgHashedUrl",
+    "type": "PCERT_HASHED_URL"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_IMAGE_INFO",
+  "typedef_name": "_CERT_LOGOTYPE_IMAGE_INFO",
+  "pointer_alias": "PCERT_LOGOTYPE_IMAGE_INFO",
+  "Members": [
+   {
+    "name": "dwLogotypeImageInfoChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFileSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwXSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwYSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwLogotypeImageResolutionChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "dwNumBits",
+      "type": "DWORD"
+     },
+     {
+      "name": "dwTableSize",
+      "type": "DWORD"
+     }
+    ]
+   },
+   {
+    "name": "pwszLanguage",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_IMAGE",
+  "typedef_name": "_CERT_LOGOTYPE_IMAGE",
+  "pointer_alias": "PCERT_LOGOTYPE_IMAGE",
+  "Members": [
+   {
+    "name": "LogotypeDetails",
+    "type": "CERT_LOGOTYPE_DETAILS"
+   },
+   {
+    "name": "pLogotypeImageInfo",
+    "type": "PCERT_LOGOTYPE_IMAGE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_AUDIO_INFO",
+  "typedef_name": "_CERT_LOGOTYPE_AUDIO_INFO",
+  "pointer_alias": "PCERT_LOGOTYPE_AUDIO_INFO",
+  "Members": [
+   {
+    "name": "dwFileSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwPlayTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwChannels",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwSampleRate",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszLanguage",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_AUDIO",
+  "typedef_name": "_CERT_LOGOTYPE_AUDIO",
+  "pointer_alias": "PCERT_LOGOTYPE_AUDIO",
+  "Members": [
+   {
+    "name": "LogotypeDetails",
+    "type": "CERT_LOGOTYPE_DETAILS"
+   },
+   {
+    "name": "pLogotypeAudioInfo",
+    "type": "PCERT_LOGOTYPE_AUDIO_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_DATA",
+  "typedef_name": "_CERT_LOGOTYPE_DATA",
+  "pointer_alias": "PCERT_LOGOTYPE_DATA",
+  "Members": [
+   {
+    "name": "cLogotypeImage",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgLogotypeImage",
+    "type": "PCERT_LOGOTYPE_IMAGE"
+   },
+   {
+    "name": "cLogotypeAudio",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgLogotypeAudio",
+    "type": "PCERT_LOGOTYPE_AUDIO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_INFO",
+  "typedef_name": "_CERT_LOGOTYPE_INFO",
+  "pointer_alias": "PCERT_LOGOTYPE_INFO",
+  "Members": [
+   {
+    "name": "dwLogotypeInfoChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pLogotypeDirectInfo",
+      "type": "PCERT_LOGOTYPE_DATA"
+     },
+     {
+      "name": "pLogotypeIndirectInfo",
+      "type": "PCERT_LOGOTYPE_REFERENCE"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CERT_OTHER_LOGOTYPE_INFO",
+  "typedef_name": "_CERT_OTHER_LOGOTYPE_INFO",
+  "pointer_alias": "PCERT_OTHER_LOGOTYPE_INFO",
+  "Members": [
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "LogotypeInfo",
+    "type": "CERT_LOGOTYPE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LOGOTYPE_EXT_INFO",
+  "typedef_name": "_CERT_LOGOTYPE_EXT_INFO",
+  "pointer_alias": "PCERT_LOGOTYPE_EXT_INFO",
+  "Members": [
+   {
+    "name": "cCommunityLogo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCommunityLogo",
+    "type": "PCERT_LOGOTYPE_INFO"
+   },
+   {
+    "name": "pIssuerLogo",
+    "type": "PCERT_LOGOTYPE_INFO"
+   },
+   {
+    "name": "pSubjectLogo",
+    "type": "PCERT_LOGOTYPE_INFO"
+   },
+   {
+    "name": "cOtherLogo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgOtherLogo",
+    "type": "PCERT_OTHER_LOGOTYPE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_BIOMETRIC_DATA",
+  "typedef_name": "_CERT_BIOMETRIC_DATA",
+  "pointer_alias": "PCERT_BIOMETRIC_DATA",
+  "Members": [
+   {
+    "name": "dwTypeOfBiometricDataChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "dwPredefined",
+      "type": "DWORD"
+     },
+     {
+      "name": "pszObjId",
+      "type": "LPSTR"
+     }
+    ]
+   },
+   {
+    "name": "HashedUrl",
+    "type": "CERT_HASHED_URL"
+   }
+  ]
+ },
+ {
+  "name": "CERT_BIOMETRIC_EXT_INFO",
+  "typedef_name": "_CERT_BIOMETRIC_EXT_INFO",
+  "pointer_alias": "PCERT_BIOMETRIC_EXT_INFO",
+  "Members": [
+   {
+    "name": "cBiometricData",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgBiometricData",
+    "type": "PCERT_BIOMETRIC_DATA"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_SIGNATURE_INFO",
+  "typedef_name": "_OCSP_SIGNATURE_INFO",
+  "pointer_alias": "POCSP_SIGNATURE_INFO",
+  "Members": [
+   {
+    "name": "SignatureAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "Signature",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "cCertEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCertEncoded",
+    "type": "PCERT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_SIGNED_REQUEST_INFO",
+  "typedef_name": "_OCSP_SIGNED_REQUEST_INFO",
+  "pointer_alias": "POCSP_SIGNED_REQUEST_INFO",
+  "Members": [
+   {
+    "name": "ToBeSigned",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "pOptionalSignatureInfo",
+    "type": "POCSP_SIGNATURE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_CERT_ID",
+  "typedef_name": "_OCSP_CERT_ID",
+  "pointer_alias": "POCSP_CERT_ID",
+  "Members": [
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "IssuerNameHash",
+    "type": "CRYPT_HASH_BLOB"
+   },
+   {
+    "name": "IssuerKeyHash",
+    "type": "CRYPT_HASH_BLOB"
+   },
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_REQUEST_ENTRY",
+  "typedef_name": "_OCSP_REQUEST_ENTRY",
+  "pointer_alias": "POCSP_REQUEST_ENTRY",
+  "Members": [
+   {
+    "name": "CertId",
+    "type": "OCSP_CERT_ID"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_REQUEST_INFO",
+  "typedef_name": "_OCSP_REQUEST_INFO",
+  "pointer_alias": "POCSP_REQUEST_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "pRequestorName",
+    "type": "PCERT_ALT_NAME_ENTRY"
+   },
+   {
+    "name": "cRequestEntry",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgRequestEntry",
+    "type": "POCSP_REQUEST_ENTRY"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_RESPONSE_INFO",
+  "typedef_name": "_OCSP_RESPONSE_INFO",
+  "pointer_alias": "POCSP_RESPONSE_INFO",
+  "Members": [
+   {
+    "name": "dwStatus",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszObjId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Value",
+    "type": "CRYPT_OBJID_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_BASIC_SIGNED_RESPONSE_INFO",
+  "typedef_name": "_OCSP_BASIC_SIGNED_RESPONSE_INFO",
+  "pointer_alias": "POCSP_BASIC_SIGNED_RESPONSE_INFO",
+  "Members": [
+   {
+    "name": "ToBeSigned",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "SignatureInfo",
+    "type": "OCSP_SIGNATURE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_BASIC_REVOKED_INFO",
+  "typedef_name": "_OCSP_BASIC_REVOKED_INFO",
+  "pointer_alias": "POCSP_BASIC_REVOKED_INFO",
+  "Members": [
+   {
+    "name": "RevocationDate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "dwCrlReasonCode",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_BASIC_RESPONSE_ENTRY",
+  "typedef_name": "_OCSP_BASIC_RESPONSE_ENTRY",
+  "pointer_alias": "POCSP_BASIC_RESPONSE_ENTRY",
+  "Members": [
+   {
+    "name": "CertId",
+    "type": "OCSP_CERT_ID"
+   },
+   {
+    "name": "dwCertStatus",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pRevokedInfo",
+      "type": "POCSP_BASIC_REVOKED_INFO"
+     }
+    ]
+   },
+   {
+    "name": "ThisUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NextUpdate",
+    "type": "FILETIME"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "OCSP_BASIC_RESPONSE_INFO",
+  "typedef_name": "_OCSP_BASIC_RESPONSE_INFO",
+  "pointer_alias": "POCSP_BASIC_RESPONSE_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwResponderIdChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "ByNameResponderId",
+      "type": "CERT_NAME_BLOB"
+     },
+     {
+      "name": "ByKeyResponderId",
+      "type": "CRYPT_HASH_BLOB"
+     }
+    ]
+   },
+   {
+    "name": "ProducedAt",
+    "type": "FILETIME"
+   },
+   {
+    "name": "cResponseEntry",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgResponseEntry",
+    "type": "POCSP_BASIC_RESPONSE_ENTRY"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SUPPORTED_ALGORITHM_INFO",
+  "typedef_name": "_CERT_SUPPORTED_ALGORITHM_INFO",
+  "pointer_alias": "PCERT_SUPPORTED_ALGORITHM_INFO",
+  "Members": [
+   {
+    "name": "Algorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "IntendedKeyUsage",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "IntendedCertPolicies",
+    "type": "CERT_POLICIES_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_TPM_SPECIFICATION_INFO",
+  "typedef_name": "_CERT_TPM_SPECIFICATION_INFO",
+  "pointer_alias": "PCERT_TPM_SPECIFICATION_INFO",
+  "Members": [
+   {
+    "name": "pwszFamily",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "dwLevel",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRevision",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_OID_FUNC_ENTRY",
+  "typedef_name": "_CRYPT_OID_FUNC_ENTRY",
+  "pointer_alias": "PCRYPT_OID_FUNC_ENTRY",
+  "Members": [
+   {
+    "name": "pszOID",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "pvFuncAddr",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_OID_INFO",
+  "typedef_name": "_CRYPT_OID_INFO",
+  "pointer_alias": "PCRYPT_OID_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszOID",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "pwszName",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "dwGroupId",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "dwValue",
+      "type": "DWORD"
+     },
+     {
+      "name": "Algid",
+      "type": "ALG_ID"
+     },
+     {
+      "name": "dwLength",
+      "type": "DWORD"
+     }
+    ]
+   },
+   {
+    "name": "ExtraInfo",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "CRYPT_OID_INFO_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "pwszCNGExtraAlgid",
+    "type": "LPCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_STRONG_SIGN_SERIALIZED_INFO",
+  "typedef_name": "_CERT_STRONG_SIGN_SERIALIZED_INFO",
+  "pointer_alias": "PCERT_STRONG_SIGN_SERIALIZED_INFO",
+  "Members": [
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszCNGSignHashAlgids",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pwszCNGPubKeyMinBitLengths",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_STRONG_SIGN_PARA",
+  "typedef_name": "_CERT_STRONG_SIGN_PARA",
+  "pointer_alias": "PCERT_STRONG_SIGN_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwInfoChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pvInfo",
+      "type": "void*"
+     },
+     {
+      "name": "pSerializedInfo",
+      "type": "PCERT_STRONG_SIGN_SERIALIZED_INFO"
+     },
+     {
+      "name": "pszOID",
+      "type": "LPSTR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CERT_ISSUER_SERIAL_NUMBER",
+  "typedef_name": "_CERT_ISSUER_SERIAL_NUMBER",
+  "pointer_alias": "PCERT_ISSUER_SERIAL_NUMBER",
+  "Members": [
+   {
+    "name": "Issuer",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_ID",
+  "typedef_name": "_CERT_ID",
+  "pointer_alias": "PCERT_ID",
+  "Members": [
+   {
+    "name": "dwIdChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "IssuerSerialNumber",
+      "type": "CERT_ISSUER_SERIAL_NUMBER"
+     },
+     {
+      "name": "KeyId",
+      "type": "CRYPT_HASH_BLOB"
+     },
+     {
+      "name": "HashId",
+      "type": "CRYPT_HASH_BLOB"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CMSG_SIGNER_ENCODE_INFO",
+  "typedef_name": "_CMSG_SIGNER_ENCODE_INFO",
+  "pointer_alias": "PCMSG_SIGNER_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCertInfo",
+    "type": "PCERT_INFO"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     },
+     {
+      "name": "CMSG_SIGNER_ENCODE_INFO_HAS_IUM_FIELDS",
+      "type": "ifdef"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "cAuthAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAuthAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   },
+   {
+    "name": "cUnauthAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgUnauthAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   },
+   {
+    "name": "CMSG_SIGNER_ENCODE_INFO_HAS_CMS_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "HashEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashEncryptionAuxInfo",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_SIGNED_ENCODE_INFO",
+  "typedef_name": "_CMSG_SIGNED_ENCODE_INFO",
+  "pointer_alias": "PCMSG_SIGNED_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "cSigners",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgSigners",
+    "type": "PCMSG_SIGNER_ENCODE_INFO"
+   },
+   {
+    "name": "cCertEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCertEncoded",
+    "type": "PCERT_BLOB"
+   },
+   {
+    "name": "cCrlEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCrlEncoded",
+    "type": "PCRL_BLOB"
+   },
+   {
+    "name": "CMSG_SIGNED_ENCODE_INFO_HAS_CMS_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "rgAttrCertEncoded",
+    "type": "PCERT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_ENVELOPED_ENCODE_INFO",
+  "typedef_name": "_CMSG_ENVELOPED_ENCODE_INFO",
+  "pointer_alias": "PCMSG_ENVELOPED_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "ContentEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "cRecipients",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpRecipients",
+    "type": "PCERT_INFO*"
+   },
+   {
+    "name": "CMSG_ENVELOPED_ENCODE_INFO_HAS_CMS_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "cCertEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCertEncoded",
+    "type": "PCERT_BLOB"
+   },
+   {
+    "name": "cCrlEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCrlEncoded",
+    "type": "PCRL_BLOB"
+   },
+   {
+    "name": "cAttrCertEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAttrCertEncoded",
+    "type": "PCERT_BLOB"
+   },
+   {
+    "name": "cUnprotectedAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgUnprotectedAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO",
+  "typedef_name": "_CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO",
+  "pointer_alias": "PCMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvKeyEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "RecipientPublicKey",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "RecipientId",
+    "type": "CERT_ID"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO",
+  "typedef_name": "_CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO",
+  "pointer_alias": "PCMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "RecipientPublicKey",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "RecipientId",
+    "type": "CERT_ID"
+   },
+   {
+    "name": "Date",
+    "type": "FILETIME"
+   },
+   {
+    "name": "pOtherAttr",
+    "type": "PCRYPT_ATTRIBUTE_TYPE_VALUE"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO",
+  "typedef_name": "_CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO",
+  "pointer_alias": "PCMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvKeyEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "KeyWrapAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvKeyWrapAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwKeyChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pEphemeralAlgorithm",
+      "type": "PCRYPT_ALGORITHM_IDENTIFIER"
+     },
+     {
+      "name": "pSenderId",
+      "type": "PCERT_ID"
+     }
+    ]
+   },
+   {
+    "name": "UserKeyingMaterial",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "cRecipientEncryptedKeys",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpRecipientEncryptedKeys",
+    "type": "PCMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO",
+  "typedef_name": "_CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO",
+  "pointer_alias": "PCMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvKeyEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV"
+   },
+   {
+    "name": "dwKeyChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hKeyEncryptionKey",
+      "type": "HCRYPTKEY"
+     },
+     {
+      "name": "pvKeyEncryptionKey",
+      "type": "void*"
+     }
+    ]
+   },
+   {
+    "name": "KeyId",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "Date",
+    "type": "FILETIME"
+   },
+   {
+    "name": "pOtherAttr",
+    "type": "PCRYPT_ATTRIBUTE_TYPE_VALUE"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_RC2_AUX_INFO",
+  "typedef_name": "_CMSG_RC2_AUX_INFO",
+  "pointer_alias": "PCMSG_RC2_AUX_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwBitLen",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_SP3_COMPATIBLE_AUX_INFO",
+  "typedef_name": "_CMSG_SP3_COMPATIBLE_AUX_INFO",
+  "pointer_alias": "PCMSG_SP3_COMPATIBLE_AUX_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_RC4_AUX_INFO",
+  "typedef_name": "_CMSG_RC4_AUX_INFO",
+  "pointer_alias": "PCMSG_RC4_AUX_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwBitLen",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO",
+  "typedef_name": "_CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO",
+  "pointer_alias": "PCMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "SignedInfo",
+    "type": "CMSG_SIGNED_ENCODE_INFO"
+   },
+   {
+    "name": "EnvelopedInfo",
+    "type": "CMSG_ENVELOPED_ENCODE_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_HASHED_ENCODE_INFO",
+  "typedef_name": "_CMSG_HASHED_ENCODE_INFO",
+  "pointer_alias": "PCMSG_HASHED_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashAuxInfo",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_ENCRYPTED_ENCODE_INFO",
+  "typedef_name": "_CMSG_ENCRYPTED_ENCODE_INFO",
+  "pointer_alias": "PCMSG_ENCRYPTED_ENCODE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "ContentEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvEncryptionAuxInfo",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_STREAM_INFO",
+  "typedef_name": "_CMSG_STREAM_INFO",
+  "pointer_alias": "PCMSG_STREAM_INFO",
+  "Members": [
+   {
+    "name": "cbContent",
+    "type": "DWORD"
+   },
+   {
+    "name": "pfnStreamOutput",
+    "type": "PFN_CMSG_STREAM_OUTPUT"
+   },
+   {
+    "name": "pvArg",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_SIGNER_INFO",
+  "typedef_name": "_CMSG_SIGNER_INFO",
+  "pointer_alias": "PCMSG_SIGNER_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "Issuer",
+    "type": "CERT_NAME_BLOB"
+   },
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "HashEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedHash",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "AuthAttrs",
+    "type": "CRYPT_ATTRIBUTES"
+   },
+   {
+    "name": "UnauthAttrs",
+    "type": "CRYPT_ATTRIBUTES"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CMS_SIGNER_INFO",
+  "typedef_name": "_CMSG_CMS_SIGNER_INFO",
+  "pointer_alias": "PCMSG_CMS_SIGNER_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "SignerId",
+    "type": "CERT_ID"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "HashEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedHash",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "AuthAttrs",
+    "type": "CRYPT_ATTRIBUTES"
+   },
+   {
+    "name": "UnauthAttrs",
+    "type": "CRYPT_ATTRIBUTES"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_TRANS_RECIPIENT_INFO",
+  "typedef_name": "_CMSG_KEY_TRANS_RECIPIENT_INFO",
+  "pointer_alias": "PCMSG_KEY_TRANS_RECIPIENT_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "RecipientId",
+    "type": "CERT_ID"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_RECIPIENT_ENCRYPTED_KEY_INFO",
+  "typedef_name": "_CMSG_RECIPIENT_ENCRYPTED_KEY_INFO",
+  "pointer_alias": "PCMSG_RECIPIENT_ENCRYPTED_KEY_INFO",
+  "Members": [
+   {
+    "name": "RecipientId",
+    "type": "CERT_ID"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "Date",
+    "type": "FILETIME"
+   },
+   {
+    "name": "pOtherAttr",
+    "type": "PCRYPT_ATTRIBUTE_TYPE_VALUE"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_AGREE_RECIPIENT_INFO",
+  "typedef_name": "_CMSG_KEY_AGREE_RECIPIENT_INFO",
+  "pointer_alias": "PCMSG_KEY_AGREE_RECIPIENT_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwOriginatorChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "OriginatorCertId",
+      "type": "CERT_ID"
+     },
+     {
+      "name": "OriginatorPublicKeyInfo",
+      "type": "CERT_PUBLIC_KEY_INFO"
+     }
+    ]
+   },
+   {
+    "name": "UserKeyingMaterial",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "cRecipientEncryptedKeys",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpRecipientEncryptedKeys",
+    "type": "PCMSG_RECIPIENT_ENCRYPTED_KEY_INFO*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_MAIL_LIST_RECIPIENT_INFO",
+  "typedef_name": "_CMSG_MAIL_LIST_RECIPIENT_INFO",
+  "pointer_alias": "PCMSG_MAIL_LIST_RECIPIENT_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyId",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "Date",
+    "type": "FILETIME"
+   },
+   {
+    "name": "pOtherAttr",
+    "type": "PCRYPT_ATTRIBUTE_TYPE_VALUE"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CMS_RECIPIENT_INFO",
+  "typedef_name": "_CMSG_CMS_RECIPIENT_INFO",
+  "pointer_alias": "PCMSG_CMS_RECIPIENT_INFO",
+  "Members": [
+   {
+    "name": "dwRecipientChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pKeyTrans",
+      "type": "PCMSG_KEY_TRANS_RECIPIENT_INFO"
+     },
+     {
+      "name": "pKeyAgree",
+      "type": "PCMSG_KEY_AGREE_RECIPIENT_INFO"
+     },
+     {
+      "name": "pMailList",
+      "type": "PCMSG_MAIL_LIST_RECIPIENT_INFO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA",
+  "typedef_name": "_CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA",
+  "pointer_alias": "PCMSG_CTRL_VERIFY_SIGNATURE_EX_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "dwSignerIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwSignerType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pvSigner",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_DECRYPT_PARA",
+  "typedef_name": "_CMSG_CTRL_DECRYPT_PARA",
+  "pointer_alias": "PCMSG_CTRL_DECRYPT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_KEY_TRANS_DECRYPT_PARA",
+  "typedef_name": "_CMSG_CTRL_KEY_TRANS_DECRYPT_PARA",
+  "pointer_alias": "PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "pKeyTrans",
+    "type": "PCMSG_KEY_TRANS_RECIPIENT_INFO"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_KEY_AGREE_DECRYPT_PARA",
+  "typedef_name": "_CMSG_CTRL_KEY_AGREE_DECRYPT_PARA",
+  "pointer_alias": "PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "pKeyAgree",
+    "type": "PCMSG_KEY_AGREE_RECIPIENT_INFO"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRecipientEncryptedKeyIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "OriginatorPublicKey",
+    "type": "CRYPT_BIT_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_MAIL_LIST_DECRYPT_PARA",
+  "typedef_name": "_CMSG_CTRL_MAIL_LIST_DECRYPT_PARA",
+  "pointer_alias": "PCMSG_CTRL_MAIL_LIST_DECRYPT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV"
+   },
+   {
+    "name": "pMailList",
+    "type": "PCMSG_MAIL_LIST_RECIPIENT_INFO"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwKeyChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hKeyEncryptionKey",
+      "type": "HCRYPTKEY"
+     },
+     {
+      "name": "pvKeyEncryptionKey",
+      "type": "void*"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA",
+  "typedef_name": "_CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA",
+  "pointer_alias": "PCMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwSignerIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "blob",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA",
+  "typedef_name": "_CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA",
+  "pointer_alias": "PCMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwSignerIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwUnauthAttrIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CONTENT_ENCRYPT_INFO",
+  "typedef_name": "_CMSG_CONTENT_ENCRYPT_INFO",
+  "pointer_alias": "PCMSG_CONTENT_ENCRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "ContentEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "cRecipients",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCmsRecipients",
+    "type": "PCMSG_RECIPIENT_ENCODE_INFO"
+   },
+   {
+    "name": "pfnAlloc",
+    "type": "PFN_CMSG_ALLOC"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CMSG_FREE"
+   },
+   {
+    "name": "dwEncryptFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hContentEncryptKey",
+      "type": "HCRYPTKEY"
+     },
+     {
+      "name": "hCNGContentEncryptKey",
+      "type": "BCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "fCNG",
+    "type": "BOOL"
+   },
+   {
+    "name": "pbCNGContentEncryptKeyObject",
+    "type": "BYTE*"
+   },
+   {
+    "name": "pbContentEncryptKey",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbContentEncryptKey",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_TRANS_ENCRYPT_INFO",
+  "typedef_name": "_CMSG_KEY_TRANS_ENCRYPT_INFO",
+  "pointer_alias": "PCMSG_KEY_TRANS_ENCRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_AGREE_KEY_ENCRYPT_INFO",
+  "typedef_name": "_CMSG_KEY_AGREE_KEY_ENCRYPT_INFO",
+  "pointer_alias": "PCMSG_KEY_AGREE_KEY_ENCRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_KEY_AGREE_ENCRYPT_INFO",
+  "typedef_name": "_CMSG_KEY_AGREE_ENCRYPT_INFO",
+  "pointer_alias": "PCMSG_KEY_AGREE_ENCRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "UserKeyingMaterial",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "dwOriginatorChoice",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "OriginatorCertId",
+      "type": "CERT_ID"
+     },
+     {
+      "name": "OriginatorPublicKeyInfo",
+      "type": "CERT_PUBLIC_KEY_INFO"
+     }
+    ]
+   },
+   {
+    "name": "cKeyAgreeKeyEncryptInfo",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpKeyAgreeKeyEncryptInfo",
+    "type": "PCMSG_KEY_AGREE_KEY_ENCRYPT_INFO*"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_MAIL_LIST_ENCRYPT_INFO",
+  "typedef_name": "_CMSG_MAIL_LIST_ENCRYPT_INFO",
+  "pointer_alias": "PCMSG_MAIL_LIST_ENCRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRecipientIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "KeyEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "EncryptedKey",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CMSG_CNG_CONTENT_DECRYPT_INFO",
+  "typedef_name": "_CMSG_CNG_CONTENT_DECRYPT_INFO",
+  "pointer_alias": "PCMSG_CNG_CONTENT_DECRYPT_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "ContentEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pfnAlloc",
+    "type": "PFN_CMSG_ALLOC"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CMSG_FREE"
+   },
+   {
+    "name": "hNCryptKey",
+    "type": "NCRYPT_KEY_HANDLE"
+   },
+   {
+    "name": "pbContentEncryptKey",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbContentEncryptKey",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCNGContentEncryptKey",
+    "type": "BCRYPT_KEY_HANDLE"
+   },
+   {
+    "name": "pbCNGContentEncryptKeyObject",
+    "type": "BYTE*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CONTEXT",
+  "typedef_name": "_CERT_CONTEXT",
+  "pointer_alias": "PCERT_CONTEXT",
+  "Members": [
+   {
+    "name": "dwCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbCertEncoded",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbCertEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCertInfo",
+    "type": "PCERT_INFO"
+   },
+   {
+    "name": "hCertStore",
+    "type": "HCERTSTORE"
+   }
+  ]
+ },
+ {
+  "name": "CRL_CONTEXT",
+  "typedef_name": "_CRL_CONTEXT",
+  "pointer_alias": "PCRL_CONTEXT",
+  "Members": [
+   {
+    "name": "dwCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbCrlEncoded",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbCrlEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCrlInfo",
+    "type": "PCRL_INFO"
+   },
+   {
+    "name": "hCertStore",
+    "type": "HCERTSTORE"
+   }
+  ]
+ },
+ {
+  "name": "CTL_CONTEXT",
+  "typedef_name": "_CTL_CONTEXT",
+  "pointer_alias": "PCTL_CONTEXT",
+  "Members": [
+   {
+    "name": "dwMsgAndCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbCtlEncoded",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbCtlEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCtlInfo",
+    "type": "PCTL_INFO"
+   },
+   {
+    "name": "hCertStore",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "hCryptMsg",
+    "type": "HCRYPTMSG"
+   },
+   {
+    "name": "pbCtlContent",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbCtlContent",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_KEY_PROV_PARAM",
+  "typedef_name": "_CRYPT_KEY_PROV_PARAM",
+  "pointer_alias": "PCRYPT_KEY_PROV_PARAM",
+  "Members": [
+   {
+    "name": "dwParam",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbData",
+    "type": "BYTE*"
+   },
+   {
+    "name": "cbData",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_KEY_PROV_INFO",
+  "typedef_name": "_CRYPT_KEY_PROV_INFO",
+  "pointer_alias": "PCRYPT_KEY_PROV_INFO",
+  "Members": [
+   {
+    "name": "pwszContainerName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pwszProvName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "dwProvType",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "cProvParam",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgProvParam",
+    "type": "PCRYPT_KEY_PROV_PARAM"
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_KEY_CONTEXT",
+  "typedef_name": "_CERT_KEY_CONTEXT",
+  "pointer_alias": "PCERT_KEY_CONTEXT",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "ROOT_INFO_LUID",
+  "typedef_name": "_ROOT_INFO_LUID",
+  "pointer_alias": "PROOT_INFO_LUID",
+  "Members": [
+   {
+    "name": "LowPart",
+    "type": "DWORD"
+   },
+   {
+    "name": "HighPart",
+    "type": "LONG"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_SMART_CARD_ROOT_INFO",
+  "typedef_name": "_CRYPT_SMART_CARD_ROOT_INFO",
+  "pointer_alias": "PCRYPT_SMART_CARD_ROOT_INFO",
+  "Members": [
+   {
+    "name": "rgbCardID",
+    "type": "BYTE"
+   },
+   {
+    "name": "luid",
+    "type": "ROOT_INFO_LUID"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SYSTEM_STORE_RELOCATE_PARA",
+  "typedef_name": "_CERT_SYSTEM_STORE_RELOCATE_PARA",
+  "pointer_alias": "PCERT_SYSTEM_STORE_RELOCATE_PARA",
+  "Members": [
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hKeyBase",
+      "type": "HKEY"
+     },
+     {
+      "name": "pvBase",
+      "type": "void*"
+     }
+    ]
+   },
+   {
+    "name": "DUMMYUNIONNAME2",
+    "type": "_union",
+    "body": [
+     {
+      "name": "pvSystemStore",
+      "type": "void*"
+     },
+     {
+      "name": "pszSystemStore",
+      "type": "LPCSTR"
+     },
+     {
+      "name": "pwszSystemStore",
+      "type": "LPCWSTR"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "CERT_REGISTRY_STORE_CLIENT_GPT_PARA",
+  "typedef_name": "_CERT_REGISTRY_STORE_CLIENT_GPT_PARA",
+  "pointer_alias": "PCERT_REGISTRY_STORE_CLIENT_GPT_PARA",
+  "Members": [
+   {
+    "name": "hKeyBase",
+    "type": "HKEY"
+   },
+   {
+    "name": "pwszRegPath",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REGISTRY_STORE_ROAMING_PARA",
+  "typedef_name": "_CERT_REGISTRY_STORE_ROAMING_PARA",
+  "pointer_alias": "PCERT_REGISTRY_STORE_ROAMING_PARA",
+  "Members": [
+   {
+    "name": "hKey",
+    "type": "HKEY"
+   },
+   {
+    "name": "pwszStoreDirectory",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_LDAP_STORE_OPENED_PARA",
+  "typedef_name": "_CERT_LDAP_STORE_OPENED_PARA",
+  "pointer_alias": "PCERT_LDAP_STORE_OPENED_PARA",
+  "Members": [
+   {
+    "name": "pvLdapSessionHandle",
+    "type": "void*"
+   },
+   {
+    "name": "pwszLdapUrl",
+    "type": "LPCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_STORE_PROV_INFO",
+  "typedef_name": "_CERT_STORE_PROV_INFO",
+  "pointer_alias": "PCERT_STORE_PROV_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "cStoreProvFunc",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpvStoreProvFunc",
+    "type": "void**"
+   },
+   {
+    "name": "hStoreProv",
+    "type": "HCERTSTOREPROV"
+   },
+   {
+    "name": "dwStoreProvFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "hStoreProvFuncAddr2",
+    "type": "HCRYPTOIDFUNCADDR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_STORE_PROV_FIND_INFO",
+  "typedef_name": "_CERT_STORE_PROV_FIND_INFO",
+  "pointer_alias": "PCERT_STORE_PROV_FIND_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgAndCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFindFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFindType",
+    "type": "DWORD"
+   },
+   {
+    "name": "void",
+    "type": "const"
+   }
+  ]
+ },
+ {
+  "name": "CRL_FIND_ISSUED_FOR_PARA",
+  "typedef_name": "_CRL_FIND_ISSUED_FOR_PARA",
+  "pointer_alias": "PCRL_FIND_ISSUED_FOR_PARA",
+  "Members": [
+   {
+    "name": "pSubjectCert",
+    "type": "PCCERT_CONTEXT"
+   },
+   {
+    "name": "pIssuerCert",
+    "type": "PCCERT_CONTEXT"
+   }
+  ]
+ },
+ {
+  "name": "CTL_ANY_SUBJECT_INFO",
+  "typedef_name": "_CTL_ANY_SUBJECT_INFO",
+  "pointer_alias": "PCTL_ANY_SUBJECT_INFO",
+  "Members": [
+   {
+    "name": "SubjectAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "SubjectIdentifier",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CTL_FIND_USAGE_PARA",
+  "typedef_name": "_CTL_FIND_USAGE_PARA",
+  "pointer_alias": "PCTL_FIND_USAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "SubjectUsage",
+    "type": "CTL_USAGE"
+   },
+   {
+    "name": "ListIdentifier",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "pSigner",
+    "type": "PCERT_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CTL_FIND_SUBJECT_PARA",
+  "typedef_name": "_CTL_FIND_SUBJECT_PARA",
+  "pointer_alias": "PCTL_FIND_SUBJECT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pUsagePara",
+    "type": "PCTL_FIND_USAGE_PARA"
+   },
+   {
+    "name": "dwSubjectType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pvSubject",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CREATE_CONTEXT_PARA",
+  "typedef_name": "_CERT_CREATE_CONTEXT_PARA",
+  "pointer_alias": "PCERT_CREATE_CONTEXT_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CRYPT_FREE"
+   },
+   {
+    "name": "pvFree",
+    "type": "void*"
+   },
+   {
+    "name": "pfnSort",
+    "type": "PFN_CERT_CREATE_CONTEXT_SORT_FUNC"
+   },
+   {
+    "name": "pvSort",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SYSTEM_STORE_INFO",
+  "typedef_name": "_CERT_SYSTEM_STORE_INFO",
+  "pointer_alias": "PCERT_SYSTEM_STORE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_PHYSICAL_STORE_INFO",
+  "typedef_name": "_CERT_PHYSICAL_STORE_INFO",
+  "pointer_alias": "PCERT_PHYSICAL_STORE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszOpenStoreProvider",
+    "type": "LPSTR"
+   },
+   {
+    "name": "dwOpenEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwOpenFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "OpenParameters",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwPriority",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CTL_VERIFY_USAGE_PARA",
+  "typedef_name": "_CTL_VERIFY_USAGE_PARA",
+  "pointer_alias": "PCTL_VERIFY_USAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "ListIdentifier",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "cCtlStore",
+    "type": "DWORD"
+   },
+   {
+    "name": "rghCtlStore",
+    "type": "HCERTSTORE*"
+   },
+   {
+    "name": "cSignerStore",
+    "type": "DWORD"
+   },
+   {
+    "name": "rghSignerStore",
+    "type": "HCERTSTORE*"
+   }
+  ]
+ },
+ {
+  "name": "CTL_VERIFY_USAGE_STATUS",
+  "typedef_name": "_CTL_VERIFY_USAGE_STATUS",
+  "pointer_alias": "PCTL_VERIFY_USAGE_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwError",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "ppCtl",
+    "type": "PCCTL_CONTEXT*"
+   },
+   {
+    "name": "dwCtlEntryIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "ppSigner",
+    "type": "PCCERT_CONTEXT*"
+   },
+   {
+    "name": "dwSignerIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REVOCATION_CRL_INFO",
+  "typedef_name": "_CERT_REVOCATION_CRL_INFO",
+  "pointer_alias": "PCERT_REVOCATION_CRL_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pBaseCrlContext",
+    "type": "PCCRL_CONTEXT"
+   },
+   {
+    "name": "pDeltaCrlContext",
+    "type": "PCCRL_CONTEXT"
+   },
+   {
+    "name": "pCrlEntry",
+    "type": "PCRL_ENTRY"
+   },
+   {
+    "name": "fDeltaCrlEntry",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REVOCATION_PARA",
+  "typedef_name": "_CERT_REVOCATION_PARA",
+  "pointer_alias": "PCERT_REVOCATION_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pIssuerCert",
+    "type": "PCCERT_CONTEXT"
+   },
+   {
+    "name": "cCertStore",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgCertStore",
+    "type": "HCERTSTORE*"
+   },
+   {
+    "name": "hCrlStore",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "pftTimeToUse",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "CERT_REVOCATION_PARA_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "fCheckFreshnessTime",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwFreshnessTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "pftCurrentTime",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pCrlInfo",
+    "type": "PCERT_REVOCATION_CRL_INFO"
+   },
+   {
+    "name": "pftCacheResync",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pChainPara",
+    "type": "PCERT_REVOCATION_CHAIN_PARA"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REVOCATION_STATUS",
+  "typedef_name": "_CERT_REVOCATION_STATUS",
+  "pointer_alias": "PCERT_REVOCATION_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwIndex",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwError",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReason",
+    "type": "DWORD"
+   },
+   {
+    "name": "fHasFreshnessTime",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwFreshnessTime",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO",
+  "typedef_name": "_CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO",
+  "pointer_alias": "PCRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO",
+  "Members": [
+   {
+    "name": "CertSignHashCNGAlgPropData",
+    "type": "CRYPT_DATA_BLOB"
+   },
+   {
+    "name": "CertIssuerPubKeyBitLengthPropData",
+    "type": "CRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO",
+  "typedef_name": "_CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO",
+  "pointer_alias": "PCRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO",
+  "Members": [
+   {
+    "name": "cCNGHashAlgid",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpwszCNGHashAlgid",
+    "type": "PCWSTR*"
+   },
+   {
+    "name": "dwWeakIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA",
+  "typedef_name": "_CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA",
+  "pointer_alias": "PCRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA",
+  "Members": [
+   {
+    "name": "cOID",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpszOID",
+    "type": "LPSTR*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_SIGN_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_SIGN_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_SIGN_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "pSigningCert",
+    "type": "PCCERT_CONTEXT"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "cMsgCert",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpMsgCert",
+    "type": "PCCERT_CONTEXT*"
+   },
+   {
+    "name": "cMsgCrl",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpMsgCrl",
+    "type": "PCCRL_CONTEXT*"
+   },
+   {
+    "name": "cAuthAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgAuthAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   },
+   {
+    "name": "cUnauthAttr",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgUnauthAttr",
+    "type": "PCRYPT_ATTRIBUTE"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwInnerContentType",
+    "type": "DWORD"
+   },
+   {
+    "name": "CRYPT_SIGN_MESSAGE_PARA_HAS_CMS_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "pvHashEncryptionAuxInfo",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_VERIFY_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_VERIFY_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_VERIFY_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgAndCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "pfnGetSignerCertificate",
+    "type": "PFN_CRYPT_GET_SIGNER_CERTIFICATE"
+   },
+   {
+    "name": "pvGetArg",
+    "type": "void*"
+   },
+   {
+    "name": "CRYPT_VERIFY_MESSAGE_PARA_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ENCRYPT_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_ENCRYPT_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_ENCRYPT_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "ContentEncryptionAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvEncryptionAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwInnerContentType",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_DECRYPT_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_DECRYPT_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_DECRYPT_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgAndCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "cCertStore",
+    "type": "DWORD"
+   },
+   {
+    "name": "rghCertStore",
+    "type": "HCERTSTORE*"
+   },
+   {
+    "name": "CRYPT_DECRYPT_MESSAGE_PARA_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_HASH_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_HASH_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_HASH_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashAuxInfo",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_KEY_SIGN_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_KEY_SIGN_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_KEY_SIGN_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgAndCertEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "hCryptProv",
+      "type": "HCRYPTPROV"
+     },
+     {
+      "name": "hNCryptKey",
+      "type": "NCRYPT_KEY_HANDLE"
+     }
+    ]
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "pvHashAuxInfo",
+    "type": "void*"
+   },
+   {
+    "name": "PubKeyAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_KEY_VERIFY_MESSAGE_PARA",
+  "typedef_name": "_CRYPT_KEY_VERIFY_MESSAGE_PARA",
+  "pointer_alias": "PCRYPT_KEY_VERIFY_MESSAGE_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMsgEncodingType",
+    "type": "DWORD"
+   },
+   {
+    "name": "hCryptProv",
+    "type": "HCRYPTPROV_LEGACY"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN",
+  "typedef_name": "_CERT_CHAIN",
+  "pointer_alias": "PCERT_CHAIN",
+  "Members": [
+   {
+    "name": "cCerts",
+    "type": "DWORD"
+   },
+   {
+    "name": "certs",
+    "type": "PCERT_BLOB"
+   },
+   {
+    "name": "keyLocatorInfo",
+    "type": "CRYPT_KEY_PROV_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_BLOB_ARRAY",
+  "typedef_name": "_CRYPT_BLOB_ARRAY",
+  "pointer_alias": "PCRYPT_BLOB_ARRAY",
+  "Members": [
+   {
+    "name": "cBlob",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgBlob",
+    "type": "PCRYPT_DATA_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_CREDENTIALS",
+  "typedef_name": "_CRYPT_CREDENTIALS",
+  "pointer_alias": "PCRYPT_CREDENTIALS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszCredentialsOid",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "pvCredentials",
+    "type": "LPVOID"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PASSWORD_CREDENTIALSA",
+  "typedef_name": "_CRYPT_PASSWORD_CREDENTIALSA",
+  "pointer_alias": "PCRYPT_PASSWORD_CREDENTIALSA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszUsername",
+    "type": "LPSTR"
+   },
+   {
+    "name": "pszPassword",
+    "type": "LPSTR"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PASSWORD_CREDENTIALSW",
+  "typedef_name": "_CRYPT_PASSWORD_CREDENTIALSW",
+  "pointer_alias": "PCRYPT_PASSWORD_CREDENTIALSW",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszUsername",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pszPassword",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CRYPTNET_URL_CACHE_PRE_FETCH_INFO",
+  "typedef_name": "_CRYPTNET_URL_CACHE_PRE_FETCH_INFO",
+  "pointer_alias": "PCRYPTNET_URL_CACHE_PRE_FETCH_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwObjectType",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwError",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReserved",
+    "type": "DWORD"
+   },
+   {
+    "name": "ThisUpdateTime",
+    "type": "FILETIME"
+   },
+   {
+    "name": "NextUpdateTime",
+    "type": "FILETIME"
+   },
+   {
+    "name": "PublishTime",
+    "type": "FILETIME"
+   }
+  ]
+ },
+ {
+  "name": "CRYPTNET_URL_CACHE_FLUSH_INFO",
+  "typedef_name": "_CRYPTNET_URL_CACHE_FLUSH_INFO",
+  "pointer_alias": "PCRYPTNET_URL_CACHE_FLUSH_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwExemptSeconds",
+    "type": "DWORD"
+   },
+   {
+    "name": "ExpireTime",
+    "type": "FILETIME"
+   }
+  ]
+ },
+ {
+  "name": "CRYPTNET_URL_CACHE_RESPONSE_INFO",
+  "typedef_name": "_CRYPTNET_URL_CACHE_RESPONSE_INFO",
+  "pointer_alias": "PCRYPTNET_URL_CACHE_RESPONSE_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "wResponseType",
+    "type": "WORD"
+   },
+   {
+    "name": "wResponseFlags",
+    "type": "WORD"
+   },
+   {
+    "name": "LastModifiedTime",
+    "type": "FILETIME"
+   },
+   {
+    "name": "dwMaxAge",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszETag",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "dwProxyId",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_RETRIEVE_AUX_INFO",
+  "typedef_name": "_CRYPT_RETRIEVE_AUX_INFO",
+  "pointer_alias": "PCRYPT_RETRIEVE_AUX_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pLastSyncTime",
+    "type": "FILETIME*"
+   },
+   {
+    "name": "dwMaxUrlRetrievalByteCount",
+    "type": "DWORD"
+   },
+   {
+    "name": "pPreFetchInfo",
+    "type": "PCRYPTNET_URL_CACHE_PRE_FETCH_INFO"
+   },
+   {
+    "name": "pFlushInfo",
+    "type": "PCRYPTNET_URL_CACHE_FLUSH_INFO"
+   },
+   {
+    "name": "ppResponseInfo",
+    "type": "PCRYPTNET_URL_CACHE_RESPONSE_INFO*"
+   },
+   {
+    "name": "pwszCacheFileNamePrefix",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "pftCacheResync",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "fProxyCacheRetrieval",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwHttpStatusCode",
+    "type": "DWORD"
+   },
+   {
+    "name": "ppwszErrorResponseHeaders",
+    "type": "LPWSTR*"
+   },
+   {
+    "name": "ppErrorContentBlob",
+    "type": "PCRYPT_DATA_BLOB*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_ASYNC_RETRIEVAL_COMPLETION",
+  "typedef_name": "_CRYPT_ASYNC_RETRIEVAL_COMPLETION",
+  "pointer_alias": "PCRYPT_ASYNC_RETRIEVAL_COMPLETION",
+  "Members": [
+   {
+    "name": "PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC",
+    "type": "__callback"
+   },
+   {
+    "name": "LPVOID",
+    "type": "_Inout_opt_"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_URL_ARRAY",
+  "typedef_name": "_CRYPT_URL_ARRAY",
+  "pointer_alias": "PCRYPT_URL_ARRAY",
+  "Members": [
+   {
+    "name": "cUrl",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgwszUrl",
+    "type": "LPWSTR*"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_URL_INFO",
+  "typedef_name": "_CRYPT_URL_INFO",
+  "pointer_alias": "PCRYPT_URL_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwSyncDeltaTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "cGroup",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgcGroupEntry",
+    "type": "DWORD*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CRL_CONTEXT_PAIR",
+  "typedef_name": "_CERT_CRL_CONTEXT_PAIR",
+  "pointer_alias": "PCERT_CRL_CONTEXT_PAIR",
+  "Members": [
+   {
+    "name": "pCertContext",
+    "type": "PCCERT_CONTEXT"
+   },
+   {
+    "name": "pCrlContext",
+    "type": "PCCRL_CONTEXT"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO",
+  "typedef_name": "_CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO",
+  "pointer_alias": "PCRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "iDeltaCrlIndicator",
+    "type": "int"
+   },
+   {
+    "name": "pftCacheResync",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pLastSyncTime",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pMaxAgeTime",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pChainPara",
+    "type": "PCERT_REVOCATION_CHAIN_PARA"
+   },
+   {
+    "name": "pDeltaCrlIndicator",
+    "type": "PCRYPT_INTEGER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_ENGINE_CONFIG",
+  "typedef_name": "_CERT_CHAIN_ENGINE_CONFIG",
+  "pointer_alias": "PCERT_CHAIN_ENGINE_CONFIG",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hRestrictedRoot",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "hRestrictedTrust",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "hRestrictedOther",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "cAdditionalStore",
+    "type": "DWORD"
+   },
+   {
+    "name": "rghAdditionalStore",
+    "type": "HCERTSTORE*"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwUrlRetrievalTimeout",
+    "type": "DWORD"
+   },
+   {
+    "name": "MaximumCachedCertificates",
+    "type": "DWORD"
+   },
+   {
+    "name": "CycleDetectionModulus",
+    "type": "DWORD"
+   },
+   {
+    "name": "hExclusiveRoot",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "hExclusiveTrustedPeople",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "dwExclusiveFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_TRUST_STATUS",
+  "typedef_name": "_CERT_TRUST_STATUS",
+  "pointer_alias": "PCERT_TRUST_STATUS",
+  "Members": [
+   {
+    "name": "dwErrorStatus",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwInfoStatus",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_REVOCATION_INFO",
+  "typedef_name": "_CERT_REVOCATION_INFO",
+  "pointer_alias": "PCERT_REVOCATION_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRevocationResult",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszRevocationOid",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "pvOidSpecificInfo",
+    "type": "LPVOID"
+   },
+   {
+    "name": "fHasFreshnessTime",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwFreshnessTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCrlInfo",
+    "type": "PCERT_REVOCATION_CRL_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CERT_TRUST_LIST_INFO",
+  "typedef_name": "_CERT_TRUST_LIST_INFO",
+  "pointer_alias": "PCERT_TRUST_LIST_INFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCtlEntry",
+    "type": "PCTL_ENTRY"
+   },
+   {
+    "name": "pCtlContext",
+    "type": "PCCTL_CONTEXT"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_ELEMENT",
+  "typedef_name": "_CERT_CHAIN_ELEMENT",
+  "pointer_alias": "PCERT_CHAIN_ELEMENT",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pCertContext",
+    "type": "PCCERT_CONTEXT"
+   },
+   {
+    "name": "TrustStatus",
+    "type": "CERT_TRUST_STATUS"
+   },
+   {
+    "name": "pRevocationInfo",
+    "type": "PCERT_REVOCATION_INFO"
+   },
+   {
+    "name": "pIssuanceUsage",
+    "type": "PCERT_ENHKEY_USAGE"
+   },
+   {
+    "name": "pApplicationUsage",
+    "type": "PCERT_ENHKEY_USAGE"
+   },
+   {
+    "name": "pwszExtendedErrorInfo",
+    "type": "LPCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SIMPLE_CHAIN",
+  "typedef_name": "_CERT_SIMPLE_CHAIN",
+  "pointer_alias": "PCERT_SIMPLE_CHAIN",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "TrustStatus",
+    "type": "CERT_TRUST_STATUS"
+   },
+   {
+    "name": "cElement",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgpElement",
+    "type": "PCERT_CHAIN_ELEMENT*"
+   },
+   {
+    "name": "pTrustListInfo",
+    "type": "PCERT_TRUST_LIST_INFO"
+   },
+   {
+    "name": "fHasRevocationFreshnessTime",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwRevocationFreshnessTime",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_USAGE_MATCH",
+  "typedef_name": "_CERT_USAGE_MATCH",
+  "pointer_alias": "PCERT_USAGE_MATCH",
+  "Members": [
+   {
+    "name": "dwType",
+    "type": "DWORD"
+   },
+   {
+    "name": "Usage",
+    "type": "CERT_ENHKEY_USAGE"
+   }
+  ]
+ },
+ {
+  "name": "CTL_USAGE_MATCH",
+  "typedef_name": "_CTL_USAGE_MATCH",
+  "pointer_alias": "PCTL_USAGE_MATCH",
+  "Members": [
+   {
+    "name": "dwType",
+    "type": "DWORD"
+   },
+   {
+    "name": "Usage",
+    "type": "CTL_USAGE"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_PARA",
+  "typedef_name": "_CERT_CHAIN_PARA",
+  "pointer_alias": "PCERT_CHAIN_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "RequestedUsage",
+    "type": "CERT_USAGE_MATCH"
+   },
+   {
+    "name": "CERT_CHAIN_PARA_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "dwUrlRetrievalTimeout",
+    "type": "DWORD"
+   },
+   {
+    "name": "fCheckRevocationFreshnessTime",
+    "type": "BOOL"
+   },
+   {
+    "name": "dwRevocationFreshnessTime",
+    "type": "DWORD"
+   },
+   {
+    "name": "pftCacheResync",
+    "type": "LPFILETIME"
+   },
+   {
+    "name": "pStrongSignPara",
+    "type": "PCCERT_STRONG_SIGN_PARA"
+   },
+   {
+    "name": "dwStrongSignFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRL_REVOCATION_INFO",
+  "typedef_name": "_CRL_REVOCATION_INFO",
+  "pointer_alias": "PCRL_REVOCATION_INFO",
+  "Members": [
+   {
+    "name": "pCrlEntry",
+    "type": "PCRL_ENTRY"
+   },
+   {
+    "name": "pCrlContext",
+    "type": "PCCRL_CONTEXT"
+   },
+   {
+    "name": "pCrlIssuerChain",
+    "type": "PCCERT_CHAIN_CONTEXT"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_FIND_ISSUER_PARA",
+  "typedef_name": "_CERT_CHAIN_FIND_BY_ISSUER_PARA",
+  "pointer_alias": "PCERT_CHAIN_FIND_ISSUER_PARA",
+  "_pointer_alias": "ERT_CHAIN_FIND_BY_ISSUER_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszUsageIdentifier",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "dwKeySpec",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwAcquirePrivateKeyFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "cIssuer",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgIssuer",
+    "type": "CERT_NAME_BLOB*"
+   },
+   {
+    "name": "pfnFindCallback",
+    "type": "PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK"
+   },
+   {
+    "name": "pvFindArg",
+    "type": "void*"
+   },
+   {
+    "name": "CERT_CHAIN_FIND_BY_ISSUER_PARA_HAS_EXTRA_FIELDS",
+    "type": "ifdef"
+   },
+   {
+    "name": "pdwIssuerElementIndex",
+    "type": "DWORD*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PCERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "pvExtraPolicyPara",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "CERT_CHAIN_POLICY_STATUS",
+  "typedef_name": "_CERT_CHAIN_POLICY_STATUS",
+  "pointer_alias": "PCERT_CHAIN_POLICY_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwError",
+    "type": "DWORD"
+   },
+   {
+    "name": "lChainIndex",
+    "type": "LONG"
+   },
+   {
+    "name": "lElementIndex",
+    "type": "LONG"
+   },
+   {
+    "name": "pvExtraPolicyStatus",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PAUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRegPolicySettings",
+    "type": "DWORD"
+   },
+   {
+    "name": "pSignerInfo",
+    "type": "PCMSG_SIGNER_INFO"
+   }
+  ]
+ },
+ {
+  "name": "AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "typedef_name": "_AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "pointer_alias": "PAUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "fCommercial",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PAUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRegPolicySettings",
+    "type": "DWORD"
+   },
+   {
+    "name": "fCommercial",
+    "type": "BOOL"
+   }
+  ]
+ },
+ {
+  "name": "HTTPSPolicyCallbackData",
+  "typedef_name": "_HTTPSPolicyCallbackData",
+  "pointer_alias": "PHTTPSPolicyCallbackData",
+  "_pointer_alias": "SL_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "DUMMYUNIONNAME",
+    "type": "_union",
+    "body": [
+     {
+      "name": "cbStruct",
+      "type": "DWORD"
+     },
+     {
+      "name": "cbSize",
+      "type": "DWORD"
+     }
+    ]
+   },
+   {
+    "name": "dwAuthType",
+    "type": "DWORD"
+   },
+   {
+    "name": "AUTHTYPE_CLIENT",
+    "type": "define"
+   },
+   {
+    "name": "pwszServerName",
+    "type": "WCHAR*"
+   }
+  ]
+ },
+ {
+  "name": "EV_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_EV_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PEV_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwRootProgramQualifierFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "EV_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "typedef_name": "_EV_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "pointer_alias": "PEV_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwQualifiers",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwIssuanceUsageIndex",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "typedef_name": "_SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "pointer_alias": "PSSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwErrorLevel",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwErrorCategory",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReserved",
+    "type": "DWORD"
+   },
+   {
+    "name": "wszErrorText",
+    "type": "WCHAR"
+   }
+  ]
+ },
+ {
+  "name": "SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PSSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReserved",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszServerName",
+    "type": "LPWSTR"
+   },
+   {
+    "name": "rgpszHpkpValue",
+    "type": "LPSTR"
+   }
+  ]
+ },
+ {
+  "name": "SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "typedef_name": "_SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "pointer_alias": "PSSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwReserved",
+    "type": "DWORD"
+   },
+   {
+    "name": "pwszServerName",
+    "type": "PCWSTR"
+   }
+  ]
+ },
+ {
+  "name": "SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "typedef_name": "_SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "pointer_alias": "PSSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "lError",
+    "type": "LONG"
+   },
+   {
+    "name": "wszErrorText",
+    "type": "WCHAR"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_PKCS12_PBE_PARAMS",
+  "typedef_name": "_CRYPT_PKCS12_PBE_PARAMS",
+  "Members": [
+   {
+    "name": "iIterations",
+    "type": "int"
+   },
+   {
+    "name": "cbSalt",
+    "type": "ULONG"
+   }
+  ]
+ },
+ {
+  "name": "PKCS12_PBES2_EXPORT_PARAMS",
+  "typedef_name": "_PKCS12_PBES2_EXPORT_PARAMS",
+  "pointer_alias": "PPKCS12_PBES2_EXPORT_PARAMS",
+  "Members": [
+   {
+    "name": "dwSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "hNcryptDescriptor",
+    "type": "PVOID"
+   },
+   {
+    "name": "pwszPbes2Alg",
+    "type": "LPWSTR"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SERVER_OCSP_RESPONSE_OPEN_PARA",
+  "typedef_name": "_CERT_SERVER_OCSP_RESPONSE_OPEN_PARA",
+  "pointer_alias": "PCERT_SERVER_OCSP_RESPONSE_OPEN_PARA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "pcbUsedSize",
+    "type": "DWORD*"
+   },
+   {
+    "name": "pwszOcspDirectory",
+    "type": "PWSTR"
+   },
+   {
+    "name": "pfnUpdateCallback",
+    "type": "PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK"
+   },
+   {
+    "name": "pvUpdateCallbackArg",
+    "type": "PVOID"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SELECT_CHAIN_PARA",
+  "typedef_name": "_CERT_SELECT_CHAIN_PARA",
+  "pointer_alias": "PCERT_SELECT_CHAIN_PARA",
+  "Members": [
+   {
+    "name": "hChainEngine",
+    "type": "HCERTCHAINENGINE"
+   },
+   {
+    "name": "pTime",
+    "type": "PFILETIME"
+   },
+   {
+    "name": "hAdditionalStore",
+    "type": "HCERTSTORE"
+   },
+   {
+    "name": "pChainPara",
+    "type": "PCERT_CHAIN_PARA"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CERT_SELECT_CRITERIA",
+  "typedef_name": "_CERT_SELECT_CRITERIA",
+  "pointer_alias": "PCERT_SELECT_CRITERIA",
+  "Members": [
+   {
+    "name": "dwType",
+    "type": "DWORD"
+   },
+   {
+    "name": "cPara",
+    "type": "DWORD"
+   },
+   {
+    "name": "ppPara",
+    "type": "void**"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_REQUEST",
+  "typedef_name": "_CRYPT_TIMESTAMP_REQUEST",
+  "pointer_alias": "PCRYPT_TIMESTAMP_REQUEST",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "HashedMessage",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "pszTSAPolicyId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "Nonce",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "fCertReq",
+    "type": "BOOL"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_RESPONSE",
+  "typedef_name": "_CRYPT_TIMESTAMP_RESPONSE",
+  "pointer_alias": "PCRYPT_TIMESTAMP_RESPONSE",
+  "Members": [
+   {
+    "name": "dwStatus",
+    "type": "DWORD"
+   },
+   {
+    "name": "cFreeText",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgFreeText",
+    "type": "LPWSTR*"
+   },
+   {
+    "name": "FailureInfo",
+    "type": "CRYPT_BIT_BLOB"
+   },
+   {
+    "name": "ContentInfo",
+    "type": "CRYPT_DER_BLOB"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_ACCURACY",
+  "typedef_name": "_CRYPT_TIMESTAMP_ACCURACY",
+  "pointer_alias": "PCRYPT_TIMESTAMP_ACCURACY",
+  "Members": [
+   {
+    "name": "dwSeconds",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMillis",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMicros",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_INFO",
+  "typedef_name": "_CRYPT_TIMESTAMP_INFO",
+  "pointer_alias": "PCRYPT_TIMESTAMP_INFO",
+  "Members": [
+   {
+    "name": "dwVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszTSAPolicyId",
+    "type": "LPSTR"
+   },
+   {
+    "name": "HashAlgorithm",
+    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+   },
+   {
+    "name": "HashedMessage",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "SerialNumber",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "ftTime",
+    "type": "FILETIME"
+   },
+   {
+    "name": "pvAccuracy",
+    "type": "PCRYPT_TIMESTAMP_ACCURACY"
+   },
+   {
+    "name": "fOrdering",
+    "type": "BOOL"
+   },
+   {
+    "name": "Nonce",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "Tsa",
+    "type": "CRYPT_DER_BLOB"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_CONTEXT",
+  "typedef_name": "_CRYPT_TIMESTAMP_CONTEXT",
+  "pointer_alias": "PCRYPT_TIMESTAMP_CONTEXT",
+  "Members": [
+   {
+    "name": "cbEncoded",
+    "type": "DWORD"
+   },
+   {
+    "name": "pbEncoded",
+    "type": "BYTE*"
+   },
+   {
+    "name": "pTimeStamp",
+    "type": "PCRYPT_TIMESTAMP_INFO"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_TIMESTAMP_PARA",
+  "typedef_name": "_CRYPT_TIMESTAMP_PARA",
+  "pointer_alias": "PCRYPT_TIMESTAMP_PARA",
+  "Members": [
+   {
+    "name": "pszTSAPolicyId",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "fRequestCerts",
+    "type": "BOOL"
+   },
+   {
+    "name": "Nonce",
+    "type": "CRYPT_INTEGER_BLOB"
+   },
+   {
+    "name": "cExtension",
+    "type": "DWORD"
+   },
+   {
+    "name": "rgExtension",
+    "type": "PCERT_EXTENSION"
+   }
+  ]
+ },
+ {
+  "name": "CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE",
+  "typedef_name": "_CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE",
+  "pointer_alias": "PCRYPT_OBJECT_LOCATOR_PROVIDER_TABLE",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pfnGet",
+    "type": "PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET"
+   },
+   {
+    "name": "pfnRelease",
+    "type": "PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE"
+   },
+   {
+    "name": "pfnFreePassword",
+    "type": "PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD"
+   },
+   {
+    "name": "pfnFree",
+    "type": "PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE"
+   },
+   {
+    "name": "pfnFreeIdentifier",
+    "type": "PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER"
+   }
+  ]
+ },
+ {
   "name": "WINHTTP_ASYNC_RESULT",
   "pointer_alias": "LPWINHTTP_ASYNC_RESULT",
   "Members": [

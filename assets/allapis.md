@@ -230,3 +230,18 @@ FindNextFileW
 
 VirtualProtect
 VirtualProtectEx
+
+CryptDecrypt
+CryptEncrypt
+CryptCreateHash
+CryptHashData
+CryptDeriveKey
+CryptSetKeyParam
+CryptGetHashParam
+CryptSetKeyParam
+CryptDestroyKey
+CryptGenRandom
+EncryptFileA
+EncryptFileW
+DecryptFileA
+DecryptFileW

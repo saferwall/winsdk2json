@@ -1,6 +1,8 @@
 BCryptDecrypt
 BCryptEncrypt
 BCryptHashData
+CryptAcquireContextA
+CryptAcquireContextW
 CloseHandle
 CopyFileA
 CopyFileExW
@@ -69,6 +71,11 @@ VirtualQuery
 VirtualQueryEx
 CreateProcessA
 CreateProcessW
+CreateProcessAsUserA
+CreateProcessAsUserW
+CreateProcessWithTokenW
+CreateProcessInternalA
+CreateProcessInternalW
 CreateThread
 ResumeThread
 GetThreadContext
