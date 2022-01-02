@@ -15,6 +15,8 @@ CreateFileA
 CreateFileW
 DeleteFileA
 DeleteFileW
+SetFileAttributesA
+SetFileAttributesW
 GetProcAddress
 LoadLibraryA
 LoadLibraryExA
@@ -22,6 +24,8 @@ LoadLibraryExW
 LoadLibraryW
 MoveFileA
 MoveFileW
+MoveFileExA
+MoveFileExW
 RegCloseKey
 RegCreateKeyA
 RegCreateKeyExA
@@ -162,4 +166,9 @@ ShellExecuteA
 ShellExecuteW
 ShellExecuteExA
 ShellExecuteExW
-SHEmptyRecycleBinW
+lstrcmpW
+Wow64DisableWow64FsRedirection
+Wow64RevertWow64FsRedirection
+GetSystemInfo
+CreateSemaphoreA
+CreateSemaphoreExA

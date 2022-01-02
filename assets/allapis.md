@@ -245,3 +245,7 @@ EncryptFileA
 EncryptFileW
 DecryptFileA
 DecryptFileW
+
+SetProcessValidCallTargets // disable CFG
+
+babuk: QueryServiceStatusExW / EnumDependentServices / CloseServiceHandle / SHEmptyRecycleBinW

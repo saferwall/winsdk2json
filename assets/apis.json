@@ -2391,6 +2391,70 @@
     }
    ]
   },
+  "CreateSemaphoreA": {
+   "callconv": "WINAPI",
+   "name": "CreateSemaphoreA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSemaphoreAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "LONG",
+     "name": "lInitialCount"
+    },
+    {
+     "anno": "_In_",
+     "type": "LONG",
+     "name": "lMaximumCount"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "CreateSemaphoreExA": {
+   "callconv": "WINAPI",
+   "name": "CreateSemaphoreExA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpSemaphoreAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "LONG",
+     "name": "lInitialCount"
+    },
+    {
+     "anno": "_In_",
+     "type": "LONG",
+     "name": "lMaximumCount"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    }
+   ]
+  },
   "CreateThread": {
    "callconv": "WINAPI",
    "name": "CreateThread",
@@ -2652,6 +2716,18 @@
    "name": "GetProcessHeap",
    "retVal": "HANDLE",
    "params": []
+  },
+  "GetSystemInfo": {
+   "callconv": "WINAPI",
+   "name": "GetSystemInfo",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEM_INFO",
+     "name": "lpSystemInfo"
+    }
+   ]
   },
   "GetThreadContext": {
    "callconv": "WINAPI",
@@ -2920,6 +2996,50 @@
     }
    ]
   },
+  "MoveFileExA": {
+   "callconv": "WINAPI",
+   "name": "MoveFileExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "MoveFileExW": {
+   "callconv": "WINAPI",
+   "name": "MoveFileExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
   "MoveFileW": {
    "callconv": "WINAPI",
    "name": "MoveFileW",
@@ -3090,6 +3210,40 @@
      "anno": "_In_",
      "type": "HANDLE",
      "name": "hThread"
+    }
+   ]
+  },
+  "SetFileAttributesA": {
+   "callconv": "WINAPI",
+   "name": "SetFileAttributesA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileAttributes"
+    }
+   ]
+  },
+  "SetFileAttributesW": {
+   "callconv": "WINAPI",
+   "name": "SetFileAttributesW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileAttributes"
     }
    ]
   },
@@ -3381,6 +3535,47 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwLength"
+    }
+   ]
+  },
+  "Wow64DisableWow64FsRedirection": {
+   "callconv": "WINAPI",
+   "name": "Wow64DisableWow64FsRedirection",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "PVOID*",
+     "name": "OldValue"
+    }
+   ]
+  },
+  "Wow64RevertWow64FsRedirection": {
+   "callconv": "WINAPI",
+   "name": "Wow64RevertWow64FsRedirection",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "PVOID",
+     "name": "OlValue"
+    }
+   ]
+  },
+  "lstrcmpW": {
+   "callconv": "WINAPI",
+   "name": "lstrcmpW",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpString1"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpString2"
     }
    ]
   }

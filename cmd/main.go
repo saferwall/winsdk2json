@@ -122,7 +122,7 @@ func main() {
 	var interestingHeaders = []string{
 		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h",
 		"\\winbase.h", "\\urlmon.h", "\\memoryapi.h", "\\tlhelp32.h", "\\debugapi.h",
-		"\\handleapi.h", "\\heapapi.h", "\\winsvc.h", "\\wincrypt.h",
+		"\\handleapi.h", "\\heapapi.h", "\\winsvc.h", "\\wincrypt.h", "\\wow64apiset.h",
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
@@ -220,7 +220,7 @@ func main() {
 	// Marshall and write to json file.
 	if len(m) > 0 {
 		data, _ := json.MarshalIndent(m, "", " ")
-		_, err = utils.WriteBytesFile("../json/apis.json", bytes.NewReader(data))
+		_, err = utils.WriteBytesFile("../assets/apis.json", bytes.NewReader(data))
 		if err != nil {
 			log.Fatalf("Failed to dump apis.json")
 		}
@@ -229,7 +229,7 @@ func main() {
 	// Write struct results.
 	utils.WriteStrSliceToFile("../dump/winstructs.h", winStructsRaw)
 	d, _ := json.MarshalIndent(winStructs, "", " ")
-	utils.WriteBytesFile("../json/structs.json", bytes.NewReader(d))
+	utils.WriteBytesFile("../assets/structs.json", bytes.NewReader(d))
 
 	if *printretval {
 		for dll, v := range m {
@@ -250,7 +250,7 @@ func main() {
 	parser.InitCustomTypes(winStructs)
 
 	if *printanno || *minify {
-		data, err := utils.ReadAll("../json/apis.json")
+		data, err := utils.ReadAll("../assets/apis.json")
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -283,11 +283,11 @@ func main() {
 		if *minify {
 			// Minifi APIs.
 			data, _ := json.Marshal(parser.MinifyAPIs(apis))
-			utils.WriteBytesFile("../json/mini-apis.json", bytes.NewReader(data))
+			utils.WriteBytesFile("../assets/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.
 			data, _ = json.Marshal(parser.MinifyStructAndUnions(winStructs))
-			utils.WriteBytesFile("../json/mini-structs.json", bytes.NewReader(data))
+			utils.WriteBytesFile("../assets/mini-structs.json", bytes.NewReader(data))
 		}
 		os.Exit(0)
 	}

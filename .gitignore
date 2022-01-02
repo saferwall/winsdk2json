@@ -15,3 +15,9 @@
 # vendor/
 dump/
 json/
+
+# Code Coverage
+coverage
+
+# Debug logs
+debug.log
