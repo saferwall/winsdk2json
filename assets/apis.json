@@ -2664,6 +2664,40 @@
     }
    ]
   },
+  "GetFileSize": {
+   "callconv": "WINAPI",
+   "name": "GetFileSize",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpFileSizeHigh"
+    }
+   ]
+  },
+  "GetFileSizeEx": {
+   "callconv": "WINAPI",
+   "name": "GetFileSizeEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PLARGE_INTEGER",
+     "name": "lpFileSize"
+    }
+   ]
+  },
   "GetLogicalDrives": {
    "callconv": "WINAPI",
    "name": "GetLogicalDrives",

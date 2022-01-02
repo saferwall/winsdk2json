@@ -172,3 +172,5 @@ Wow64RevertWow64FsRedirection
 GetSystemInfo
 CreateSemaphoreA
 CreateSemaphoreExA
+GetFileSize
+GetFileSizeEx
