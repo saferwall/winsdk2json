@@ -293,6 +293,15 @@
         { "anno": 0, "type": 0, "name": "dwFlags", "buffsize_or_idx": 4 }
       ]
     },
+    "CryptGenRandom": {
+      "retType": false,
+      "p_count": 3,
+      "params": [
+        { "anno": 0, "type": 8, "name": "hProv", "buffsize_or_idx": 0 },
+        { "anno": 0, "type": 0, "name": "dwLen", "buffsize_or_idx": 4 },
+        { "anno": 0, "type": 7, "name": "pbBuffer", "buffsize_or_idx": 1 }
+      ]
+    },
     "DuplicateToken": {
       "retType": false,
       "p_count": 3,
@@ -1986,6 +1995,46 @@
         }
       ]
     },
+    "SetFilePointer": {
+      "retType": false,
+      "p_count": 4,
+      "params": [
+        { "anno": 0, "type": 8, "name": "hFile", "buffsize_or_idx": 0 },
+        {
+          "anno": 0,
+          "type": 0,
+          "name": "lDistanceToMove",
+          "buffsize_or_idx": 4
+        },
+        {
+          "anno": 0,
+          "type": 1,
+          "name": "lpDistanceToMoveHigh",
+          "buffsize_or_idx": 4
+        },
+        { "anno": 0, "type": 0, "name": "dwMoveMethod", "buffsize_or_idx": 4 }
+      ]
+    },
+    "SetFilePointerEx": {
+      "retType": false,
+      "p_count": 4,
+      "params": [
+        { "anno": 0, "type": 8, "name": "hFile", "buffsize_or_idx": 0 },
+        {
+          "anno": 0,
+          "type": 6,
+          "name": "liDistanceToMove",
+          "buffsize_or_idx": 0
+        },
+        {
+          "anno": 1,
+          "type": 6,
+          "name": "lpNewFilePointer",
+          "buffsize_or_idx": 0
+        },
+        { "anno": 0, "type": 0, "name": "dwMoveMethod", "buffsize_or_idx": 4 }
+      ]
+    },
     "SetThreadContext": {
       "retType": false,
       "p_count": 2,
@@ -2126,6 +2175,48 @@
       "p_count": 1,
       "params": [
         { "anno": 0, "type": 8, "name": "OlValue", "buffsize_or_idx": 0 }
+      ]
+    },
+    "WriteFile": {
+      "retType": false,
+      "p_count": 5,
+      "params": [
+        { "anno": 0, "type": 8, "name": "hFile", "buffsize_or_idx": 0 },
+        { "anno": 0, "type": 8, "name": "lpBuffer", "buffsize_or_idx": 0 },
+        {
+          "anno": 0,
+          "type": 0,
+          "name": "nNumberOfBytesToWrite",
+          "buffsize_or_idx": 4
+        },
+        {
+          "anno": 1,
+          "type": 1,
+          "name": "lpNumberOfBytesWritten",
+          "buffsize_or_idx": 4
+        },
+        { "anno": 0, "type": 6, "name": "lpOverlapped", "buffsize_or_idx": 0 }
+      ]
+    },
+    "WriteFileEx": {
+      "retType": false,
+      "p_count": 5,
+      "params": [
+        { "anno": 0, "type": 8, "name": "hFile", "buffsize_or_idx": 0 },
+        { "anno": 0, "type": 8, "name": "lpBuffer", "buffsize_or_idx": 0 },
+        {
+          "anno": 0,
+          "type": 0,
+          "name": "nNumberOfBytesToWrite",
+          "buffsize_or_idx": 4
+        },
+        { "anno": 0, "type": 6, "name": "lpOverlapped", "buffsize_or_idx": 0 },
+        {
+          "anno": 0,
+          "type": 6,
+          "name": "lpCompletionRoutine",
+          "buffsize_or_idx": 0
+        }
       ]
     },
     "lstrcmpW": {

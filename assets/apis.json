@@ -460,6 +460,28 @@
     }
    ]
   },
+  "CryptGenRandom": {
+   "callconv": "WINAPI",
+   "name": "CryptGenRandom",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HCRYPTPROV",
+     "name": "hProv"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwLen"
+    },
+    {
+     "anno": "_Inout_updates_bytes_(dwLen)",
+     "type": "BYTE*",
+     "name": "pbBuffer"
+    }
+   ]
+  },
   "DuplicateToken": {
    "callconv": "WINAPI",
    "name": "DuplicateToken",
@@ -3281,6 +3303,60 @@
     }
    ]
   },
+  "SetFilePointer": {
+   "callconv": "WINAPI",
+   "name": "SetFilePointer",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "LONG",
+     "name": "lDistanceToMove"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "PLONG",
+     "name": "lpDistanceToMoveHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMoveMethod"
+    }
+   ]
+  },
+  "SetFilePointerEx": {
+   "callconv": "WINAPI",
+   "name": "SetFilePointerEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "LARGE_INTEGER",
+     "name": "liDistanceToMove"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "PLARGE_INTEGER",
+     "name": "lpNewFilePointer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMoveMethod"
+    }
+   ]
+  },
   "SetThreadContext": {
    "callconv": "WINAPI",
    "name": "SetThreadContext",
@@ -3593,6 +3669,70 @@
      "anno": "_In_",
      "type": "PVOID",
      "name": "OlValue"
+    }
+   ]
+  },
+  "WriteFile": {
+   "callconv": "WINAPI",
+   "name": "WriteFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(nNumberOfBytesToWrite)",
+     "type": "LPCVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToWrite"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpNumberOfBytesWritten"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    }
+   ]
+  },
+  "WriteFileEx": {
+   "callconv": "WINAPI",
+   "name": "WriteFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(nNumberOfBytesToWrite)",
+     "type": "LPCVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToWrite"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPOVERLAPPED_COMPLETION_ROUTINE",
+     "name": "lpCompletionRoutine"
     }
    ]
   },

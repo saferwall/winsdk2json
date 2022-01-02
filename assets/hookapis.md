@@ -1,6 +1,7 @@
 BCryptDecrypt
 BCryptEncrypt
 BCryptHashData
+CryptGenRandom
 CryptAcquireContextA
 CryptAcquireContextW
 CloseHandle
@@ -13,6 +14,8 @@ CreateDirectoryExW
 CreateDirectoryW
 CreateFileA
 CreateFileW
+WriteFile
+WriteFileEx
 DeleteFileA
 DeleteFileW
 SetFileAttributesA
@@ -174,3 +177,5 @@ CreateSemaphoreA
 CreateSemaphoreExA
 GetFileSize
 GetFileSizeEx
+SetFilePointer
+SetFilePointerEx
