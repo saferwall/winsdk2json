@@ -125,6 +125,8 @@ GetDriveTypeW
 GetVolumeInformationA
 GetVolumeInformationW
 GetVolumePathNamesForVolumeNameW
+SetVolumeMountPointA
+SetVolumeMountPointW
 FindFirstVolumeW
 FindNextVolumeW
 GetFileAttributesA
@@ -179,3 +181,8 @@ GetFileSize
 GetFileSizeEx
 SetFilePointer
 SetFilePointerEx
+ReadFile
+ReadFileEx
+WriteFile
+WriteFileEx
+IsWow64Process

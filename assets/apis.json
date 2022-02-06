@@ -2967,6 +2967,23 @@
     }
    ]
   },
+  "IsWow64Process": {
+   "callconv": "WINAPI",
+   "name": "IsWow64Process",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_Out_",
+     "type": "PBOOL",
+     "name": "Wow64Process"
+    }
+   ]
+  },
   "LoadLibraryA": {
    "callconv": "WINAPI",
    "name": "LoadLibraryA",
@@ -3225,6 +3242,70 @@
     }
    ]
   },
+  "ReadFile": {
+   "callconv": "WINAPI",
+   "name": "ReadFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(nNumberOfBytesToRead, *lpNumberOfBytesRead)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToRead"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpNumberOfBytesRead"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    }
+   ]
+  },
+  "ReadFileEx": {
+   "callconv": "WINAPI",
+   "name": "ReadFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_writes_bytes_opt_(nNumberOfBytesToRead)",
+     "type": "LPVOID",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToRead"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPOVERLAPPED_COMPLETION_ROUTINE",
+     "name": "lpCompletionRoutine"
+    }
+   ]
+  },
   "ReadProcessMemory": {
    "callconv": "WINAPI",
    "name": "ReadProcessMemory",
@@ -3371,6 +3452,40 @@
      "anno": "_In_",
      "type": "CONST CONTEXT*",
      "name": "lpContext"
+    }
+   ]
+  },
+  "SetVolumeMountPointA": {
+   "callconv": "WINAPI",
+   "name": "SetVolumeMountPointA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpszVolumeMountPoint"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpszVolumeName"
+    }
+   ]
+  },
+  "SetVolumeMountPointW": {
+   "callconv": "WINAPI",
+   "name": "SetVolumeMountPointW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszVolumeMountPoint"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpszVolumeName"
     }
    ]
   },

@@ -72,7 +72,7 @@ func main() {
 
 	// Parse arguments.
 	sdkumPath := flag.String("sdk", "", "The path to the windows sdk directory i.e C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\")
-	sdkapiPath := flag.String("sdk-api", "C:\\Code\\sdk-api", "The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
+	sdkapiPath := flag.String("sdk-api", "", "The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
 	hookapisPath := flag.String("hookapis", "..\\assets\\hookapis.md", "The path to a a text file thats defines which APIs to trace, new line separated.")
 	printretval := flag.Bool("printretval", false, "Print return value type for each API")
 	printanno := flag.Bool("printanno", false, "Print list of annotation values")
