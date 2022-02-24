@@ -1,5 +1,129 @@
 {
  "advapi32.dll": {
+  "ChangeServiceConfigA": {
+   "callconv": "WINAPI",
+   "name": "ChangeServiceConfigA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwServiceType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwStartType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwErrorControl"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpBinaryPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpLoadOrderGroup"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwTagId"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDependencies"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpServiceStartName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpPassword"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpDisplayName"
+    }
+   ]
+  },
+  "ChangeServiceConfigW": {
+   "callconv": "WINAPI",
+   "name": "ChangeServiceConfigW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hService"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwServiceType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwStartType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwErrorControl"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpBinaryPathName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpLoadOrderGroup"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpdwTagId"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDependencies"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpServiceStartName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpPassword"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpDisplayName"
+    }
+   ]
+  },
   "ControlService": {
    "callconv": "WINAPI",
    "name": "ControlService",
@@ -582,6 +706,80 @@
      "anno": "_In_",
      "type": "HANDLE",
      "name": "hToken"
+    }
+   ]
+  },
+  "InitiateSystemShutdownExA": {
+   "callconv": "APIENTRY",
+   "name": "InitiateSystemShutdownExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSTR",
+     "name": "lpMachineName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSTR",
+     "name": "lpMessage"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwTimeout"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bForceAppsClosed"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bRebootAfterShutdown"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwReason"
+    }
+   ]
+  },
+  "InitiateSystemShutdownExW": {
+   "callconv": "APIENTRY",
+   "name": "InitiateSystemShutdownExW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPWSTR",
+     "name": "lpMachineName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPWSTR",
+     "name": "lpMessage"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwTimeout"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bForceAppsClosed"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bRebootAfterShutdown"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwReason"
     }
    ]
   },
@@ -2117,6 +2315,60 @@
     }
    ]
   },
+  "CreateEventA": {
+   "callconv": "WINAPI",
+   "name": "CreateEventA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpEventAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bManualReset"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInitialState"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "CreateEventW": {
+   "callconv": "WINAPI",
+   "name": "CreateEventW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpEventAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bManualReset"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInitialState"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    }
+   ]
+  },
   "CreateFileA": {
    "callconv": "WINAPI",
    "name": "CreateFileA",
@@ -2555,6 +2807,53 @@
     }
    ]
   },
+  "DeviceIoControl": {
+   "callconv": "WINAPI",
+   "name": "DeviceIoControl",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hDevice"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwIoControlCode"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(nInBufferSize)",
+     "type": "LPVOID",
+     "name": "lpInBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nInBufferSize"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(nOutBufferSize,*lpBytesReturned)",
+     "type": "LPVOID",
+     "name": "lpOutBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nOutBufferSize"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpBytesReturned"
+    },
+    {
+     "anno": "_Inout_opt_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    }
+   ]
+  },
   "FindFirstVolumeW": {
    "callconv": "WINAPI",
    "name": "FindFirstVolumeW",
@@ -2591,6 +2890,114 @@
      "anno": "_In_",
      "type": "DWORD",
      "name": "cchBufferLength"
+    }
+   ]
+  },
+  "FindResourceA": {
+   "callconv": "WINAPI",
+   "name": "FindResourceA",
+   "retVal": "HRSRC",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HMODULE",
+     "name": "hModule"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpType"
+    }
+   ]
+  },
+  "FindResourceW": {
+   "callconv": "WINAPI",
+   "name": "FindResourceW",
+   "retVal": "HRSRC",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HMODULE",
+     "name": "hModule"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpType"
+    }
+   ]
+  },
+  "GetDiskFreeSpaceA": {
+   "callconv": "WINAPI",
+   "name": "GetDiskFreeSpaceA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpRootPathName"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpSectorsPerCluster"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpBytesPerSector"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpNumberOfFreeClusters"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpTotalNumberOfClusters"
+    }
+   ]
+  },
+  "GetDiskFreeSpaceW": {
+   "callconv": "WINAPI",
+   "name": "GetDiskFreeSpaceW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpRootPathName"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpSectorsPerCluster"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpBytesPerSector"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpNumberOfFreeClusters"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPDWORD",
+     "name": "lpTotalNumberOfClusters"
     }
    ]
   },
@@ -2683,6 +3090,23 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpFileName"
+    }
+   ]
+  },
+  "GetFileInformationByHandle": {
+   "callconv": "WINAPI",
+   "name": "GetFileInformationByHandle",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPBY_HANDLE_FILE_INFORMATION",
+     "name": "lpFileInformation"
     }
    ]
   },
@@ -2782,6 +3206,18 @@
      "anno": "_Out_",
      "type": "LPSYSTEM_INFO",
      "name": "lpSystemInfo"
+    }
+   ]
+  },
+  "GetSystemTimeAsFileTime": {
+   "callconv": "WINAPI",
+   "name": "GetSystemTimeAsFileTime",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPFILETIME",
+     "name": "lpSystemTimeAsFileTime"
     }
    ]
   },
@@ -3049,6 +3485,35 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpLibFileName"
+    }
+   ]
+  },
+  "LoadResource": {
+   "callconv": "WINAPI",
+   "name": "LoadResource",
+   "retVal": "HGLOBAL",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HMODULE",
+     "name": "hModule"
+    },
+    {
+     "anno": "_In_",
+     "type": "HRSRC",
+     "name": "hResInfo"
+    }
+   ]
+  },
+  "LockResource": {
+   "callconv": "WINAPI",
+   "name": "LockResource",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HGLOBAL",
+     "name": "hResData"
     }
    ]
   },
@@ -3455,6 +3920,23 @@
     }
    ]
   },
+  "SetThreadPriority": {
+   "callconv": "WINAPI",
+   "name": "SetThreadPriority",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hThread"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "nPriority"
+    }
+   ]
+  },
   "SetVolumeMountPointA": {
    "callconv": "WINAPI",
    "name": "SetVolumeMountPointA",
@@ -3486,6 +3968,23 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpszVolumeName"
+    }
+   ]
+  },
+  "SizeofResource": {
+   "callconv": "WINAPI",
+   "name": "SizeofResource",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "HMODULE",
+     "name": "hModule"
+    },
+    {
+     "anno": "_In_",
+     "type": "HRSRC",
+     "name": "hResInfo"
     }
    ]
   },
@@ -3549,6 +4048,50 @@
      "anno": "_In_",
      "type": "LPTHREADENTRY32",
      "name": "lpte"
+    }
+   ]
+  },
+  "VerifyVersionInfoA": {
+   "callconv": "WINAPI",
+   "name": "VerifyVersionInfoA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "LPOSVERSIONINFOEXA",
+     "name": "lpVersionInformation"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwTypeMask"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORDLONG",
+     "name": "dwlConditionMask"
+    }
+   ]
+  },
+  "VerifyVersionInfoW": {
+   "callconv": "WINAPI",
+   "name": "VerifyVersionInfoW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "LPOSVERSIONINFOEXW",
+     "name": "lpVersionInformation"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwTypeMask"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORDLONG",
+     "name": "dwlConditionMask"
     }
    ]
   },
@@ -3941,6 +4484,78 @@
      "anno": "_In_",
      "type": "INT",
      "name": "nShowCmd"
+    }
+   ]
+  }
+ },
+ "shlwapi.dll": {
+  "PathFileExistsA": {
+   "callconv": "LWSTDAPI",
+   "name": "PathFileExistsA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "pszPath"
+    }
+   ]
+  },
+  "PathFileExistsW": {
+   "callconv": "LWSTDAPI",
+   "name": "PathFileExistsW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "pszPath"
+    }
+   ]
+  },
+  "PathFindExtensionA": {
+   "callconv": "LWSTDAPI",
+   "name": "PathFindExtensionA",
+   "retVal": "LPCSTR",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "pszPath"
+    }
+   ]
+  },
+  "StrStrA": {
+   "callconv": "LWSTDAPI",
+   "name": "StrStrA",
+   "retVal": "PCSTR",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "PCSTR",
+     "name": "pszFirst"
+    },
+    {
+     "anno": "_In_",
+     "type": "PCSTR",
+     "name": "pszSrch"
+    }
+   ]
+  },
+  "StrStrW": {
+   "callconv": "LWSTDAPI",
+   "name": "StrStrW",
+   "retVal": "PCWSTR",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "PCWSTR",
+     "name": "pszFirst"
+    },
+    {
+     "anno": "_In_",
+     "type": "PCWSTR",
+     "name": "pszSrch"
     }
    ]
   }

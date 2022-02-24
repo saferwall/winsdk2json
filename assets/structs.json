@@ -1267,6 +1267,126 @@
   "Members": null
  },
  {
+  "name": "PARSEDURLA",
+  "typedef_name": "tagPARSEDURLA",
+  "pointer_alias": "PPARSEDURLA",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszProtocol",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "cchProtocol",
+    "type": "UINT"
+   },
+   {
+    "name": "pszSuffix",
+    "type": "LPCSTR"
+   },
+   {
+    "name": "cchSuffix",
+    "type": "UINT"
+   },
+   {
+    "name": "nScheme",
+    "type": "UINT"
+   }
+  ]
+ },
+ {
+  "name": "PARSEDURLW",
+  "typedef_name": "tagPARSEDURLW",
+  "pointer_alias": "PPARSEDURLW",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "pszProtocol",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "cchProtocol",
+    "type": "UINT"
+   },
+   {
+    "name": "pszSuffix",
+    "type": "LPCWSTR"
+   },
+   {
+    "name": "cchSuffix",
+    "type": "UINT"
+   },
+   {
+    "name": "nScheme",
+    "type": "UINT"
+   }
+  ]
+ },
+ {
+  "name": "QITAB",
+  "pointer_alias": "LPQITAB",
+  "Members": [
+   {
+    "name": "IID",
+    "type": "const"
+   },
+   {
+    "name": "dwOffset",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "DLLVERSIONINFO",
+  "typedef_name": "_DLLVERSIONINFO",
+  "Members": [
+   {
+    "name": "cbSize",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMajorVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwMinorVersion",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwBuildNumber",
+    "type": "DWORD"
+   },
+   {
+    "name": "dwPlatformID",
+    "type": "DWORD"
+   }
+  ]
+ },
+ {
+  "name": "DLLVERSIONINFO2",
+  "typedef_name": "_DLLVERSIONINFO2",
+  "Members": [
+   {
+    "name": "info1",
+    "type": "DLLVERSIONINFO"
+   },
+   {
+    "name": "dwFlags",
+    "type": "DWORD"
+   },
+   {
+    "name": "ullVersion",
+    "type": "ULONGLONG"
+   }
+  ]
+ },
+ {
   "name": "HEAPLIST32",
   "typedef_name": "tagHEAPLIST32",
   "Members": [

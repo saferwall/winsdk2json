@@ -123,8 +123,8 @@ func main() {
 		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h",
 		"\\winbase.h", "\\urlmon.h", "\\memoryapi.h", "\\tlhelp32.h", "\\debugapi.h",
 		"\\handleapi.h", "\\heapapi.h", "\\winsvc.h", "\\wincrypt.h", "\\wow64apiset.h",
-		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h",
-		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h",
+		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
+		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
 	}
 
@@ -174,7 +174,7 @@ func main() {
 			prototype = standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "ShellExecuteW") {
+			if strings.Contains(v, "StrStr") {
 				log.Print()
 			}
 
@@ -182,6 +182,18 @@ func main() {
 			if strings.HasPrefix(prototype, "SHSTDAPI_(HINSTANCE)") {
 				prototype = strings.ReplaceAll(prototype, "SHSTDAPI_(HINSTANCE)", "")
 				prototype = "HINSTANCE SHSTDAPI" + prototype
+			} else if strings.HasPrefix(prototype, "LWSTDAPI_(LPCSTR)") {
+				prototype = strings.ReplaceAll(prototype, "LWSTDAPI_(LPCSTR)", "")
+				prototype = "LPCSTR LWSTDAPI" + prototype
+			} else if strings.HasPrefix(prototype, "LWSTDAPI_(BOOL)") {
+				prototype = strings.ReplaceAll(prototype, "LWSTDAPI_(BOOL)", "")
+				prototype = "BOOL LWSTDAPI" + prototype
+			} else if strings.HasPrefix(prototype, "LWSTDAPI_(PCSTR)") {
+				prototype = strings.ReplaceAll(prototype, "LWSTDAPI_(PCSTR)", "")
+				prototype = "PCSTR LWSTDAPI" + prototype
+			} else if strings.HasPrefix(prototype, "LWSTDAPI_(PCWSTR)") {
+				prototype = strings.ReplaceAll(prototype, "LWSTDAPI_(PCWSTR)", "")
+				prototype = "PCWSTR LWSTDAPI" + prototype
 			}
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
 			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {
