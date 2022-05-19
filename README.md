@@ -37,6 +37,12 @@ The malware sandbox hooking module makes use of this to implement a generic hook
 
 - SAL annotations
 - Some Windows APIs does not have a ANSI alternative: i.e OpenMutexW
+
 ## Challenges
 
 - Not a consistent way of defines functions prototypes or structs.
+
+## References
+
+- https://github.com/microsoft/win32metadata
+- https://github.com/BehroozAbbassi/sdkffi

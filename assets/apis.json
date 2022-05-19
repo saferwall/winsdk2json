@@ -2937,6 +2937,18 @@
     }
    ]
   },
+  "FlushFileBuffers": {
+   "callconv": "WINAPI",
+   "name": "FlushFileBuffers",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    }
+   ]
+  },
   "GetDiskFreeSpaceA": {
    "callconv": "WINAPI",
    "name": "GetDiskFreeSpaceA",
@@ -3144,6 +3156,23 @@
     }
    ]
   },
+  "GetLogicalDriveStringsW": {
+   "callconv": "WINAPI",
+   "name": "GetLogicalDriveStringsW",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    }
+   ]
+  },
   "GetLogicalDrives": {
    "callconv": "WINAPI",
    "name": "GetLogicalDrives",
@@ -3196,6 +3225,40 @@
    "name": "GetProcessHeap",
    "retVal": "HANDLE",
    "params": []
+  },
+  "GetSystemDirectoryA": {
+   "callconv": "WINAPI",
+   "name": "GetSystemDirectoryA",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(uSize,return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uSize"
+    }
+   ]
+  },
+  "GetSystemDirectoryW": {
+   "callconv": "WINAPI",
+   "name": "GetSystemDirectoryW",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(uSize,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uSize"
+    }
+   ]
   },
   "GetSystemInfo": {
    "callconv": "WINAPI",
@@ -4154,6 +4217,43 @@
     }
    ]
   },
+  "VirtualAllocExNuma": {
+   "callconv": "WINAPI",
+   "name": "VirtualAllocExNuma",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flAllocationType"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flProtect"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nndPreferred"
+    }
+   ]
+  },
   "VirtualFree": {
    "callconv": "WINAPI",
    "name": "VirtualFree",
@@ -4489,6 +4589,23 @@
   }
  },
  "shlwapi.dll": {
+  "PathAppendW": {
+   "callconv": "LWSTDAPI",
+   "name": "PathAppendW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_updates_(MAX_PATH)",
+     "type": "LPWSTR",
+     "name": "pszPath"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "pszMore"
+    }
+   ]
+  },
   "PathFileExistsA": {
    "callconv": "LWSTDAPI",
    "name": "PathFileExistsA",
@@ -4538,6 +4655,23 @@
     {
      "anno": "_In_",
      "type": "PCSTR",
+     "name": "pszSrch"
+    }
+   ]
+  },
+  "StrStrIW": {
+   "callconv": "LWSTDAPI",
+   "name": "StrStrIW",
+   "retVal": "PCWSTR",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "PCWSTR",
+     "name": "pszFirst"
+    },
+    {
+     "anno": "_In_",
+     "type": "PCWSTR",
      "name": "pszSrch"
     }
    ]

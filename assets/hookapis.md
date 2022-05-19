@@ -72,6 +72,7 @@ InternetReadFileExW
 InternetWriteFile
 VirtualAlloc
 VirtualAllocEx
+VirtualAllocExNuma
 VirtualFree
 VirtualFreeEx
 VirtualQuery
@@ -209,3 +210,10 @@ StrStrW
 InitiateSystemShutdownExA
 InitiateSystemShutdownExW
 SetThreadPriority
+GetLogicalDriveStringsW
+FlushFileBuffers
+GetSystemDirectoryA
+GetSystemDirectoryW
+StrStrIW
+PathAppendW
+wcsncpy

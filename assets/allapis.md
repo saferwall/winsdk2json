@@ -249,3 +249,14 @@ DecryptFileW
 SetProcessValidCallTargets // disable CFG
 
 babuk: QueryServiceStatusExW / EnumDependentServices / CloseServiceHandle / SHEmptyRecycleBinW
+
+hermetic wiper:
+PathAddBackslashW
+StrCatBuffW
+wcslen
+wcsncpy
+StrCmpNW
+LZCopy
+LZOpenFileW
+wsprintfW
+GetModuleFileNameW
