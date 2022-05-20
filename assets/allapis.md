@@ -248,9 +248,12 @@ DecryptFileW
 
 SetProcessValidCallTargets // disable CFG
 
-babuk: QueryServiceStatusExW / EnumDependentServices / CloseServiceHandle / SHEmptyRecycleBinW
+## babuk
 
-hermetic wiper:
+QueryServiceStatusExW / EnumDependentServices / CloseServiceHandle / SHEmptyRecycleBinW
+
+## hermetic wiper
+
 PathAddBackslashW
 StrCatBuffW
 wcslen
@@ -260,3 +263,10 @@ LZCopy
 LZOpenFileW
 wsprintfW
 GetModuleFileNameW
+
+## noisy APIs
+
+- GetProcessHeap
+- HeapAlloc
+- HeapFree
+

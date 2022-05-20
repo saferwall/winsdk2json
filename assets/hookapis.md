@@ -137,6 +137,7 @@ GetFileAttributesExW
 VirtualProtect
 VirtualProtectEx
 Sleep
+SleepEx
 NtQueueApcThread
 NtMapViewOfSection
 RtlCreateUserThread
@@ -159,7 +160,6 @@ accept
 connect
 WSAStartup
 getaddrinfo
-GetProcessHeap
 Thread32First
 Thread32Next
 Process32First

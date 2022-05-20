@@ -3220,12 +3220,6 @@
     }
    ]
   },
-  "GetProcessHeap": {
-   "callconv": "WINAPI",
-   "name": "GetProcessHeap",
-   "retVal": "HANDLE",
-   "params": []
-  },
   "GetSystemDirectoryA": {
    "callconv": "WINAPI",
    "name": "GetSystemDirectoryA",
