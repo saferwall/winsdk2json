@@ -126,7 +126,7 @@ func main() {
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
-		"\\corecrt_wstring.h",
+		"\\corecrt_wstring.h", "processenv.h",
 	}
 
 	parsedAPI := 0

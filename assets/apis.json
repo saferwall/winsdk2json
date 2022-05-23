@@ -124,6 +124,18 @@
     }
    ]
   },
+  "CloseServiceHandle": {
+   "callconv": "WINAPI",
+   "name": "CloseServiceHandle",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "SC_HANDLE",
+     "name": "hSCObject"
+    }
+   ]
+  },
   "ControlService": {
    "callconv": "WINAPI",
    "name": "ControlService",
@@ -2115,6 +2127,33 @@
     }
    ]
   },
+  "BCryptGenRandom": {
+   "callconv": "WINAPI",
+   "name": "BCryptGenRandom",
+   "retVal": "NTSTATUS",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "BCRYPT_ALG_HANDLE",
+     "name": "hAlgorithm"
+    },
+    {
+     "anno": "_Out_writes_bytes_(cbBuffer)",
+     "type": "PUCHAR",
+     "name": "pbBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "cbBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "dwFlags"
+    }
+   ]
+  },
   "BCryptHashData": {
    "callconv": "WINAPI",
    "name": "BCryptHashData",
@@ -2134,6 +2173,33 @@
      "anno": "_In_",
      "type": "ULONG",
      "name": "cbInput"
+    },
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "dwFlags"
+    }
+   ]
+  },
+  "BCryptOpenAlgorithmProvider": {
+   "callconv": "WINAPI",
+   "name": "BCryptOpenAlgorithmProvider",
+   "retVal": "NTSTATUS",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "BCRYPT_ALG_HANDLE*",
+     "name": "phAlgorithm"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "pszAlgId"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "pszImplementation"
     },
     {
      "anno": "_In_",
@@ -2854,6 +2920,18 @@
     }
    ]
   },
+  "ExitProcess": {
+   "callconv": "WINAPI",
+   "name": "ExitProcess",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uExitCode"
+    }
+   ]
+  },
   "FindFirstVolumeW": {
    "callconv": "WINAPI",
    "name": "FindFirstVolumeW",
@@ -2948,6 +3026,18 @@
      "name": "hFile"
     }
    ]
+  },
+  "GetCommandLineA": {
+   "callconv": "WINAPI",
+   "name": "GetCommandLineA",
+   "retVal": "LPSTR",
+   "params": []
+  },
+  "GetCommandLineW": {
+   "callconv": "WINAPI",
+   "name": "GetCommandLineW",
+   "retVal": "LPWSTR",
+   "params": []
   },
   "GetDiskFreeSpaceA": {
    "callconv": "WINAPI",
@@ -3119,6 +3209,33 @@
      "anno": "_Out_",
      "type": "LPBY_HANDLE_FILE_INFORMATION",
      "name": "lpFileInformation"
+    }
+   ]
+  },
+  "GetFileInformationByHandleEx": {
+   "callconv": "WINAPI",
+   "name": "GetFileInformationByHandleEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "FILE_INFO_BY_HANDLE_CLASS",
+     "name": "FileInformationClass"
+    },
+    {
+     "anno": "_Out_writes_bytes_(dwBufferSize)",
+     "type": "LPVOID",
+     "name": "lpFileInformation"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwBufferSize"
     }
    ]
   },
@@ -3435,28 +3552,6 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwBytes"
-    }
-   ]
-  },
-  "HeapFree": {
-   "callconv": "WINAPI",
-   "name": "HeapFree",
-   "retVal": "BOOL",
-   "params": [
-    {
-     "anno": "_Inout_",
-     "type": "HANDLE",
-     "name": "hHeap"
-    },
-    {
-     "anno": "_In_",
-     "type": "DWORD",
-     "name": "dwFlags"
-    },
-    {
-     "anno": "_Frees_ptr_opt_",
-     "type": "LPVOID",
-     "name": "lpMem"
     }
    ]
   },
@@ -4502,6 +4597,25 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpString2"
+    }
+   ]
+  }
+ },
+ "kernelbase.dll": {
+  "SleepEx": {
+   "callconv": "WINAPI",
+   "name": "SleepEx",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMilliseconds"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bAlertable"
     }
    ]
   }

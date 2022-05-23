@@ -1,10 +1,13 @@
 BCryptDecrypt
 BCryptEncrypt
+BCryptGenRandom
 BCryptHashData
 CryptGenRandom
 CryptAcquireContextA
 CryptAcquireContextW
+BCryptOpenAlgorithmProvider
 CloseHandle
+CloseServiceHandle
 CopyFileA
 CopyFileExW
 CopyFileW
@@ -112,7 +115,6 @@ WinHttpOpenRequest
 WinHttpSendRequest
 WinHttpReceiveResponse
 HeapAlloc
-HeapFree
 TerminateProcess
 OpenMutexW
 CreateMutexA
@@ -168,6 +170,8 @@ Process32Next
 Process32NextW
 GetModuleHandleA
 GetModuleHandleW
+GetModuleFileNameA
+GetModuleFileNameW
 ShellExecuteA
 ShellExecuteW
 ShellExecuteExA
@@ -203,6 +207,7 @@ ChangeServiceConfigA
 ChangeServiceConfigW
 GetSystemTimeAsFileTime
 GetFileInformationByHandle
+GetFileInformationByHandleEx
 CreateEventA
 CreateEventW
 StrStrA
@@ -217,3 +222,6 @@ GetSystemDirectoryW
 StrStrIW
 PathAppendW
 wcsncpy
+GetCommandLineA
+GetCommandLineW
+ExitProcess

@@ -270,3 +270,6 @@ GetModuleFileNameW
 - HeapAlloc
 - HeapFree
 
+## special treatement, don't include in generic logging
+
+- HeapFree
