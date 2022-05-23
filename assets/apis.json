@@ -2244,6 +2244,43 @@
     }
    ]
   },
+  "CopyFileExA": {
+   "callconv": "WINAPI",
+   "name": "CopyFileExA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpExistingFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpNewFileName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPPROGRESS_ROUTINE",
+     "name": "lpProgressRoutine"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPVOID",
+     "name": "lpData"
+    },
+    {
+     "anno": "_When_(pbCancel != NULL, _Pre_satisfies_(*pbCancel == FALSE)) _Inout_opt_",
+     "type": "LPBOOL",
+     "name": "pbCancel"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCopyFlags"
+    }
+   ]
+  },
   "CopyFileExW": {
    "callconv": "WINAPI",
    "name": "CopyFileExW",
@@ -3039,6 +3076,12 @@
    "retVal": "LPWSTR",
    "params": []
   },
+  "GetCurrentProcessId": {
+   "callconv": "WINAPI",
+   "name": "GetCurrentProcessId",
+   "retVal": "DWORD",
+   "params": []
+  },
   "GetDiskFreeSpaceA": {
    "callconv": "WINAPI",
    "name": "GetDiskFreeSpaceA",
@@ -3533,6 +3576,23 @@
     }
    ]
   },
+  "GlobalAlloc": {
+   "callconv": "WINAPI",
+   "name": "GlobalAlloc",
+   "retVal": "HGLOBAL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwBytes"
+    }
+   ]
+  },
   "HeapAlloc": {
    "callconv": "WINAPI",
    "name": "HeapAlloc",
@@ -3654,6 +3714,23 @@
      "anno": "_In_",
      "type": "HRSRC",
      "name": "hResInfo"
+    }
+   ]
+  },
+  "LocalAlloc": {
+   "callconv": "WINAPI",
+   "name": "LocalAlloc",
+   "retVal": "HLOCAL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "uBytes"
     }
    ]
   },
