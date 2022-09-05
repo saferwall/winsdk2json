@@ -24,6 +24,9 @@ var (
 	sdkumPath    string
 	sdkapiPath   string
 	hookapisPath string
+	printretval  bool
+	printanno    bool
+	minify       bool
 )
 
 func init() {
@@ -32,28 +35,24 @@ func init() {
 		"The path to the windows sdk directory")
 	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", "..\\sdk-api",
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
-	parseCmd.Flags().StringVarP(&hookapisPath, "hookapis", "", "..\\assets\\hookapis.md",
+	parseCmd.Flags().StringVarP(&hookapisPath, "hookapis", "", ".\\assets\\hookapis.md",
 		"The path to a a text file thats defines which APIs to trace, new line separated.")
 
-	parseCmd.MarkFlagRequired("filePath")
+	parseCmd.Flags().BoolVarP(&printretval, "printretval", "", false, "Print return value type for each API")
+	parseCmd.Flags().BoolVarP(&printanno, "printanno", "", false, "Print list of annotation values")
+	parseCmd.Flags().BoolVarP(&minify, "minify", "m", false, "Mininify json")
 }
 
 var parseCmd = &cobra.Command{
 	Use:   "parse",
-	Short: "Generate malware souk markdown for the entire corpus",
-	Long: `Generates markdown source code for the entire corpus of
-saferwall's malware souk database`,
+	Short: "Walk through the Windows SDK and parse the Win32 headers",
+	Long:  `Walk through the Windows SDK and parse the Win32 headers to produce JSON files.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		run()
 	},
 }
 
 func run() {
-
-	// Parse arguments.
-	printretval := flag.Bool("printretval", false, "Print return value type for each API")
-	printanno := flag.Bool("printanno", false, "Print list of annotation values")
-	minify := flag.Bool("minify", false, "Mininify json")
 
 	if sdkumPath == "" {
 		flag.Usage()
@@ -198,7 +197,7 @@ func run() {
 
 		// Write raw prototypes to a text file.
 		if len(prototypes) > 0 {
-			_, err = utils.WriteStrSliceToFile("../dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
+			_, err = utils.WriteStrSliceToFile("./dump/prototypes-"+filepath.Base(file)+".inc", prototypes)
 			if err != nil {
 				log.Fatalf("Failed to dump prototype %s", filepath.Base(file)+".inc")
 			}
@@ -208,18 +207,18 @@ func run() {
 	// Marshall and write to json file.
 	if len(m) > 0 {
 		data, _ := json.MarshalIndent(m, "", " ")
-		_, err = utils.WriteBytesFile("../assets/apis.json", bytes.NewReader(data))
+		_, err = utils.WriteBytesFile("./assets/apis.json", bytes.NewReader(data))
 		if err != nil {
 			log.Fatalf("Failed to dump apis.json")
 		}
 	}
 
 	// Write struct results.
-	utils.WriteStrSliceToFile("../dump/winstructs.h", winStructsRaw)
+	utils.WriteStrSliceToFile("./dump/winstructs.h", winStructsRaw)
 	d, _ := json.MarshalIndent(winStructs, "", " ")
-	utils.WriteBytesFile("../assets/structs.json", bytes.NewReader(d))
+	utils.WriteBytesFile("./assets/structs.json", bytes.NewReader(d))
 
-	if *printretval {
+	if printretval {
 		for dll, v := range m {
 			log.Printf("DLL: %s\n", dll)
 			log.Println("====================")
@@ -237,8 +236,8 @@ func run() {
 	// Init custom types.
 	parser.InitCustomTypes(winStructs)
 
-	if *printanno || *minify {
-		data, err := utils.ReadAll("../assets/apis.json")
+	if printanno || minify {
+		data, err := utils.ReadAll("./assets/apis.json")
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -248,7 +247,7 @@ func run() {
 			log.Fatalln(err)
 		}
 
-		if *printanno {
+		if printanno {
 			var annotations []string
 			var types []string
 			for _, v := range apis {
@@ -268,14 +267,14 @@ func run() {
 			}
 		}
 
-		if *minify {
+		if minify {
 			// Minifi APIs.
 			data, _ := json.Marshal(parser.MinifyAPIs(apis))
-			utils.WriteBytesFile("../assets/mini-apis.json", bytes.NewReader(data))
+			utils.WriteBytesFile("./assets/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.
 			data, _ = json.Marshal(parser.MinifyStructAndUnions(winStructs))
-			utils.WriteBytesFile("../assets/mini-structs.json", bytes.NewReader(data))
+			utils.WriteBytesFile("./assets/mini-structs.json", bytes.NewReader(data))
 		}
 		os.Exit(0)
 	}

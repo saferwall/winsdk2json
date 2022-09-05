@@ -4420,50 +4420,6 @@
     }
    ]
   },
-  "VirtualFree": {
-   "callconv": "WINAPI",
-   "name": "VirtualFree",
-   "retVal": "BOOL",
-   "params": [
-    {
-     "anno": "_When_(dwFreeType == MEM_DECOMMIT,_Post_invalid_) _When_(dwFreeType == MEM_RELEASE,)",
-     "type": "LPVOID",
-     "name": "lpAddress"
-    },
-    {
-     "anno": "_In_",
-     "type": "SIZE_T",
-     "name": "dwSize"
-    },
-    {
-     "anno": "_In_",
-     "type": "DWORD",
-     "name": "dwFreeType"
-    }
-   ]
-  },
-  "VirtualFreeEx": {
-   "callconv": "WINAPI",
-   "name": "VirtualFreeEx",
-   "retVal": "BOOL",
-   "params": [
-    {
-     "anno": "_In_",
-     "type": "HANDLE",
-     "name": "hProcess"
-    },
-    {
-     "anno": "_In_",
-     "type": "SIZE_T",
-     "name": "dwSize"
-    },
-    {
-     "anno": "_In_",
-     "type": "DWORD",
-     "name": "dwFreeType"
-    }
-   ]
-  },
   "VirtualProtect": {
    "callconv": "WINAPI",
    "name": "VirtualProtect",

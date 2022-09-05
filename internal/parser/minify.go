@@ -1,4 +1,4 @@
-// Copyright 2021 Saferwall. All rights reserved.
+// Copyright 2022 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/saferwall/winsdk2json/pkg/utils"
+	"github.com/saferwall/winsdk2json/internal/utils"
 )
 
 const (
@@ -94,9 +94,7 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 		// 	param.Name, param.Type, param.Annotation)
 
 		name := getNameFromAnnotation(param)
-		if strings.HasPrefix(name, "*") {
-			name = name[1:]
-		}
+		name = strings.TrimPrefix(name, "*")
 		// log.Println(name)
 		idx := findParamIndexByName(api, name)
 		return uint8(idx)
@@ -109,9 +107,7 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 		if len(name) > 0 {
 			// log.Printf("API: %s, Name: %s, Type: %s, Anno: %s\n", api.Name,
 			// 	param.Name, param.Type, param.Annotation)
-			if strings.HasPrefix(name, "*") {
-				name = name[1:]
-			}
+			name = strings.TrimPrefix(name, "*")
 			idx := findParamIndexByName(api, name)
 			parammini.Type = typeBytePtr
 			return uint8(idx)

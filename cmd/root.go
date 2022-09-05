@@ -13,9 +13,8 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "winsdk2json",
 	Short: "parse the Windows Win32 API's SDK",
-	Long: `WinSdk2JSON - Saferwall command line tool
-to parse the Windows Win32 SDK into JSON format. For more details see the github repo
-at https://github.com/saferwall/winsdk2json`,
+	Long: `WinSdk2JSON - a tool to parse the Windows Win32 SDK into JSON format.
+For more details see the github repo at https://github.com/saferwall/winsdk2json`,
 	Run: func(cmd *cobra.Command, args []string) {
 	},
 }

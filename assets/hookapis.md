@@ -212,8 +212,6 @@ VerifyVersionInfoW
 VirtualAlloc
 VirtualAllocEx
 VirtualAllocExNuma
-VirtualFree
-VirtualFreeEx
 VirtualProtect
 VirtualProtectEx
 VirtualQuery
