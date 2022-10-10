@@ -1,0 +1,3 @@
+[submodule "sdk-api"]
+	path = sdk-api
+	url = https://github.com/MicrosoftDocs/sdk-api

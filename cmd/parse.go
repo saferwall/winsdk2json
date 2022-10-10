@@ -1,4 +1,4 @@
-// Copyright 2022 Saferwall. All rights reserved.
+// Copyright 2018 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -100,7 +100,7 @@ func run() {
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
-		"\\corecrt_wstring.h", "processenv.h",
+		"\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h",
 	}
 
 	parsedAPI := 0

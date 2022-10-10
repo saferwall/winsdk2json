@@ -13,8 +13,6 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-dump/
-json/
 
 # Code Coverage
 coverage
@@ -22,4 +20,8 @@ coverage
 # Debug logs
 debug.log
 
+# Minified JSON APIs
 assets/mini-*.json
+
+# Output results
+dump/

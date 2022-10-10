@@ -1,6 +1,6 @@
 # Windows SDK API definition in JSON
 
-sdk2json is a go package that parses the Windows SDK (prototypes, structures, unions) to JSON format. 
+sdk2json is a go package that parses the Windows SDK (prototypes, structures, unions) to JSON format.
 
 Here is an example:
 
@@ -32,6 +32,10 @@ Here is an example:
 ```
 
 The malware sandbox hooking module makes use of this to implement a generic hook handler that does not require to implement a handler for each API we need to hook.
+
+## Installation
+
+- Install the Windows SDK
 
 ## Lessons Learned
 
