@@ -25,6 +25,7 @@ CreateEventA
 CreateEventW
 CreateFileA
 CreateFileW
+CreateFile2
 CreateMutexA
 CreateMutexExA
 CreateMutexExW
@@ -44,6 +45,8 @@ CreateThread
 CreateToolhelp32Snapshot
 CryptAcquireContextA
 CryptAcquireContextW
+CryptDestroyHash
+CryptReleaseContext
 CryptGenRandom
 DeleteFileA
 DeleteFileW

@@ -33,7 +33,7 @@ func init() {
 
 	parseCmd.Flags().StringVarP(&sdkumPath, "sdk", "", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\",
 		"The path to the windows sdk directory")
-	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", "..\\sdk-api",
+	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", ".\\sdk-api",
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
 	parseCmd.Flags().StringVarP(&hookapisPath, "hookapis", "", ".\\assets\\hookapis.md",
 		"The path to a a text file thats defines which APIs to trace, new line separated.")

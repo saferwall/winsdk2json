@@ -596,6 +596,18 @@
     }
    ]
   },
+  "CryptDestroyHash": {
+   "callconv": "WINAPI",
+   "name": "CryptDestroyHash",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HCRYPTHASH",
+     "name": "hHash"
+    }
+   ]
+  },
   "CryptGenRandom": {
    "callconv": "WINAPI",
    "name": "CryptGenRandom",
@@ -615,6 +627,23 @@
      "anno": "_Inout_updates_bytes_(dwLen)",
      "type": "BYTE*",
      "name": "pbBuffer"
+    }
+   ]
+  },
+  "CryptReleaseContext": {
+   "callconv": "WINAPI",
+   "name": "CryptReleaseContext",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HCRYPTPROV",
+     "name": "hProv"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
     }
    ]
   },
@@ -2469,6 +2498,38 @@
      "anno": "_In_opt_",
      "type": "LPCWSTR",
      "name": "lpName"
+    }
+   ]
+  },
+  "CreateFile2": {
+   "callconv": "WINAPI",
+   "name": "CreateFile2",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwShareMode"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwCreationDisposition"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCREATEFILE2_EXTENDED_PARAMETERS",
+     "name": "pCreateExParams"
     }
    ]
   },
