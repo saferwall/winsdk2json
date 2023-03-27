@@ -133,6 +133,12 @@ MoveFileA
 MoveFileExA
 MoveFileExW
 MoveFileW
+MapViewOfFile
+UnmapViewOfFile
+UpdateResourceA
+UpdateResourceW
+BeginUpdateResourceA
+BeginUpdateResourceW
 NtMapViewOfSection
 NtQueueApcThread
 OpenMutexW
@@ -232,3 +238,4 @@ Wow64RevertWow64FsRedirection
 WriteFile
 WriteFileEx
 WSAStartup
+WinExec

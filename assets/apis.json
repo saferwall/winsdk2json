@@ -2239,6 +2239,40 @@
   }
  },
  "kernel32.dll": {
+  "BeginUpdateResourceA": {
+   "callconv": "WINAPI",
+   "name": "BeginUpdateResourceA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "pFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bDeleteExistingResources"
+    }
+   ]
+  },
+  "BeginUpdateResourceW": {
+   "callconv": "WINAPI",
+   "name": "BeginUpdateResourceW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "pFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bDeleteExistingResources"
+    }
+   ]
+  },
   "CloseHandle": {
    "callconv": "WINAPI",
    "name": "CloseHandle",
@@ -3807,6 +3841,38 @@
     }
    ]
   },
+  "MapViewOfFile": {
+   "callconv": "WINAPI",
+   "name": "MapViewOfFile",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFileMappingObject"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwNumberOfBytesToMap"
+    }
+   ]
+  },
   "MoveFileA": {
    "callconv": "WINAPI",
    "name": "MoveFileA",
@@ -4341,6 +4407,92 @@
     }
    ]
   },
+  "UnmapViewOfFile": {
+   "callconv": "WINAPI",
+   "name": "UnmapViewOfFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCVOID",
+     "name": "lpBaseAddress"
+    }
+   ]
+  },
+  "UpdateResourceA": {
+   "callconv": "WINAPI",
+   "name": "UpdateResourceA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hUpdate"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpType"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "WORD",
+     "name": "wLanguage"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cb)",
+     "type": "LPVOID",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cb"
+    }
+   ]
+  },
+  "UpdateResourceW": {
+   "callconv": "WINAPI",
+   "name": "UpdateResourceW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hUpdate"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpType"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_In_",
+     "type": "WORD",
+     "name": "wLanguage"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cb)",
+     "type": "LPVOID",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cb"
+    }
+   ]
+  },
   "VerifyVersionInfoA": {
    "callconv": "WINAPI",
    "name": "VerifyVersionInfoA",
@@ -4586,6 +4738,23 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwLength"
+    }
+   ]
+  },
+  "WinExec": {
+   "callconv": "WINAPI",
+   "name": "WinExec",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpCmdLine"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uCmdShow"
     }
    ]
   },
