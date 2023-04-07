@@ -1,0 +1,2 @@
+VirtualFree
+RtlZeroMemory

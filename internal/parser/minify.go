@@ -50,6 +50,7 @@ type APIParamMini struct {
 type APIMini struct {
 	ReturnValueType bool           `json:"retType"` // Return value type.
 	PropertyCount   int            `json:"p_count"`
+	CustomHook      bool           `json:"custom"` // Uses a custom hook handler
 	Params          []APIParamMini `json:"params"` // API Arguments.
 }
 
@@ -119,7 +120,7 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 
 }
 
-func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
+func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string) map[string]map[string]APIMini {
 	mapis := make(map[string]map[string]APIMini)
 	for dllname, v := range apis {
 		if _, ok := mapis[dllname]; !ok {
@@ -168,6 +169,9 @@ func MinifyAPIs(apis map[string]map[string]API) map[string]map[string]APIMini {
 			apiMini.Params = paramsMini
 			apiMini.ReturnValueType = returnType
 			apiMini.PropertyCount = propertiesCount
+			if utils.StringInSlice(apiname, customHookHHandlerAPIs) {
+				apiMini.CustomHook = true
+			}
 			mapis[dllname][apiname] = apiMini
 		}
 	}

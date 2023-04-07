@@ -9,16 +9,14 @@
       "type": "go",
       "request": "launch",
       "mode": "auto",
-      "program": "${workspaceFolder}\\cmd",
+      "program": "${workspaceFolder}\\",
       "env": {},
       "args": [
-        "--sdk",
-        "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\",
-        "--sdk-api",
-        "C:\\GitClones\\sdk-api",
+        //"parse",
         // "--printretval",
         // "--printanno",
-        "--minify"
+       // "--minify",
+       "ast"
       ]
     }
   ]

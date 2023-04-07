@@ -10,6 +10,7 @@ ChangeServiceConfigW
 CloseHandle
 CloseServiceHandle
 connect
+gethostbyname
 ControlService
 ControlServiceExA
 ControlServiceExW
@@ -239,3 +240,15 @@ WriteFile
 WriteFileEx
 WSAStartup
 WinExec
+CreateFileMappingA
+GetLogicalDriveStringsA
+GetEnvironmentVariableA
+GetEnvironmentVariableW
+GetUserGeoID
+FindClose
+SuspendThread
+SetEvent
+InitializeSecurityDescriptor
+GlobalLock
+GlobalUnlock
+ExitThread

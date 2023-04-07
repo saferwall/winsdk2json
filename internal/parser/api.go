@@ -15,10 +15,10 @@ import (
 
 const (
 	// RegAPIs is a regex that extract API prototypes.
-	RegAPIs = `(_Success_|HANDLE|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|]+;`
+	RegAPIs = `(_Success_|HANDLE|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|NTAPI|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|]+;`
 
 	// RegProto extracts API information.
-	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI)?( )?(?P<RetValType>[A-Za-z]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
+	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI)?( )?(?P<RetValType>[A-Za-z]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI|NTAPI) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
 
 	// RegAPIParams parses params.
 	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_Frees_ptr_opt_|_(O|o)ut[\w(),+ *]+|_In[\w()]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`

@@ -21,12 +21,13 @@ import (
 
 // Used for flags.
 var (
-	sdkumPath    string
-	sdkapiPath   string
-	hookapisPath string
-	printretval  bool
-	printanno    bool
-	minify       bool
+	sdkumPath      string
+	sdkapiPath     string
+	hookapisPath   string
+	customhookPath string
+	printretval    bool
+	printanno      bool
+	minify         bool
 )
 
 func init() {
@@ -37,6 +38,8 @@ func init() {
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
 	parseCmd.Flags().StringVarP(&hookapisPath, "hookapis", "", ".\\assets\\hookapis.md",
 		"The path to a a text file thats defines which APIs to trace, new line separated.")
+	parseCmd.Flags().StringVarP(&customhookPath, "customhookapis", "", ".\\assets\\custom_hook_apis.md",
+		"The path to a a text file thats defines which APIs uses custom hook handlers")
 
 	parseCmd.Flags().BoolVarP(&printretval, "printretval", "", false, "Print return value type for each API")
 	parseCmd.Flags().BoolVarP(&printanno, "printanno", "", false, "Print list of annotation values")
@@ -62,12 +65,14 @@ func run() {
 	if !utils.Exists(sdkumPath) {
 		log.Fatal("Windows sdk directory does not exist")
 	}
-
 	if !utils.Exists(sdkapiPath) {
 		log.Fatal("sdk-api directory does not exist")
 	}
 	if !utils.Exists(hookapisPath) {
 		log.Fatal("hookapis.md does not exists")
+	}
+	if !utils.Exists(customhookPath) {
+		log.Fatal("customhookapis.md does not exists")
 	}
 
 	// Read the list of APIs we are interested to hook.
@@ -79,6 +84,15 @@ func run() {
 		log.Fatalln("hookapis.md is empty")
 	}
 
+	// Read the list of APIs we uses that uses a custom hook handler.
+	customHookHHandlerAPIs, err := utils.ReadLines(customhookPath)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	if len(customHookHHandlerAPIs) == 0 {
+		log.Fatalln("customhookapis.md is empty")
+	}
+
 	// Initialize built-in compiler data types.
 	parser.InitBuiltInTypes()
 
@@ -87,6 +101,7 @@ func run() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	files = append(files, ".\\assets\\custom-def.h")
 
 	// Defines some vars.
 	m := make(map[string]map[string]parser.API)
@@ -100,7 +115,7 @@ func run() {
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
-		"\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h",
+		"\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h", "custom-def.h",
 	}
 
 	parsedAPI := 0
@@ -149,7 +164,7 @@ func run() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "wcsncpy") {
+			if strings.Contains(v, "RtlZeroMemo") {
 				log.Print(v)
 			}
 
@@ -171,7 +186,7 @@ func run() {
 				prototype = "PCWSTR LWSTDAPI" + prototype
 			}
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
-			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) {
+			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) && !utils.StringInSlice(mProto["ApiName"], customHookHHandlerAPIs) {
 				continue
 			}
 
@@ -185,7 +200,7 @@ func run() {
 			dllname, err := utils.GetDLLName(file, papi.Name, sdkapiPath)
 			if err != nil {
 				log.Printf("Failed to get the DLL name for: %s", papi.Name)
-				continue
+				dllname = "ntdll.dll"
 			}
 			if _, ok := m[dllname]; !ok {
 				m[dllname] = make(map[string]parser.API)
@@ -269,7 +284,7 @@ func run() {
 
 		if minify {
 			// Minifi APIs.
-			data, _ := json.Marshal(parser.MinifyAPIs(apis))
+			data, _ := json.Marshal(parser.MinifyAPIs(apis, customHookHHandlerAPIs))
 			utils.WriteBytesFile("./assets/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.

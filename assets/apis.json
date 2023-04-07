@@ -750,6 +750,23 @@
     }
    ]
   },
+  "InitializeSecurityDescriptor": {
+   "callconv": "WINAPI",
+   "name": "InitializeSecurityDescriptor",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "PSECURITY_DESCRIPTOR",
+     "name": "pSecurityDescriptor"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwRevision"
+    }
+   ]
+  },
   "InitiateSystemShutdownExA": {
    "callconv": "APIENTRY",
    "name": "InitiateSystemShutdownExA",
@@ -2609,6 +2626,43 @@
     }
    ]
   },
+  "CreateFileMappingA": {
+   "callconv": "WINAPI",
+   "name": "CreateFileMappingA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPSECURITY_ATTRIBUTES",
+     "name": "lpFileMappingAttributes"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "flProtect"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMaximumSizeHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMaximumSizeLow"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
   "CreateFileW": {
    "callconv": "WINAPI",
    "name": "CreateFileW",
@@ -3064,6 +3118,30 @@
     }
    ]
   },
+  "ExitThread": {
+   "callconv": "WINAPI",
+   "name": "ExitThread",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwExitCode"
+    }
+   ]
+  },
+  "FindClose": {
+   "callconv": "WINAPI",
+   "name": "FindClose",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "HANDLE",
+     "name": "hFindFile"
+    }
+   ]
+  },
   "FindFirstVolumeW": {
    "callconv": "WINAPI",
    "name": "FindFirstVolumeW",
@@ -3265,6 +3343,50 @@
     }
    ]
   },
+  "GetEnvironmentVariableA": {
+   "callconv": "WINAPI",
+   "name": "GetEnvironmentVariableA",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nSize,return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nSize"
+    }
+   ]
+  },
+  "GetEnvironmentVariableW": {
+   "callconv": "WINAPI",
+   "name": "GetEnvironmentVariableW",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpName"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nSize,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nSize"
+    }
+   ]
+  },
   "GetFileAttributesA": {
    "callconv": "WINAPI",
    "name": "GetFileAttributesA",
@@ -3408,6 +3530,23 @@
      "anno": "_Out_",
      "type": "PLARGE_INTEGER",
      "name": "lpFileSize"
+    }
+   ]
+  },
+  "GetLogicalDriveStringsA": {
+   "callconv": "WINAPI",
+   "name": "GetLogicalDriveStringsA",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength, return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
     }
    ]
   },
@@ -3685,6 +3824,30 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwBytes"
+    }
+   ]
+  },
+  "GlobalLock": {
+   "callconv": "WINAPI",
+   "name": "GlobalLock",
+   "retVal": "LPVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HGLOBAL",
+     "name": "hMem"
+    }
+   ]
+  },
+  "GlobalUnlock": {
+   "callconv": "WINAPI",
+   "name": "GlobalUnlock",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HGLOBAL",
+     "name": "hMem"
     }
    ]
   },
@@ -4171,6 +4334,18 @@
     }
    ]
   },
+  "SetEvent": {
+   "callconv": "WINAPI",
+   "name": "SetEvent",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hEvent"
+    }
+   ]
+  },
   "SetFileAttributesA": {
    "callconv": "WINAPI",
    "name": "SetFileAttributesA",
@@ -4353,6 +4528,18 @@
      "anno": "_In_",
      "type": "DWORD",
      "name": "dwMilliseconds"
+    }
+   ]
+  },
+  "SuspendThread": {
+   "callconv": "WINAPI",
+   "name": "SuspendThread",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hThread"
     }
    ]
   },
@@ -4633,6 +4820,28 @@
     }
    ]
   },
+  "VirtualFree": {
+   "callconv": "WINAPI",
+   "name": "VirtualFree",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_When_(dwFreeType == MEM_DECOMMIT,_Post_invalid_) _When_(dwFreeType == MEM_RELEASE,)",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFreeType"
+    }
+   ]
+  },
   "VirtualProtect": {
    "callconv": "WINAPI",
    "name": "VirtualProtect",
@@ -4879,6 +5088,25 @@
      "anno": "_In_",
      "type": "BOOL",
      "name": "bAlertable"
+    }
+   ]
+  }
+ },
+ "ntdll.dll": {
+  "RtlZeroMemory": {
+   "callconv": "NTAPI",
+   "name": "RtlZeroMemory",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "PVOID",
+     "name": "Destination"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "Length"
     }
    ]
   }
