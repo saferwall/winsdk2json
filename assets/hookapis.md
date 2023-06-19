@@ -129,7 +129,9 @@ LookupAccountSidA
 LookupAccountSidW
 LookupPrivilegeValueA
 LookupPrivilegeValueW
+lstrcatW
 lstrcmpW
+lstrlenW
 MoveFileA
 MoveFileExA
 MoveFileExW
@@ -186,6 +188,8 @@ RegQueryInfoKeyA
 RegQueryInfoKeyW
 RegQueryValueExA
 RegQueryValueExW
+RegSetValueA
+RegSetValueW
 RegSetValueExA
 RegSetValueExW
 ResumeThread

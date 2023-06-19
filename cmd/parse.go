@@ -219,6 +219,18 @@ func run() {
 		}
 	}
 
+	// Append the NTDLL definitions.
+	ntdll_json, err := utils.ReadAll("./assets/ntdll.json")
+	if err != nil {
+		log.Fatalf("Failed to read NTDLL definitions,, err: %v", err)
+	}
+	ntdll_defs := make(map[string]map[string]parser.API)
+	err = json.Unmarshal([]byte(ntdll_json), &ntdll_defs)
+	if err != nil {
+		log.Fatalf("Failed to unmarshall NTDLL definitions,, err: %v", err)
+	}
+	m["ntdll.dll"] = ntdll_defs["ntdll.dll"]
+
 	// Marshall and write to json file.
 	if len(m) > 0 {
 		data, _ := json.MarshalIndent(m, "", " ")

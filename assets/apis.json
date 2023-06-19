@@ -1939,6 +1939,38 @@
     }
    ]
   },
+  "RegSetValueA": {
+   "callconv": "APIENTRY",
+   "name": "RegSetValueA",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwType"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbData)",
+     "type": "LPCSTR",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cbData"
+    }
+   ]
+  },
   "RegSetValueExA": {
    "callconv": "APIENTRY",
    "name": "RegSetValueExA",
@@ -2004,6 +2036,38 @@
     {
      "anno": "_In_reads_bytes_opt_(cbData)",
      "type": "CONST BYTE*",
+     "name": "lpData"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "cbData"
+    }
+   ]
+  },
+  "RegSetValueW": {
+   "callconv": "APIENTRY",
+   "name": "RegSetValueW",
+   "retVal": "LSTATUS",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HKEY",
+     "name": "hKey"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpSubKey"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwType"
+    },
+    {
+     "anno": "_In_reads_bytes_opt_(cbData)",
+     "type": "LPCWSTR",
      "name": "lpData"
     },
     {
