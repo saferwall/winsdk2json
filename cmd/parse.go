@@ -164,7 +164,7 @@ func run() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "RtlZeroMemo") {
+			if strings.Contains(v, "lstrcatW") {
 				log.Print(v)
 			}
 
@@ -184,6 +184,9 @@ func run() {
 			} else if strings.HasPrefix(prototype, "LWSTDAPI_(PCWSTR)") {
 				prototype = strings.ReplaceAll(prototype, "LWSTDAPI_(PCWSTR)", "")
 				prototype = "PCWSTR LWSTDAPI" + prototype
+			} else if strings.Contains(prototype, "// deprecated: annotation is as good as it gets") {
+				prototype = strings.ReplaceAll(prototype, "// deprecated: annotation is as good as it gets", "")
+
 			}
 			mProto := utils.RegSubMatchToMapString(parser.RegProto, prototype)
 			if !utils.StringInSlice(mProto["ApiName"], wantedAPIs) && !utils.StringInSlice(mProto["ApiName"], customHookHHandlerAPIs) {

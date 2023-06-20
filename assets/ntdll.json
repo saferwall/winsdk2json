@@ -1,0 +1,21 @@
+{
+  "ntdll.dll": {
+    "RtlZeroMemory": {
+      "callconv": "NTAPI",
+      "name": "RtlZeroMemory",
+      "retVal": "VOID",
+      "params": [
+        {
+          "anno": "_In_",
+          "type": "PVOID",
+          "name": "Destination"
+        },
+        {
+          "anno": "_In_",
+          "type": "SIZE_T",
+          "name": "Length"
+        }
+      ]
+    }
+  }
+}

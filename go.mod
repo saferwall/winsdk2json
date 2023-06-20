@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/dlclark/regexp2 v1.8.1
 	github.com/spf13/cobra v1.6.1
+	github.com/xlab/c-for-go v0.0.0-20230525154154-591bf68d0b1e
 	modernc.org/cc/v4 v4.1.2
 )
 
