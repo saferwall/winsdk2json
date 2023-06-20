@@ -16,7 +16,11 @@
         //"--printretval",
         //"--printanno",
        //"--minify",
-       "ast"
+       "ast",
+       "-s",
+       ".\\assets\\10.0.22000.0",
+       "-m",
+       ".\\assets\\14.29.30133"
       ]
     }
   ]

@@ -80,14 +80,15 @@ func runv2() {
 	config.SysIncludePaths = config.SysIncludePaths[:0]
 
 	config.SysIncludePaths = append(sdkIncludePaths, msvcIncludePaths...)
-
 	config.HostSysIncludePaths = config.SysIncludePaths
 	config.IncludePaths = config.SysIncludePaths
 
+	config.Predefined += "\n#define __int64 long long\n#define __forceinline __attribute__((always_inline))\n#define _AMD64_\n#define _M_AMD64\n"
+
 	var sources []cc.Source
-	//sources = append(sources, cc.Source{Name: "<builtin>", Value: "typedef unsigned size_t; int __predefined_declarator;"})
+	sources = append(sources, cc.Source{Name: "<builtin>", Value: "int __predefined_declarator;"})
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
-	sources = append(sources, cc.Source{Name: "<undefines>", Value: "#undef __cplusplus\n#undef _WIN64\n"})
+	sources = append(sources, cc.Source{Name: "<undefines>", Value: "#undef __cplusplus\n"})
 	//sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
 	sources = append(sources, cc.Source{Value: code})
 
@@ -107,5 +108,5 @@ func runv2() {
 	//r := strings.NewReader(ast.TranslationUnit.String())
 	//utils.WriteBytesFile("ast.txt", r)
 	//log.Print(ast)
-	//log.Print(ast.TranslationUnit.String())
+	log.Print(ast.TranslationUnit.String())
 }
