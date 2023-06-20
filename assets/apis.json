@@ -5119,6 +5119,18 @@
     }
    ]
   },
+  "lstrcatW": {
+   "callconv": "WINAPI",
+   "name": "lstrcatW",
+   "retVal": "LPWSTR",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpString2"
+    }
+   ]
+  },
   "lstrcmpW": {
    "callconv": "WINAPI",
    "name": "lstrcmpW",
@@ -5133,6 +5145,18 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpString2"
+    }
+   ]
+  },
+  "lstrlenW": {
+   "callconv": "WINAPI",
+   "name": "lstrlenW",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpString"
     }
    ]
   }
