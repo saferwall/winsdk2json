@@ -20,17 +20,13 @@ import (
 
 // Used for flags.
 var (
-	sdkPath  string
-	msvcPath string
+	includePath string
 )
 
 func init() {
 
-	parsev2Cmd.Flags().StringVarP(&sdkPath, "sdk", "s", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\",
-		"The path to the windows sdk directory")
-
-	parsev2Cmd.Flags().StringVarP(&msvcPath, "msvc", "m", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133",
-		"The path to the MSVC directory")
+	parsev2Cmd.Flags().StringVarP(&includePath, "include", "i", "./mingw-w64/mingw-w64-headers",
+		"Path to the mingw-w64 include headers")
 }
 
 var parsev2Cmd = &cobra.Command{
@@ -44,13 +40,8 @@ var parsev2Cmd = &cobra.Command{
 
 func runv2() {
 
-	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
-		fmt.Print("The Windows SDK directory does not exist ..")
-		flag.Usage()
-		os.Exit(0)
-	}
-	if _, err := os.Stat(msvcPath); os.IsNotExist(err) {
-		fmt.Print("The Windows MSVC directory does not exist ..")
+	if _, err := os.Stat(includePath); os.IsNotExist(err) {
+		fmt.Print("The mingw-w64 include directory does not exist ..")
 		flag.Usage()
 		os.Exit(0)
 	}
@@ -66,30 +57,19 @@ func runv2() {
 		log.Fatal(err)
 	}
 
-	sdkIncludePaths, err := walkDir(sdkPath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	msvcIncludePaths, err := walkDir(msvcPath)
+	mingwIncludes, err := walkDir(includePath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	config.HostSysIncludePaths = config.HostSysIncludePaths[:0]
-	config.IncludePaths = config.IncludePaths[:0]
-	config.SysIncludePaths = config.SysIncludePaths[:0]
+	config.SysIncludePaths = append(config.SysIncludePaths, mingwIncludes...)
 
-	config.SysIncludePaths = append(sdkIncludePaths, msvcIncludePaths...)
-	config.HostSysIncludePaths = config.SysIncludePaths
-	config.IncludePaths = config.SysIncludePaths
-
-	config.Predefined += "\n#define __int64 long long\n#define __forceinline __attribute__((always_inline))\n#define _AMD64_\n#define _M_AMD64\n"
+	config.Predefined += "\n#define __iamcu__\n"
 
 	var sources []cc.Source
-	sources = append(sources, cc.Source{Name: "<builtin>", Value: "int __predefined_declarator;"})
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
-	sources = append(sources, cc.Source{Name: "<undefines>", Value: "#undef __cplusplus\n"})
-	//sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
+	sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
+	//sources = append(sources, cc.Source{Name: "<undefines>", Value: "#undef __cplusplus\n"})
 	sources = append(sources, cc.Source{Value: code})
 
 	// ast, err := cc.Parse(config, sources)
@@ -108,5 +88,30 @@ func runv2() {
 	//r := strings.NewReader(ast.TranslationUnit.String())
 	//utils.WriteBytesFile("ast.txt", r)
 	//log.Print(ast)
-	log.Print(ast.TranslationUnit.String())
+	//log.Print(ast.TranslationUnit.String())
+
+	for _, d := range myTranslator.Declares() {
+		if d.Name != "EnumMetaFile" {
+			funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
+			if ok {
+				retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
+				if ok {
+					returnString := retSpec.Raw
+					if retSpec.Raw == "" {
+						returnString = retSpec.Base
+					}
+					fmt.Printf("\n%s %s (", returnString, d.Name)
+					for _, param := range funcSpec.Params {
+						paramSpec, ok := param.Spec.(*translator.CTypeSpec)
+						if ok {
+							fmt.Printf("%s %s,", paramSpec.Raw, param.Name)
+						}
+					}
+				}
+			}
+			fmt.Printf(")")
+
+		}
+	}
+	log.Print("SUCCESS")
 }
