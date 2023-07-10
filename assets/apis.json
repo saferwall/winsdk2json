@@ -5119,18 +5119,6 @@
     }
    ]
   },
-  "lstrcatW": {
-   "callconv": "WINAPI",
-   "name": "lstrcatW",
-   "retVal": "LPWSTR",
-   "params": [
-    {
-     "anno": "_In_",
-     "type": "LPCWSTR",
-     "name": "lpString2"
-    }
-   ]
-  },
   "lstrcmpW": {
    "callconv": "WINAPI",
    "name": "lstrcmpW",
@@ -6249,6 +6237,33 @@
      "anno": "_In_",
      "type": "int",
      "name": "namelen"
+    }
+   ]
+  },
+  "getaddrinfo": {
+   "callconv": "WSAAPI",
+   "name": "getaddrinfo",
+   "retVal": "INT",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "PCSTR",
+     "name": "pNodeName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "PCSTR",
+     "name": "pServiceName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "const ADDRINFOA *",
+     "name": "pHints"
+    },
+    {
+     "anno": "_Outptr_ PADDRINFOA",
+     "type": "*",
+     "name": "ppResult"
     }
    ]
   },

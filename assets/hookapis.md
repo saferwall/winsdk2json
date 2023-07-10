@@ -129,7 +129,6 @@ LookupAccountSidA
 LookupAccountSidW
 LookupPrivilegeValueA
 LookupPrivilegeValueW
-lstrcatW
 lstrcmpW
 lstrlenW
 MoveFileA

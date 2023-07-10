@@ -115,7 +115,7 @@ func run() {
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
-		"\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h", "custom-def.h",
+		"\\ws2tcpip.h", "\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h", "custom-def.h",
 	}
 
 	parsedAPI := 0
@@ -164,7 +164,7 @@ func run() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "lstrcatW") {
+			if strings.Contains(v, "getaddrinfo") {
 				log.Print(v)
 			}
 

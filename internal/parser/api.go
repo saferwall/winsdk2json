@@ -15,7 +15,7 @@ import (
 
 const (
 	// RegAPIs is a regex that extract API prototypes.
-	RegAPIs = `(_Success_|HANDLE|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|NTAPI|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|:]+;`
+	RegAPIs = `(_Success_|HANDLE|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|NTAPI|WINSOCK_API_LINKAGE|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|:]+;`
 
 	// RegProto extracts API information.
 	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI)?( )?(?P<RetValType>[A-Za-z]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI|NTAPI) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
