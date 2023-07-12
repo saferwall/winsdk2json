@@ -229,6 +229,11 @@ VirtualProtect
 VirtualProtectEx
 VirtualQuery
 VirtualQueryEx
+VirtualFree
+VirtualFreeEx
+HeapFree
+LocalFree
+GlobalFree
 wcsncpy
 WinHttpConnect
 WinHttpOpen

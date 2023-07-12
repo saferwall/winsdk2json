@@ -3891,6 +3891,18 @@
     }
    ]
   },
+  "GlobalFree": {
+   "callconv": "WINAPI",
+   "name": "GlobalFree",
+   "retVal": "HGLOBAL",
+   "params": [
+    {
+     "anno": "_Frees_ptr_opt_",
+     "type": "HGLOBAL",
+     "name": "hMem"
+    }
+   ]
+  },
   "GlobalLock": {
    "callconv": "WINAPI",
    "name": "GlobalLock",
@@ -3934,6 +3946,28 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwBytes"
+    }
+   ]
+  },
+  "HeapFree": {
+   "callconv": "WINAPI",
+   "name": "HeapFree",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "HANDLE",
+     "name": "hHeap"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Frees_ptr_opt_",
+     "type": "LPVOID",
+     "name": "lpMem"
     }
    ]
   },
@@ -4053,6 +4087,18 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "uBytes"
+    }
+   ]
+  },
+  "LocalFree": {
+   "callconv": "WINAPI",
+   "name": "LocalFree",
+   "retVal": "HLOCAL",
+   "params": [
+    {
+     "anno": "_Frees_ptr_opt_",
+     "type": "HLOCAL",
+     "name": "hMem"
     }
    ]
   },
@@ -4893,6 +4939,28 @@
      "anno": "_When_(dwFreeType == MEM_DECOMMIT,_Post_invalid_) _When_(dwFreeType == MEM_RELEASE,)",
      "type": "LPVOID",
      "name": "lpAddress"
+    },
+    {
+     "anno": "_In_",
+     "type": "SIZE_T",
+     "name": "dwSize"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFreeType"
+    }
+   ]
+  },
+  "VirtualFreeEx": {
+   "callconv": "WINAPI",
+   "name": "VirtualFreeEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hProcess"
     },
     {
      "anno": "_In_",
