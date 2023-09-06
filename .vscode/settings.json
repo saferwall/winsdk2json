@@ -3,13 +3,10 @@
         "debug.log": true,
         "main.exe": true,
         "coverage": true,
-        "mingw-w64/build-aux": true,
-        "mingw-w64/COPYING*": true,
     },
     "search.exclude": {
-        // "assets/10.0.22000.0": true,
-        // "assets/14.29.30133": true,
         "sdk-api": true,
+        "winsdk": true,
     },
     "cSpell.words": [
         "winsdk"
