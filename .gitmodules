@@ -1,6 +1,3 @@
 [submodule "sdk-api"]
 	path = sdk-api
 	url = https://github.com/MicrosoftDocs/sdk-api
-[submodule "mingw-w64"]
-	path = mingw-w64
-	url = https://github.com/mirror/mingw-w64.git
