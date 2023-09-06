@@ -57,19 +57,24 @@ func runv2() {
 		log.Fatal(err)
 	}
 
-	mingwIncludes, err := walkDir(includePath)
-	if err != nil {
-		log.Fatal(err)
-	}
+	config.HostSysIncludePaths = config.HostSysIncludePaths[:0]
+	config.IncludePaths = config.IncludePaths[:0]
+	config.SysIncludePaths = config.SysIncludePaths[:0]
 
-	config.SysIncludePaths = append(config.SysIncludePaths, mingwIncludes...)
+	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\um")
+	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\shared")
+	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\14.29.30133\\include")
+	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\ucrt")
+	config.HostSysIncludePaths = config.SysIncludePaths
+	config.IncludePaths = config.SysIncludePaths
 
-	config.Predefined += "\n#define __iamcu__\n"
+	config.Predefined += "\n#define __iamcu__\n#define __int64 long long\n#define __int32 int\n#define #define NTDDI_WIN7 0x06010000\n#define __forceinline __attribute__((always_inline))\n#define _AMD64_\n#define _M_AMD64\n"
+	//config.Predefined += "\n#define __int64 long long\n#define __forceinline __attribute__((always_inline))\n#define _M_AMD64\n"
 
 	var sources []cc.Source
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
 	sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
-	//sources = append(sources, cc.Source{Name: "<undefines>", Value: "#undef __cplusplus\n"})
+	sources = append(sources, cc.Source{Name: "<undefines>", Value: "\n#undef __cplusplus\n"})
 	sources = append(sources, cc.Source{Value: code})
 
 	// ast, err := cc.Parse(config, sources)
@@ -90,8 +95,9 @@ func runv2() {
 	//log.Print(ast)
 	//log.Print(ast.TranslationUnit.String())
 
+	i := 0
 	for _, d := range myTranslator.Declares() {
-		if d.Name != "EnumMetaFile" {
+		if d.Name != "CreateFileA" {
 			funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
 			if ok {
 				retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
@@ -101,17 +107,18 @@ func runv2() {
 						returnString = retSpec.Base
 					}
 					fmt.Printf("\n%s %s (", returnString, d.Name)
+					i++
 					for _, param := range funcSpec.Params {
 						paramSpec, ok := param.Spec.(*translator.CTypeSpec)
 						if ok {
 							fmt.Printf("%s %s,", paramSpec.Raw, param.Name)
 						}
 					}
+					fmt.Printf(")")
 				}
 			}
-			fmt.Printf(")")
 
 		}
 	}
-	log.Print("SUCCESS")
+	log.Printf("SUCCESS %d", i)
 }
