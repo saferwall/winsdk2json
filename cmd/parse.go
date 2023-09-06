@@ -25,8 +25,8 @@ var (
 
 func init() {
 
-	parseCmd.Flags().StringVarP(&includePath, "include", "i", "./mingw-w64/mingw-w64-headers",
-		"Path to the mingw-w64 include headers")
+	parseCmd.Flags().StringVarP(&includePath, "include", "i", "./winsdk/10.0.22000.0",
+		"Path to the Windows Kits include directory")
 }
 
 var parseCmd = &cobra.Command{
@@ -41,7 +41,7 @@ var parseCmd = &cobra.Command{
 func run() {
 
 	if _, err := os.Stat(includePath); os.IsNotExist(err) {
-		fmt.Print("The mingw-w64 include directory does not exist ..")
+		fmt.Print("The include directory does not exist ..")
 		flag.Usage()
 		os.Exit(0)
 	}
@@ -61,15 +61,21 @@ func run() {
 	config.IncludePaths = config.IncludePaths[:0]
 	config.SysIncludePaths = config.SysIncludePaths[:0]
 
-	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\um")
-	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\shared")
-	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\14.29.30133\\include")
-	config.SysIncludePaths = append(config.SysIncludePaths, "assets\\10.0.22000.0\\ucrt")
+	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/um")
+	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/shared")
+	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/../14.29.30133/include")
+	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/ucrt")
 	config.HostSysIncludePaths = config.SysIncludePaths
 	config.IncludePaths = config.SysIncludePaths
 
-	config.Predefined += "\n#define __iamcu__\n#define __int64 long long\n#define __int32 int\n#define #define NTDDI_WIN7 0x06010000\n#define __forceinline __attribute__((always_inline))\n#define _AMD64_\n#define _M_AMD64\n"
-	//config.Predefined += "\n#define __int64 long long\n#define __forceinline __attribute__((always_inline))\n#define _M_AMD64\n"
+	config.Predefined += "\n#define __int64 long long\n"
+	config.Predefined += "#define __iamcu__\n"
+	config.Predefined += "#define __int32 int\n"
+	config.Predefined += "#define NTDDI_WIN7 0x06010000\n"
+	config.Predefined += "#define __forceinline __attribute__((always_inline))\n"
+	config.Predefined += "#define _AMD64_\n"
+	config.Predefined += "#define _M_AMD64\n"
+	config.Predefined += "#define __unaligned\n"
 
 	var sources []cc.Source
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
