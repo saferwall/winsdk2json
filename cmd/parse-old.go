@@ -32,30 +32,30 @@ var (
 
 func init() {
 
-	parseCmd.Flags().StringVarP(&sdkumPath, "sdk", "", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\",
+	parseCmdOld.Flags().StringVarP(&sdkumPath, "sdk", "", "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\",
 		"The path to the windows sdk directory")
-	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", ".\\sdk-api",
+	parseCmdOld.Flags().StringVarP(&sdkapiPath, "sdk-api", "", ".\\sdk-api",
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
-	parseCmd.Flags().StringVarP(&hookapisPath, "hookapis", "", ".\\assets\\hookapis.md",
+	parseCmdOld.Flags().StringVarP(&hookapisPath, "hookapis", "", ".\\assets\\hookapis.md",
 		"The path to a a text file thats defines which APIs to trace, new line separated.")
-	parseCmd.Flags().StringVarP(&customhookPath, "customhookapis", "", ".\\assets\\custom_hook_apis.md",
+	parseCmdOld.Flags().StringVarP(&customhookPath, "customhookapis", "", ".\\assets\\custom_hook_apis.md",
 		"The path to a a text file thats defines which APIs uses custom hook handlers")
 
-	parseCmd.Flags().BoolVarP(&printretval, "printretval", "", false, "Print return value type for each API")
-	parseCmd.Flags().BoolVarP(&printanno, "printanno", "", false, "Print list of annotation values")
-	parseCmd.Flags().BoolVarP(&minify, "minify", "m", false, "Mininify json")
+	parseCmdOld.Flags().BoolVarP(&printretval, "printretval", "", false, "Print return value type for each API")
+	parseCmdOld.Flags().BoolVarP(&printanno, "printanno", "", false, "Print list of annotation values")
+	parseCmdOld.Flags().BoolVarP(&minify, "minify", "m", false, "Mininify json")
 }
 
-var parseCmd = &cobra.Command{
-	Use:   "parse",
+var parseCmdOld = &cobra.Command{
+	Use:   "oldparse",
 	Short: "Walk through the Windows SDK and parse the Win32 headers",
 	Long:  `Walk through the Windows SDK and parse the Win32 headers to produce JSON files.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		run()
+		runOld()
 	},
 }
 
-func run() {
+func runOld() {
 
 	if sdkumPath == "" {
 		flag.Usage()

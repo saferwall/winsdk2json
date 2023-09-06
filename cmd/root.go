@@ -10,6 +10,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const (
+	version = "v0.3.0"
+)
+
 var rootCmd = &cobra.Command{
 	Use:   "winsdk2json",
 	Short: "parse the Windows Win32 API's SDK",
@@ -21,10 +25,10 @@ For more details see the github repo at https://github.com/saferwall/winsdk2json
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Vesion number",
+	Short: "Version number",
 	Long:  "Print the version number",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("You are using version 0.0.2")
+		fmt.Printf("You are using version %s", version)
 	},
 }
 
@@ -36,5 +40,5 @@ func Execute() error {
 func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(parseCmd)
-	rootCmd.AddCommand(parsev2Cmd)
+	//rootCmd.AddCommand(parseCmdOld)
 }

@@ -11,4 +11,7 @@
         // "assets/14.29.30133": true,
         "sdk-api": true,
     },
+    "cSpell.words": [
+        "winsdk"
+    ],
 }

@@ -25,20 +25,20 @@ var (
 
 func init() {
 
-	parsev2Cmd.Flags().StringVarP(&includePath, "include", "i", "./mingw-w64/mingw-w64-headers",
+	parseCmd.Flags().StringVarP(&includePath, "include", "i", "./mingw-w64/mingw-w64-headers",
 		"Path to the mingw-w64 include headers")
 }
 
-var parsev2Cmd = &cobra.Command{
-	Use:   "ast",
+var parseCmd = &cobra.Command{
+	Use:   "parse",
 	Short: "Walk through the Windows SDK and parse the Win32 headers",
 	Long:  `Walk through the Windows SDK and parse the Win32 headers to produce JSON files.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		runv2()
+		run()
 	},
 }
 
-func runv2() {
+func run() {
 
 	if _, err := os.Stat(includePath); os.IsNotExist(err) {
 		fmt.Print("The mingw-w64 include directory does not exist ..")
