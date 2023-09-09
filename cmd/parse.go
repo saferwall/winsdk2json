@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 
 	"github.com/saferwall/winsdk2json/internal/utils"
 	"github.com/spf13/cobra"
@@ -20,6 +21,7 @@ import (
 
 // Used for flags.
 var (
+	sdkapiPath string
 	includePath string
 )
 
@@ -27,6 +29,8 @@ func init() {
 
 	parseCmd.Flags().StringVarP(&includePath, "include", "i", "./winsdk/10.0.22000.0",
 		"Path to the Windows Kits include directory")
+	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", "./sdk-api",
+		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
 }
 
 var parseCmd = &cobra.Command{
@@ -76,18 +80,31 @@ func run() {
 	config.Predefined += "#define _AMD64_\n"
 	config.Predefined += "#define _M_AMD64\n"
 	config.Predefined += "#define __unaligned\n"
+	config.Predefined += "#define_MSC_FULL_VER 192930133\n"
 
 	var sources []cc.Source
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
 	sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
-	sources = append(sources, cc.Source{Name: "<undefines>", Value: "\n#undef __cplusplus\n"})
 	sources = append(sources, cc.Source{Value: code})
 
-	// ast, err := cc.Parse(config, sources)
 	ast, err := cc.Translate(config, sources)
 	if err != nil {
-		log.Fatalf("parse cpp source file failed with:\n%v", err)
+		log.Fatalf("cc translate failed with:\n%v", err)
 	}
+
+	// d := ast.Scope.Nodes["CreateFileW"][0].(*cc.Declarator)
+	// ft := d.Type().(*cc.FunctionType)
+	// fmt.Printf("%s\n", ft)
+	// for _, v := range ft.Parameters() {
+	// 	d = v.Declarator
+	// 	t := d.Type()
+	// 	attr := t.Attributes()
+	// 	if attr != nil {
+	// 		attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+	// 		annotation := strings.TrimSpace(string(attrVal))
+	// 		fmt.Printf("%s: %s, visibility(%s), (%v)\n", d.Name(), t, attr.Visibility(), annotation)
+	// 	}
+	// }
 
 	myTranslator, err := translator.New(&translator.Config{})
 	if err != nil {
@@ -96,30 +113,50 @@ func run() {
 
 	myTranslator.Learn(ast)
 
-	//r := strings.NewReader(ast.TranslationUnit.String())
-	//utils.WriteBytesFile("ast.txt", r)
-	//log.Print(ast)
-	//log.Print(ast.TranslationUnit.String())
+	// r := strings.NewReader(ast.TranslationUnit.String())
+	// _, err = utils.WriteBytesFile("ast.txt", r)
+	// if err != nil {
+	// 	log.Fatalf("failed to write ast: %v", err)
+	// }
 
 	i := 0
 	for _, d := range myTranslator.Declares() {
-		if d.Name != "CreateFileA" {
+		if d.Name == "CreateFileW" && !strings.HasPrefix(d.Name, "__builtin_") {
 			funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
 			if ok {
 				retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
 				if ok {
+
+					dllname, err := utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
+					if err != nil {
+						log.Printf("Failed to get the DLL name for: %s", d.Name)
+					}
+
 					returnString := retSpec.Raw
 					if retSpec.Raw == "" {
 						returnString = retSpec.Base
 					}
-					fmt.Printf("\n%s %s (", returnString, d.Name)
+					fmt.Printf("\n[%s]: %d - %s %s (", dllname, i, returnString, d.Name)
 					i++
-					for _, param := range funcSpec.Params {
+
+					funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)
+					ft := funcDecl.Type().(*cc.FunctionType)
+					for idx, param := range funcSpec.Params {
+						var annotation string
+						paramDecl := ft.Parameters()[idx]
+						t := paramDecl.Declarator.Type()
+						attr := t.Attributes()
+						if attr != nil {
+							attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+							annotation = strings.Replace(string(attrVal), "\x00", "", -1)
+						}
 						paramSpec, ok := param.Spec.(*translator.CTypeSpec)
 						if ok {
-							fmt.Printf("%s %s,", paramSpec.Raw, param.Name)
+							fmt.Printf("%s %s %s,", annotation, paramSpec.Raw, param.Name)
 						}
+
 					}
+
 					fmt.Printf(")")
 				}
 			}

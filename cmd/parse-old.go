@@ -22,7 +22,6 @@ import (
 // Used for flags.
 var (
 	sdkumPath      string
-	sdkapiPath     string
 	hookapisPath   string
 	customhookPath string
 	printretval    bool
