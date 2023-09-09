@@ -9,7 +9,6 @@ import (
 	"bytes"
 	"io"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -298,7 +297,6 @@ func GetDLLName(file, apiname, sdkpath string) (string, error) {
 	mdFile := path.Join(sdkpath, "sdk-api-src", "content", cat, functionName)
 	mdFileContent, err := ReadAll(mdFile)
 	if err != nil {
-		log.Printf("Failed to find file: %s", mdFile)
 		return "", err
 	}
 	m := RegSubMatchToMapString(RegDllName, string(mdFileContent))
