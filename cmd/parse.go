@@ -5,14 +5,17 @@
 package cmd
 
 import (
+	"bytes"
+	"context"
+	"encoding/json"
 	"flag"
-	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
 
+	"github.com/saferwall/winsdk2json/internal/entity"
+	log "github.com/saferwall/winsdk2json/internal/logger"
 	"github.com/saferwall/winsdk2json/internal/utils"
 	"github.com/spf13/cobra"
 	"github.com/xlab/c-for-go/translator"
@@ -21,8 +24,10 @@ import (
 
 // Used for flags.
 var (
-	sdkapiPath string
-	includePath string
+	sdkapiPath   string
+	includePath  string
+	dumpAST      bool
+	genJSONForUI bool
 )
 
 func init() {
@@ -31,6 +36,10 @@ func init() {
 		"Path to the Windows Kits include directory")
 	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", "./sdk-api",
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
+	parseCmd.Flags().BoolVarP(&dumpAST, "ast", "a", false,
+		"Dump the parsed AST to disk")
+	parseCmd.Flags().BoolVarP(&genJSONForUI, "ui", "u", false,
+		"Generate Win32 API JSON definitions for saferwall UI frontend.")
 }
 
 var parseCmd = &cobra.Command{
@@ -44,8 +53,9 @@ var parseCmd = &cobra.Command{
 
 func run() {
 
+	logger := log.NewCustom("info").With(context.TODO())
 	if _, err := os.Stat(includePath); os.IsNotExist(err) {
-		fmt.Print("The include directory does not exist ..")
+		logger.Errorf("The include directory does not exist ..")
 		flag.Usage()
 		os.Exit(0)
 	}
@@ -53,12 +63,12 @@ func run() {
 	filePath := filepath.Join("assets", "header.h")
 	code, err := utils.ReadAll(filePath)
 	if err != nil {
-		log.Fatalf("reading header.h failed: %v", err)
+		logger.Fatalf("reading header.h failed: %v", err)
 	}
 
 	config, err := cc.NewConfig(runtime.GOOS, runtime.GOARCH)
 	if err != nil {
-		log.Fatal(err)
+		logger.Fatal(err)
 	}
 
 	config.HostSysIncludePaths = config.HostSysIncludePaths[:0]
@@ -89,79 +99,118 @@ func run() {
 
 	ast, err := cc.Translate(config, sources)
 	if err != nil {
-		log.Fatalf("cc translate failed with:\n%v", err)
+		logger.Fatalf("cc translate failed with:%v", err)
 	}
 
-	// d := ast.Scope.Nodes["CreateFileW"][0].(*cc.Declarator)
-	// ft := d.Type().(*cc.FunctionType)
-	// fmt.Printf("%s\n", ft)
-	// for _, v := range ft.Parameters() {
-	// 	d = v.Declarator
-	// 	t := d.Type()
-	// 	attr := t.Attributes()
-	// 	if attr != nil {
-	// 		attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
-	// 		annotation := strings.TrimSpace(string(attrVal))
-	// 		fmt.Printf("%s: %s, visibility(%s), (%v)\n", d.Name(), t, attr.Visibility(), annotation)
-	// 	}
-	// }
-
-	myTranslator, err := translator.New(&translator.Config{})
-	if err != nil {
-		log.Fatalf("failed to create new translator: %v", err)
-	}
-
-	myTranslator.Learn(ast)
-
-	// r := strings.NewReader(ast.TranslationUnit.String())
-	// _, err = utils.WriteBytesFile("ast.txt", r)
-	// if err != nil {
-	// 	log.Fatalf("failed to write ast: %v", err)
-	// }
-
-	i := 0
-	for _, d := range myTranslator.Declares() {
-		if d.Name == "CreateFileW" && !strings.HasPrefix(d.Name, "__builtin_") {
-			funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
-			if ok {
-				retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
-				if ok {
-
-					dllname, err := utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
-					if err != nil {
-						log.Printf("Failed to get the DLL name for: %s", d.Name)
-					}
-
-					returnString := retSpec.Raw
-					if retSpec.Raw == "" {
-						returnString = retSpec.Base
-					}
-					fmt.Printf("\n[%s]: %d - %s %s (", dllname, i, returnString, d.Name)
-					i++
-
-					funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)
-					ft := funcDecl.Type().(*cc.FunctionType)
-					for idx, param := range funcSpec.Params {
-						var annotation string
-						paramDecl := ft.Parameters()[idx]
-						t := paramDecl.Declarator.Type()
-						attr := t.Attributes()
-						if attr != nil {
-							attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
-							annotation = strings.Replace(string(attrVal), "\x00", "", -1)
-						}
-						paramSpec, ok := param.Spec.(*translator.CTypeSpec)
-						if ok {
-							fmt.Printf("%s %s %s,", annotation, paramSpec.Raw, param.Name)
-						}
-
-					}
-
-					fmt.Printf(")")
-				}
-			}
-
+	if dumpAST {
+		r := strings.NewReader(ast.TranslationUnit.String())
+		_, err = utils.WriteBytesFile("ast.txt", r)
+		if err != nil {
+			logger.Fatalf("failed to write ast: %v", err)
 		}
 	}
-	log.Printf("SUCCESS %d", i)
+
+	// Use c-for-go to translate the AST to high level objects.
+	myTranslator, err := translator.New(&translator.Config{})
+	if err != nil {
+		logger.Fatalf("failed to create new translator: %v", err)
+	}
+	myTranslator.Learn(ast)
+
+	// Walk through all declarations and create list of APIs.
+	var w32apis []entity.W32API
+	for _, d := range myTranslator.Declares() {
+		if strings.HasPrefix(d.Name, "__builtin_") {
+			logger.Debugf("skipping builtin declaration: %s", d.Name)
+			continue
+		}
+
+		var err error
+		funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
+		if ok {
+			retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
+			if ok {
+				var w32api entity.W32API
+
+				w32api.Name = d.Name
+				w32api.DLL, err = utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
+				if err != nil {
+					logger.Debugf("failed to get the DLL name for: %s", d.Name)
+					continue
+				}
+
+				// API return type.
+				w32api.RetType = retSpec.Raw
+				if retSpec.Raw == "" {
+					w32api.RetType = retSpec.Base
+				}
+
+				funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)
+				ft := funcDecl.Type().(*cc.FunctionType)
+
+				w32api.Params = make([]entity.W32APIParam, len(funcSpec.Params))
+				for idx, param := range funcSpec.Params {
+					var w32apiParam entity.W32APIParam
+
+					paramSpec, ok := param.Spec.(*translator.CTypeSpec)
+					if !ok {
+						logger.Debugf("paramSpec cast failed for: %s", d.Name)
+						continue
+					}
+
+					w32apiParam.Name = param.Name
+					w32apiParam.Type = paramSpec.Raw
+					if paramSpec.Raw == "" {
+						w32apiParam.Type = paramSpec.Base
+					}
+
+					paramDecl := ft.Parameters()[idx]
+					if paramDecl.Declarator == nil {
+						logger.Debugf("param declarator is nil for: %s", d.Name)
+						w32api.Params[idx] = w32apiParam
+						continue
+					}
+
+					t := paramDecl.Declarator.Type()
+					attr := t.Attributes()
+					if attr != nil {
+						attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+						w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
+					}
+					w32api.Params[idx] = w32apiParam
+				}
+
+				w32apis = append(w32apis, w32api)
+				logger.Info(w32api.String())
+			}
+		}
+	}
+
+	if genJSONForUI {
+
+		// Read the list of APIs we are interested to hook.
+		wantedAPIs, err := utils.ReadLines("./assets/hookapis.md")
+		if err != nil {
+			logger.Fatal(err)
+		}
+
+		uiMap := make(map[string][]map[string]string)
+		for _, w32api := range w32apis {
+
+			if !utils.StringInSlice(w32api.Name, wantedAPIs) {
+				continue
+			}
+
+			params := make([]map[string]string, len(w32api.Params))
+			for i, apiParam := range w32api.Params {
+				params[i] = make(map[string]string)
+				params[i]["typ"] = apiParam.Type
+				params[i]["name"] = apiParam.Name
+			}
+			uiMap[w32api.Name] = params
+		}
+
+		data, _ := json.Marshal(uiMap)
+		utils.WriteBytesFile("./assets/w32apis-ui.json", bytes.NewReader(data))
+	}
 }
