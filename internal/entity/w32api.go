@@ -26,7 +26,7 @@ type W32API struct {
 func (api *W32API) String() string {
 	s := fmt.Sprintf("%s - %s %s (", api.DLL, api.RetType, api.Name)
 	if len(api.Params) == 0 {
-		s := "void )"
+		s += "void )"
 		return s
 	}
 

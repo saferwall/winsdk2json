@@ -8,7 +8,6 @@
 #define __unaligned
 #define _MSC_FULL_VER 192930133
 
-
 #define XSTR(x) STR(x)
 #define STR(x) #x
 
@@ -48,3 +47,7 @@
 #endif
 
 #include<windows.h>
+// #include <minwindef.h>
+// #include <minwinbase.h>
+// #include <winnt.h>
+
