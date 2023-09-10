@@ -124,9 +124,6 @@ func run() {
 			logger.Debugf("skipping builtin declaration: %s", d.Name)
 			continue
 		}
-		if d.Name == "_select" {
-			logger.Debugf("got you: %s", d.Name)
-		}
 
 		var err error
 		funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
