@@ -95,7 +95,7 @@ func run() {
 	var sources []cc.Source
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
 	sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
-	sources = append(sources, cc.Source{Name: "saferwall.h", Value: code})
+	sources = append(sources, cc.Source{Name: "saferwall.c", Value: code})
 
 	ast, err := cc.Translate(config, sources)
 	if err != nil {
@@ -220,6 +220,12 @@ func run() {
 				params[i]["name"] = apiParam.Name
 			}
 			uiMap[w32api.Name] = params
+		}
+
+		for _, wantedAPI := range wantedAPIs {
+			if _, ok := uiMap[wantedAPI]; !ok {
+				logger.Infof("%s not found !", wantedAPI)
+			}
 		}
 
 		data, _ := json.Marshal(uiMap)

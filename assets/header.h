@@ -5,8 +5,10 @@
 #define __forceinline __attribute__((always_inline))
 #define _AMD64_
 #define _M_AMD64
+#define _M_X64
 #define __unaligned
 #define _MSC_FULL_VER 192930133
+#define _CTYPE_DISABLE_MACROS
 
 #define XSTR(x) STR(x)
 #define STR(x) #x
@@ -46,8 +48,17 @@
 #define _Out_opt_  __attribute__((anno("_Out_opt_")))
 #endif
 
-#include<windows.h>
+// #include <winhttp.h>
 // #include <minwindef.h>
 // #include <minwinbase.h>
-// #include <winnt.h>
+
+#include <windows.h>
+#include <tlhelp32.h>
+#include <wininet.h>
+#include <shlwapi.h>
+#include <Shlobj.h>
+#include <string.h>
+#include <wchar.h>
+#include <winsock.h>
+//#include <winhttp.h>
 
