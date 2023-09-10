@@ -90,12 +90,12 @@ func run() {
 	config.Predefined += "#define _AMD64_\n"
 	config.Predefined += "#define _M_AMD64\n"
 	config.Predefined += "#define __unaligned\n"
-	config.Predefined += "#define_MSC_FULL_VER 192930133\n"
+	config.Predefined += "#define _MSC_FULL_VER 192930133\n"
 
 	var sources []cc.Source
 	sources = append(sources, cc.Source{Name: "<predefined>", Value: config.Predefined})
 	sources = append(sources, cc.Source{Name: "<builtin>", Value: cc.Builtin})
-	sources = append(sources, cc.Source{Value: code})
+	sources = append(sources, cc.Source{Name: "saferwall.c", Value: code})
 
 	ast, err := cc.Translate(config, sources)
 	if err != nil {
@@ -127,63 +127,75 @@ func run() {
 
 		var err error
 		funcSpec, ok := d.Spec.(*translator.CFunctionSpec)
-		if ok {
-			retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
-			if ok {
-				var w32api entity.W32API
+		if !ok {
+			continue
+		}
 
-				w32api.Name = d.Name
-				w32api.DLL, err = utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
-				if err != nil {
-					logger.Debugf("failed to get the DLL name for: %s", d.Name)
-					continue
-				}
+		var w32api entity.W32API
 
-				// API return type.
-				w32api.RetType = retSpec.Raw
-				if retSpec.Raw == "" {
-					w32api.RetType = retSpec.Base
-				}
-
-				funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)
-				ft := funcDecl.Type().(*cc.FunctionType)
-
-				w32api.Params = make([]entity.W32APIParam, len(funcSpec.Params))
-				for idx, param := range funcSpec.Params {
-					var w32apiParam entity.W32APIParam
-
-					paramSpec, ok := param.Spec.(*translator.CTypeSpec)
-					if !ok {
-						logger.Debugf("paramSpec cast failed for: %s", d.Name)
-						continue
-					}
-
-					w32apiParam.Name = param.Name
-					w32apiParam.Type = paramSpec.Raw
-					if paramSpec.Raw == "" {
-						w32apiParam.Type = paramSpec.Base
-					}
-
-					paramDecl := ft.Parameters()[idx]
-					if paramDecl.Declarator == nil {
-						logger.Debugf("param declarator is nil for: %s", d.Name)
-						w32api.Params[idx] = w32apiParam
-						continue
-					}
-
-					t := paramDecl.Declarator.Type()
-					attr := t.Attributes()
-					if attr != nil {
-						attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
-						w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
-					}
-					w32api.Params[idx] = w32apiParam
-				}
-
-				w32apis = append(w32apis, w32api)
-				logger.Info(w32api.String())
+		retSpec, ok := funcSpec.Return.(*translator.CTypeSpec)
+		if !ok {
+			// We are dealing with functions that return type is void.
+			w32api.RetType = "void"
+		} else {
+			// API return type.
+			w32api.RetType = retSpec.Raw
+			if retSpec.Raw == "" {
+				w32api.RetType = retSpec.Base
 			}
 		}
+
+		w32api.Name = d.Name
+		w32api.DLL, err = utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
+		if err != nil {
+			logger.Debugf("failed to get the DLL name for: %s", d.Name)
+			continue
+		}
+
+		funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)
+		ft := funcDecl.Type().(*cc.FunctionType)
+
+		w32api.Params = make([]entity.W32APIParam, len(funcSpec.Params))
+		for idx, param := range funcSpec.Params {
+			var w32apiParam entity.W32APIParam
+			w32apiParam.Name = param.Name
+
+			switch param.Spec.(type) {
+			case *translator.CTypeSpec:
+				paramSpec := param.Spec.(*translator.CTypeSpec)
+				w32apiParam.Type = paramSpec.Raw
+				if paramSpec.Raw == "" {
+					w32apiParam.Type = paramSpec.Base
+				}
+			case *translator.CStructSpec:
+				paramSpec := param.Spec.(*translator.CStructSpec)
+				if paramSpec.Pointers > 1 {
+					for i := uint8(1); i < paramSpec.Pointers; i++ {
+						w32apiParam.Type = "*" + w32apiParam.Type
+					}
+				}
+
+				w32apiParam.Type += paramSpec.Raw
+			}
+
+			paramDecl := ft.Parameters()[idx]
+			if paramDecl.Declarator == nil {
+				logger.Debugf("param declarator is nil for: %s", d.Name)
+				w32api.Params[idx] = w32apiParam // even though incomplete
+				continue
+			}
+
+			t := paramDecl.Declarator.Type()
+			attr := t.Attributes()
+			if attr != nil {
+				attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+				w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
+			}
+			w32api.Params[idx] = w32apiParam
+		}
+
+		w32apis = append(w32apis, w32api)
+		logger.Info(w32api.String())
 	}
 
 	if genJSONForUI {
@@ -208,6 +220,12 @@ func run() {
 				params[i]["name"] = apiParam.Name
 			}
 			uiMap[w32api.Name] = params
+		}
+
+		for _, wantedAPI := range wantedAPIs {
+			if _, ok := uiMap[wantedAPI]; !ok {
+				logger.Infof("%s not found !", wantedAPI)
+			}
 		}
 
 		data, _ := json.Marshal(uiMap)
