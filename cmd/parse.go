@@ -9,6 +9,7 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -188,15 +189,29 @@ func run() {
 			t := paramDecl.Declarator.Type()
 			attr := t.Attributes()
 			if attr != nil {
-				attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+				attrAnno := attr.AttrValue("anno")
+				attrVal := attrAnno[0].(cc.StringValue)
 				w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
+
+				attrSize := attr.AttrValue("size")
+				if len(attrSize) > 0 {
+					attrValSize := attrSize[0].(cc.StringValue)
+					w32apiParam.Annotation = fmt.Sprintf("%s(%s)",
+						w32apiParam.Annotation, strings.Replace(string(attrValSize), "\x00", "", -1))
+				}
+
+			} else {
+				fmt.Print(t)
 			}
 			w32api.Params[idx] = w32apiParam
 		}
 
 		w32apis = append(w32apis, w32api)
-		logger.Info(w32api.String())
+		logger.Debug(w32api.String())
 	}
+
+	data, _ := json.Marshal(w32apis)
+	utils.WriteBytesFile("./assets/w32apis-v2.01.json", bytes.NewReader(data))
 
 	if genJSONForUI {
 
@@ -206,18 +221,17 @@ func run() {
 			logger.Fatal(err)
 		}
 
-		uiMap := make(map[string][]map[string]string)
+		uiMap := make(map[string][][2]string)
 		for _, w32api := range w32apis {
 
 			if !utils.StringInSlice(w32api.Name, wantedAPIs) {
 				continue
 			}
 
-			params := make([]map[string]string, len(w32api.Params))
+			params := make([][2]string, len(w32api.Params))
 			for i, apiParam := range w32api.Params {
-				params[i] = make(map[string]string)
-				params[i]["typ"] = apiParam.Type
-				params[i]["name"] = apiParam.Name
+				params[i][0] = apiParam.Type
+				params[i][1] = apiParam.Name
 			}
 			uiMap[w32api.Name] = params
 		}
