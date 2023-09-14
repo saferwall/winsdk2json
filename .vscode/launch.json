@@ -12,7 +12,9 @@
       "program": "${workspaceFolder}\\",
       "env": {},
       "args": [
-        "parse"
+        "parse",
+        //"--ui",
+        //"-a"
         //   "--printretval",
         //   "--printanno",
         //  "--minify",

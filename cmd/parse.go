@@ -9,6 +9,7 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -167,15 +168,21 @@ func run() {
 				if paramSpec.Raw == "" {
 					w32apiParam.Type = paramSpec.Base
 				}
+				for i := uint8(1); i < paramSpec.Pointers; i++ {
+					w32apiParam.Type = w32apiParam.Type + "*"
+				}
 			case *translator.CStructSpec:
 				paramSpec := param.Spec.(*translator.CStructSpec)
-				if paramSpec.Pointers > 1 {
-					for i := uint8(1); i < paramSpec.Pointers; i++ {
-						w32apiParam.Type = "*" + w32apiParam.Type
-					}
+				w32apiParam.Type = paramSpec.Raw
+				for i := uint8(0); i < paramSpec.Pointers; i++ {
+					w32apiParam.Type = w32apiParam.Type + "*"
 				}
-
-				w32apiParam.Type += paramSpec.Raw
+				if strings.HasPrefix(w32apiParam.Type, "LP") {
+					w32apiParam.Type = w32apiParam.Type[:len(w32apiParam.Type)-1]
+				}
+				if len(paramSpec.Members) == 1 && paramSpec.Members[0].Name == "unused" {
+					w32apiParam.Type = w32apiParam.Type[:len(w32apiParam.Type)-1]
+				}
 			}
 
 			paramDecl := ft.Parameters()[idx]
@@ -188,15 +195,36 @@ func run() {
 			t := paramDecl.Declarator.Type()
 			attr := t.Attributes()
 			if attr != nil {
-				attrVal := attr.AttrValue("anno")[0].(cc.StringValue)
+				attrAnno := attr.AttrValue("anno")
+				attrVal := attrAnno[0].(cc.StringValue)
 				w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
+
+				var annoSize string
+				attrSize := attr.AttrValue("size")
+				if len(attrSize) > 0 {
+					attrValSize := attrSize[0].(cc.StringValue)
+					annoSize = strings.Replace(string(attrValSize), "\x00", "", -1)
+
+					attrCount := attr.AttrValue("count")
+					if len(attrCount) > 0 {
+						attrValSize := attrCount[0].(cc.StringValue)
+						attrCount := strings.Replace(string(attrValSize), "\x00", "", -1)
+						w32apiParam.Annotation = fmt.Sprintf("%s(%s,%s)", w32apiParam.Annotation, annoSize, attrCount)
+					} else {
+						w32apiParam.Annotation = fmt.Sprintf("%s(%s)", w32apiParam.Annotation, annoSize)
+					}
+				}
+
 			}
 			w32api.Params[idx] = w32apiParam
 		}
 
 		w32apis = append(w32apis, w32api)
-		logger.Info(w32api.String())
+		logger.Debug(w32api.String())
 	}
+
+	data, _ := json.Marshal(w32apis)
+	utils.WriteBytesFile("./assets/w32apis-v2.05.json", bytes.NewReader(data))
 
 	if genJSONForUI {
 
@@ -206,18 +234,17 @@ func run() {
 			logger.Fatal(err)
 		}
 
-		uiMap := make(map[string][]map[string]string)
+		uiMap := make(map[string][][2]string)
 		for _, w32api := range w32apis {
 
 			if !utils.StringInSlice(w32api.Name, wantedAPIs) {
 				continue
 			}
 
-			params := make([]map[string]string, len(w32api.Params))
+			params := make([][2]string, len(w32api.Params))
 			for i, apiParam := range w32api.Params {
-				params[i] = make(map[string]string)
-				params[i]["typ"] = apiParam.Type
-				params[i]["name"] = apiParam.Name
+				params[i][0] = apiParam.Type
+				params[i][1] = apiParam.Name
 			}
 			uiMap[w32api.Name] = params
 		}
