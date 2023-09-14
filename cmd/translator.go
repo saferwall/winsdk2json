@@ -34,6 +34,7 @@ func translate(source []byte) []entity.W32API {
 	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/shared")
 	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/../14.29.30133/include")
 	config.SysIncludePaths = append(config.SysIncludePaths, includePath+"/ucrt")
+	config.SysIncludePaths = append(config.SysIncludePaths, phntPath)
 	config.HostSysIncludePaths = config.SysIncludePaths
 	config.IncludePaths = config.SysIncludePaths
 
@@ -104,8 +105,12 @@ func translate(source []byte) []entity.W32API {
 		w32api.Name = d.Name
 		w32api.DLL, err = utils.GetDLLName(d.Position.Filename, d.Name, sdkapiPath)
 		if err != nil {
-			logger.Debugf("failed to get the DLL name for: %s", d.Name)
-			continue
+			if strings.Contains(d.Position.Filename, "phnt\\") {
+				w32api.DLL = "ntdll.dll"
+			} else {
+				logger.Debugf("failed to get the DLL name for: %s", d.Name)
+				continue
+			}
 		}
 
 		funcDecl := ast.Scope.Nodes[d.Name][0].(*cc.Declarator)

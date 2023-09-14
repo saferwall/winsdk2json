@@ -21,6 +21,7 @@ import (
 var (
 	sdkapiPath   string
 	includePath  string
+	phntPath     string
 	dumpAST      bool
 	genJSONForUI bool
 )
@@ -31,6 +32,8 @@ func init() {
 		"Path to the Windows Kits include directory")
 	parseCmd.Flags().StringVarP(&sdkapiPath, "sdk-api", "", "./sdk-api",
 		"The path to the sdk-api docs directory (https://github.com/MicrosoftDocs/sdk-api)")
+	parseCmd.Flags().StringVarP(&phntPath, "phnt", "", "./phnt",
+		"The path to the Native API header files for the System Informer project.")
 	parseCmd.Flags().BoolVarP(&dumpAST, "ast", "a", false,
 		"Dump the parsed AST to disk")
 	parseCmd.Flags().BoolVarP(&genJSONForUI, "ui", "u", false,
@@ -77,7 +80,7 @@ func run() {
 		uniqueIDs = append(uniqueIDs, id)
 	}
 
-	// Remove duplicates
+	// WinINET conflicts.
 	for _, w32api := range w32apis2 {
 		id := w32api.DLL + "-" + w32api.Name
 		if !utils.StringInSlice(id, uniqueIDs) {
@@ -89,7 +92,7 @@ func run() {
 	if err != nil {
 		logger.Fatal(err)
 	}
-	utils.WriteBytesFile("./assets/w32apis-full-v1.json", bytes.NewReader(marshaled))
+	utils.WriteBytesFile("./assets/w32apis-full-v2.json", bytes.NewReader(marshaled))
 
 	if genJSONForUI {
 
@@ -127,6 +130,6 @@ func run() {
 		if err != nil {
 			logger.Fatal(err)
 		}
-		utils.WriteBytesFile("./assets/w32apis-ui-v1.json", bytes.NewReader(marshaled))
+		utils.WriteBytesFile("./assets/w32apis-ui-v2.json", bytes.NewReader(marshaled))
 	}
 }
