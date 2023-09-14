@@ -219,13 +219,14 @@
 #include <tlhelp32.h>
 #include <wininet.h>
 #include <shlwapi.h>
+#include <shellapi.h>
 #include <Shlobj.h>
 #include <string.h>
 #include <wchar.h>
-#include <winsock.h>
-//#include <winhttp.h> conflitcs with wininet
+#include <winsock2.h>
+#include <wincrypt.h>
 
-
+//#pragma message "The value of Windows:" XSTR(_WIN32_WINNT)
 
 // Testing
 //#include <minwindef.h>
