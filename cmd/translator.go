@@ -108,7 +108,7 @@ func translate(source []byte) []entity.W32API {
 			if strings.Contains(d.Position.Filename, "phnt\\") {
 				w32api.DLL = "ntdll.dll"
 			} else {
-				logger.Debugf("failed to get the DLL name for: %s", d.Name)
+				logger.Infof("failed to get the DLL name for: %s [%s]", d.Name, d.Position.Filename)
 				continue
 			}
 		}
