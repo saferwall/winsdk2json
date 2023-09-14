@@ -5,8 +5,8 @@
         "coverage": true,
     },
     "search.exclude": {
-        "sdk-api": true,
-        "winsdk": true,
+        "sdk-api": false,
+        "winsdk": false,
     },
     "cSpell.words": [
         "winsdk"
