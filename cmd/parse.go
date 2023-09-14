@@ -161,8 +161,6 @@ func run() {
 			var w32apiParam entity.W32APIParam
 			w32apiParam.Name = param.Name
 
-			paramDecl := ft.Parameters()[idx]
-
 			switch param.Spec.(type) {
 			case *translator.CTypeSpec:
 				paramSpec := param.Spec.(*translator.CTypeSpec)
@@ -177,14 +175,17 @@ func run() {
 				paramSpec := param.Spec.(*translator.CStructSpec)
 				w32apiParam.Type = paramSpec.Raw
 				for i := uint8(0); i < paramSpec.Pointers; i++ {
-					if i == 0 && strings.HasPrefix(w32apiParam.Type, "LP") {
-						continue
-					}
 					w32apiParam.Type = w32apiParam.Type + "*"
 				}
-
+				if strings.HasPrefix(w32apiParam.Type, "LP") {
+					w32apiParam.Type = w32apiParam.Type[:len(w32apiParam.Type)-1]
+				}
+				if len(paramSpec.Members) == 1 && paramSpec.Members[0].Name == "unused" {
+					w32apiParam.Type = w32apiParam.Type[:len(w32apiParam.Type)-1]
+				}
 			}
 
+			paramDecl := ft.Parameters()[idx]
 			if paramDecl.Declarator == nil {
 				logger.Debugf("param declarator is nil for: %s", d.Name)
 				w32api.Params[idx] = w32apiParam // even though incomplete
@@ -223,7 +224,7 @@ func run() {
 	}
 
 	data, _ := json.Marshal(w32apis)
-	utils.WriteBytesFile("./assets/w32apis-v2.04.json", bytes.NewReader(data))
+	utils.WriteBytesFile("./assets/w32apis-v2.05.json", bytes.NewReader(data))
 
 	if genJSONForUI {
 
