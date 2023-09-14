@@ -92,7 +92,7 @@ func run() {
 	if err != nil {
 		logger.Fatal(err)
 	}
-	utils.WriteBytesFile("./assets/w32apis-full-v2.json", bytes.NewReader(marshaled))
+	utils.WriteBytesFile("./assets/w32apis-full.json", bytes.NewReader(marshaled))
 
 	if genJSONForUI {
 
@@ -130,6 +130,6 @@ func run() {
 		if err != nil {
 			logger.Fatal(err)
 		}
-		utils.WriteBytesFile("./assets/w32apis-ui-v2.json", bytes.NewReader(marshaled))
+		utils.WriteBytesFile("./assets/w32apis-ui.json", bytes.NewReader(marshaled))
 	}
 }

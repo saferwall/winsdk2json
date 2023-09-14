@@ -225,6 +225,7 @@
 #include <wchar.h>
 #include <winsock2.h>
 #include <wincrypt.h>
+#include <ws2tcpip.h>
 #include <phnt_windows.h> // for phnt
 #include <phnt.h>
 //#pragma message "The value of Windows:" XSTR(_WIN32_WINNT)
