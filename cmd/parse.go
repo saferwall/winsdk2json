@@ -223,8 +223,11 @@ func run() {
 		logger.Debug(w32api.String())
 	}
 
-	data, _ := json.Marshal(w32apis)
-	utils.WriteBytesFile("./assets/w32apis-v2.05.json", bytes.NewReader(data))
+	marshaled, err := json.MarshalIndent(w32apis, "", "   ")
+	if err != nil {
+		logger.Fatal(err)
+	}
+	utils.WriteBytesFile("./assets/w32apis-full.json", bytes.NewReader(marshaled))
 
 	if genJSONForUI {
 
@@ -255,7 +258,10 @@ func run() {
 			}
 		}
 
-		data, _ := json.Marshal(uiMap)
-		utils.WriteBytesFile("./assets/w32apis-ui.json", bytes.NewReader(data))
+		marshaled, err := json.MarshalIndent(uiMap, "", "   ")
+		if err != nil {
+			logger.Fatal(err)
+		}
+		utils.WriteBytesFile("./assets/w32apis-ui.json", bytes.NewReader(marshaled))
 	}
 }
