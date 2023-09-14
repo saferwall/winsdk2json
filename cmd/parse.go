@@ -193,15 +193,22 @@ func run() {
 				attrVal := attrAnno[0].(cc.StringValue)
 				w32apiParam.Annotation = strings.Replace(string(attrVal), "\x00", "", -1)
 
+				var annoSize string
 				attrSize := attr.AttrValue("size")
 				if len(attrSize) > 0 {
 					attrValSize := attrSize[0].(cc.StringValue)
-					w32apiParam.Annotation = fmt.Sprintf("%s(%s)",
-						w32apiParam.Annotation, strings.Replace(string(attrValSize), "\x00", "", -1))
+					annoSize = strings.Replace(string(attrValSize), "\x00", "", -1)
+
+					attrCount := attr.AttrValue("count")
+					if len(attrCount) > 0 {
+						attrValSize := attrCount[0].(cc.StringValue)
+						attrCount := strings.Replace(string(attrValSize), "\x00", "", -1)
+						w32apiParam.Annotation = fmt.Sprintf("%s(%s,%s)", w32apiParam.Annotation, annoSize, attrCount)
+					} else {
+						w32apiParam.Annotation = fmt.Sprintf("%s(%s)", w32apiParam.Annotation, annoSize)
+					}
 				}
 
-			} else {
-				fmt.Print(t)
 			}
 			w32api.Params[idx] = w32apiParam
 		}
@@ -211,7 +218,7 @@ func run() {
 	}
 
 	data, _ := json.Marshal(w32apis)
-	utils.WriteBytesFile("./assets/w32apis-v2.01.json", bytes.NewReader(data))
+	utils.WriteBytesFile("./assets/w32apis-v2.02.json", bytes.NewReader(data))
 
 	if genJSONForUI {
 

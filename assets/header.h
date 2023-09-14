@@ -129,7 +129,6 @@
 #define _Out_writes_bytes_opt_(s)  __attribute__((anno("_Out_writes_bytes_opt_"))) __attribute__((size(#s)))
 #endif
 
-// ignoring (s) here
 #if defined(_Out_writes_z_)
 #undef _Out_writes_z_
 #define _Out_writes_z_(s)  __attribute__((anno("_Out_writes_z_"))) __attribute__((size(#s)))
@@ -142,8 +141,65 @@
 
 #if defined(_Out_writes_to_)
 #undef _Out_writes_to_
-#define _Out_writes_to_(s, c)  __attribute__((anno("_Out_writes_to_"))) __attribute__((size(#s)))
+#define _Out_writes_to_(s, c)  __attribute__((anno("_Out_writes_to_"))) __attribute__((size(#s))) __attribute__((count(#c)))
 #endif
+
+#if defined(_Out_writes_to_opt_)
+#undef _Out_writes_to_opt_
+#define _Out_writes_to_opt_(s, c)  __attribute__((anno("_Out_writes_to_opt_"))) __attribute__((size(#s))) __attribute__((count(#c)))
+#endif
+
+#if defined(_Out_writes_all_)
+#undef _Out_writes_all_
+#define _Out_writes_all_(s)  __attribute__((anno("_Out_writes_all_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_all_opt_)
+#undef _Out_writes_all_opt_
+#define _Out_writes_all_opt_(s)  __attribute__((anno("_Out_writes_all_opt_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_bytes_to_)
+#undef _Out_writes_bytes_to_
+#define _Out_writes_bytes_to_(s, c)  __attribute__((anno("_Out_writes_bytes_to_"))) __attribute__((size(#s))) __attribute__((count(#c)))
+#endif
+
+#if defined(_Out_writes_bytes_to_opt_)
+#undef _Out_writes_bytes_to_opt_
+#define _Out_writes_bytes_to_opt_(s, c)  __attribute__((anno("_Out_writes_bytes_to_opt_"))) __attribute__((size(#s))) __attribute__((count(#c)))
+#endif
+
+#if defined(_Out_writes_bytes_all_)
+#undef _Out_writes_bytes_all_
+#define _Out_writes_bytes_all_(s)  __attribute__((anno("_Out_writes_bytes_all_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_bytes_all_opt_)
+#undef _Out_writes_bytes_all_opt_
+#define _Out_writes_bytes_all_opt_(s)  __attribute__((anno("_Out_writes_bytes_all_opt_"))) __attribute__((size(#s)))
+#endif
+
+
+#if defined(_Out_writes_to_ptr_)
+#undef _Out_writes_to_ptr_
+#define _Out_writes_to_ptr_(s)  __attribute__((anno("_Out_writes_to_ptr_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_to_ptr_opt_)
+#undef _Out_writes_to_ptr_opt_
+#define _Out_writes_to_ptr_opt_(s)  __attribute__((anno("_Out_writes_to_ptr_opt_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_to_ptr_z_)
+#undef _Out_writes_to_ptr_z_
+#define _Out_writes_to_ptr_z_(s)  __attribute__((anno("_Out_writes_to_ptr_z_"))) __attribute__((size(#s)))
+#endif
+
+#if defined(_Out_writes_to_ptr_opt_z_)
+#undef _Out_writes_to_ptr_opt_z_
+#define _Out_writes_to_ptr_opt_z_(s)  __attribute__((anno("_Out_writes_to_ptr_opt_z_"))) __attribute__((size(#s)))
+#endif
+
 
 
 #if defined(_Outptr_)
