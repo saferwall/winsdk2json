@@ -183,6 +183,10 @@ func run() {
 				if len(paramSpec.Members) == 1 && paramSpec.Members[0].Name == "unused" {
 					w32apiParam.Type = w32apiParam.Type[:len(w32apiParam.Type)-1]
 				}
+
+			case *translator.CEnumSpec:
+				paramSpec := param.Spec.(*translator.CEnumSpec)
+				w32apiParam.Type = paramSpec.Tag
 			}
 
 			paramDecl := ft.Parameters()[idx]
@@ -193,6 +197,10 @@ func run() {
 			}
 
 			t := paramDecl.Declarator.Type()
+			// if pointerType, ok := t.(*cc.PointerType); ok {
+			// 	t = pointerType.Elem()
+			// }
+
 			attr := t.Attributes()
 			if attr != nil {
 				attrAnno := attr.AttrValue("anno")
@@ -227,7 +235,7 @@ func run() {
 	if err != nil {
 		logger.Fatal(err)
 	}
-	utils.WriteBytesFile("./assets/w32apis-full.json", bytes.NewReader(marshaled))
+	utils.WriteBytesFile("./assets/w32apis-full-v1.json", bytes.NewReader(marshaled))
 
 	if genJSONForUI {
 
@@ -262,6 +270,6 @@ func run() {
 		if err != nil {
 			logger.Fatal(err)
 		}
-		utils.WriteBytesFile("./assets/w32apis-ui.json", bytes.NewReader(marshaled))
+		utils.WriteBytesFile("./assets/w32apis-ui-v1.json", bytes.NewReader(marshaled))
 	}
 }
