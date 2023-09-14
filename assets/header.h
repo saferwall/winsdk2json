@@ -13,7 +13,6 @@
 #define XSTR(x) STR(x)
 #define STR(x) #x
 
-
 #include<sal.h>
 
 #if defined(_In_)
@@ -232,5 +231,8 @@
 //#include <minwindef.h>
 //#include <minwinbase.h>
 //int myfunc (_In_ int param1, _Out_opt_ double param2, _Out_writes_(whatever) PUCHAR param3);
+
+// typedef void VOID;
+// int myfunc (_In_ RPC_MGR_EPV* param1);
 
 
