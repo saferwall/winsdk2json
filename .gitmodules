@@ -1,3 +1,6 @@
 [submodule "sdk-api"]
 	path = sdk-api
 	url = https://github.com/MicrosoftDocs/sdk-api
+[submodule "phnt"]
+	path = phnt
+	url = https://github.com/winsiderss/phnt.git
