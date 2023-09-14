@@ -233,6 +233,6 @@
 //int myfunc (_In_ int param1, _Out_opt_ double param2, _Out_writes_(whatever) PUCHAR param3);
 
 // typedef void VOID;
-// int myfunc (_In_ RPC_MGR_EPV* param1);
+// void myfunc (_In_ int* param1, _In_ int param2);
 
 
