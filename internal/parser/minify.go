@@ -1,4 +1,4 @@
-// Copyright 2018 Saferwall. All rights reserved.
+// Copyright 2022 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -127,8 +127,8 @@ func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string)
 			mapis[dllname] = make(map[string]APIMini)
 		}
 		for apiname, vv := range v {
-			if apiname == "RpcBindingFree" {
-				log.Print("RpcBindingFree")
+			if apiname == "SetFilePointer" {
+				log.Print("SetFilePointer")
 			}
 
 			// Return type.
@@ -142,14 +142,14 @@ func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string)
 			for _, param := range vv.Params {
 				parammini := APIParamMini{}
 				if reAnnotationIntOut.MatchString(param.Annotation) {
-					parammini.Annotation = paramInOut
-					propertiesCount += 2
-				} else if reAnnotationIn.MatchString(param.Annotation) {
 					parammini.Annotation = paramIn
 					propertiesCount++
-				} else if reAnnotationOut.MatchString(param.Annotation) {
+				} else if reAnnotationIn.MatchString(param.Annotation) {
 					parammini.Annotation = paramOut
 					propertiesCount++
+				} else if reAnnotationOut.MatchString(param.Annotation) {
+					parammini.Annotation = paramInOut
+					propertiesCount += 2
 				} else if reAnnotationReserved.MatchString(param.Annotation) {
 					parammini.Annotation = paramReserved
 					propertiesCount++
