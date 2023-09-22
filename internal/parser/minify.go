@@ -127,8 +127,8 @@ func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string)
 			mapis[dllname] = make(map[string]APIMini)
 		}
 		for apiname, vv := range v {
-			if apiname == "GetTickCount" {
-				log.Print("HeapFree")
+			if apiname == "SetFilePointer" {
+				log.Print("SetFilePointer")
 			}
 
 			// Return type.
@@ -141,13 +141,13 @@ func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string)
 			paramsMini := make([]APIParamMini, 0)
 			for _, param := range vv.Params {
 				parammini := APIParamMini{}
-				if reAnnotationIn.MatchString(param.Annotation) {
+				if reAnnotationIntOut.MatchString(param.Annotation) {
 					parammini.Annotation = paramIn
 					propertiesCount++
-				} else if reAnnotationOut.MatchString(param.Annotation) {
+				} else if reAnnotationIn.MatchString(param.Annotation) {
 					parammini.Annotation = paramOut
 					propertiesCount++
-				} else if reAnnotationIntOut.MatchString(param.Annotation) {
+				} else if reAnnotationOut.MatchString(param.Annotation) {
 					parammini.Annotation = paramInOut
 					propertiesCount += 2
 				} else if reAnnotationReserved.MatchString(param.Annotation) {
