@@ -163,7 +163,7 @@ func runOld() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "CreateToolhelp32Snapshot") {
+			if strings.Contains(v, "VirtualFreeEx") {
 				log.Print(v)
 			}
 

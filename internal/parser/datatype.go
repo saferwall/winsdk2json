@@ -1,4 +1,4 @@
-// Copyright 2018 Saferwall. All rights reserved.
+// Copyright 2022 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -13,6 +13,13 @@ import (
 	"strings"
 
 	"github.com/saferwall/winsdk2json/internal/utils"
+)
+
+const (
+	oneByte = iota
+	twoBytes
+	fourBytes
+	eightBytes
 )
 
 const (
