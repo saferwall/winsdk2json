@@ -12,12 +12,12 @@
       "program": "${workspaceFolder}\\",
       "env": {},
       "args": [
-        "parse",
+        "oldparse",
         //"--ui",
         //"-a"
         //   "--printretval",
         //   "--printanno",
-        //  "--minify",
+        "--minify",
       ]
     }
   ]

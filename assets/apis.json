@@ -391,7 +391,7 @@
   "CreateServiceA": {
    "callconv": "WINAPI",
    "name": "CreateServiceA",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_",
@@ -463,7 +463,7 @@
   "CreateServiceW": {
    "callconv": "WINAPI",
    "name": "CreateServiceW",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_",
@@ -1068,7 +1068,7 @@
   "OpenSCManagerA": {
    "callconv": "WINAPI",
    "name": "OpenSCManagerA",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_opt_",
@@ -1090,7 +1090,7 @@
   "OpenSCManagerW": {
    "callconv": "WINAPI",
    "name": "OpenSCManagerW",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_opt_",
@@ -1112,7 +1112,7 @@
   "OpenServiceA": {
    "callconv": "WINAPI",
    "name": "OpenServiceA",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_",
@@ -1134,7 +1134,7 @@
   "OpenServiceW": {
    "callconv": "WINAPI",
    "name": "OpenServiceW",
-   "retVal": "HANDLE",
+   "retVal": "SC_HANDLE",
    "params": [
     {
      "anno": "_In_",
@@ -4963,6 +4963,11 @@
      "name": "hProcess"
     },
     {
+     "anno": "_When_(dwFreeType == MEM_DECOMMIT,_Post_invalid_) _When_(dwFreeType == MEM_RELEASE,)",
+     "type": "LPVOID",
+     "name": "lpAddress"
+    },
+    {
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "dwSize"
@@ -5036,7 +5041,7 @@
   "VirtualQuery": {
    "callconv": "WINAPI",
    "name": "VirtualQuery",
-   "retVal": "T",
+   "retVal": "SIZE_T",
    "params": [
     {
      "anno": "_In_opt_",
@@ -5058,7 +5063,7 @@
   "VirtualQueryEx": {
    "callconv": "WINAPI",
    "name": "VirtualQueryEx",
-   "retVal": "T",
+   "retVal": "SIZE_T",
    "params": [
     {
      "anno": "_In_",
@@ -5251,6 +5256,20 @@
      "anno": "_In_",
      "type": "SIZE_T",
      "name": "Length"
+    }
+   ]
+  }
+ },
+ "rpcrt4.dll": {
+  "RpcBindingFree": {
+   "callconv": "RPC_ENTRY",
+   "name": "RpcBindingFree",
+   "retVal": "RPC_STATUS",
+   "params": [
+    {
+     "anno": "_Inout_",
+     "type": "RPC_BINDING_HANDLE *",
+     "name": "Binding"
     }
    ]
   }
