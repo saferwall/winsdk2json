@@ -260,3 +260,4 @@ InitializeSecurityDescriptor
 GlobalLock
 GlobalUnlock
 ExitThread
+RpcBindingFree
