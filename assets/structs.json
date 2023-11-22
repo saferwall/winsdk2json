@@ -1267,6 +1267,1227 @@
   "Members": null
  },
  {
+  "name": "RPC_BINDING_VECTOR",
+  "typedef_name": "_RPC_BINDING_VECTOR",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "BindingH",
+    "type": "RPC_BINDING_HANDLE"
+   }
+  ]
+ },
+ {
+  "name": "UUID_VECTOR",
+  "typedef_name": "_UUID_VECTOR",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "Uuid",
+    "type": "UUID*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_IF_ID",
+  "typedef_name": "_RPC_IF_ID",
+  "Members": [
+   {
+    "name": "Uuid",
+    "type": "UUID"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_PROTSEQ_VECTORA",
+  "typedef_name": "_RPC_PROTSEQ_VECTORA",
+  "Members": [
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_PROTSEQ_VECTORW",
+  "typedef_name": "_RPC_PROTSEQ_VECTORW",
+  "Members": [
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_PROTSEQ_VECTOR",
+  "typedef_name": "_RPC_PROTSEQ_VECTOR",
+  "Members": [
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_POLICY",
+  "typedef_name": "_RPC_POLICY",
+  "pointer_alias": "_RPC_*PRPC_POLICY",
+  "Members": [
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_STATS_VECTOR",
+  "Members": [
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_IF_ID_VECTOR",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "__RPC_FAR",
+    "type": "RPC_IF_ID"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS",
+  "typedef_name": "_RPC_SECURITY_QOS",
+  "pointer_alias": "PRPC_SECURITY_QOS",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "SEC_WINNT_AUTH_IDENTITY_W",
+  "typedef_name": "_SEC_WINNT_AUTH_IDENTITY_W",
+  "pointer_alias": "PSEC_WINNT_AUTH_IDENTITY_W",
+  "Members": [
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "SEC_WINNT_AUTH_IDENTITY_A",
+  "typedef_name": "_SEC_WINNT_AUTH_IDENTITY_A",
+  "pointer_alias": "PSEC_WINNT_AUTH_IDENTITY_A",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_W",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_W",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_W",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_W*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_A",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_A",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_A",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_A*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_W*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProxyCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_W*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_A*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProxyCredentials",
+    "type": "SEC_WINNT_AUTH_IDENTITY_A*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "RPC_AUTH_IDENTITY_HANDLE"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProxyCredentials",
+    "type": "RPC_AUTH_IDENTITY_HANDLE"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A",
+  "typedef_name": "_RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A",
+  "pointer_alias": "PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A",
+  "Members": [
+   {
+    "name": "TransportCredentials",
+    "type": "RPC_AUTH_IDENTITY_HANDLE"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProxyCredentials",
+    "type": "RPC_AUTH_IDENTITY_HANDLE"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V2_W",
+  "typedef_name": "_RPC_SECURITY_QOS_V2_W",
+  "pointer_alias": "PRPC_SECURITY_QOS_V2_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_W*"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V2_A",
+  "typedef_name": "_RPC_SECURITY_QOS_V2_A",
+  "pointer_alias": "PRPC_SECURITY_QOS_V2_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_A*"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V3_W",
+  "typedef_name": "_RPC_SECURITY_QOS_V3_W",
+  "pointer_alias": "PRPC_SECURITY_QOS_V3_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_W*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V3_A",
+  "typedef_name": "_RPC_SECURITY_QOS_V3_A",
+  "pointer_alias": "PRPC_SECURITY_QOS_V3_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_A*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V4_W",
+  "typedef_name": "_RPC_SECURITY_QOS_V4_W",
+  "pointer_alias": "PRPC_SECURITY_QOS_V4_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_W*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V4_A",
+  "typedef_name": "_RPC_SECURITY_QOS_V4_A",
+  "pointer_alias": "PRPC_SECURITY_QOS_V4_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_A*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V5_W",
+  "typedef_name": "_RPC_SECURITY_QOS_V5_W",
+  "pointer_alias": "PRPC_SECURITY_QOS_V5_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_W*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "ServerSecurityDescriptor",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_SECURITY_QOS_V5_A",
+  "typedef_name": "_RPC_SECURITY_QOS_V5_A",
+  "pointer_alias": "PRPC_SECURITY_QOS_V5_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "u",
+    "type": "_union",
+    "body": [
+     {
+      "name": "HttpCredentials",
+      "type": "RPC_HTTP_TRANSPORT_CREDENTIALS_A*"
+     }
+    ]
+   },
+   {
+    "name": "Sid",
+    "type": "void*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "ServerSecurityDescriptor",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_BINDING_HANDLE_TEMPLATE_V1_W",
+  "typedef_name": "_RPC_BINDING_HANDLE_TEMPLATE_V1_W",
+  "pointer_alias": "PRPC_BINDING_HANDLE_TEMPLATE_V1_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "u1",
+    "type": "_union",
+    "body": [
+     {
+      "name": "short",
+      "type": "unsigned"
+     }
+    ]
+   },
+   {
+    "name": "ObjectUuid",
+    "type": "UUID"
+   }
+  ]
+ },
+ {
+  "name": "RPC_BINDING_HANDLE_TEMPLATE_V1_A",
+  "typedef_name": "_RPC_BINDING_HANDLE_TEMPLATE_V1_A",
+  "pointer_alias": "PRPC_BINDING_HANDLE_TEMPLATE_V1_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "u1",
+    "type": "_union",
+    "body": [
+     {
+      "name": "char",
+      "type": "unsigned"
+     }
+    ]
+   },
+   {
+    "name": "ObjectUuid",
+    "type": "UUID"
+   }
+  ]
+ },
+ {
+  "name": "RPC_BINDING_HANDLE_SECURITY_V1_W",
+  "typedef_name": "_RPC_BINDING_HANDLE_SECURITY_V1_W",
+  "pointer_alias": "PRPC_BINDING_HANDLE_SECURITY_V1_W",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "AuthIdentity",
+    "type": "SEC_WINNT_AUTH_IDENTITY_W*"
+   },
+   {
+    "name": "SecurityQos",
+    "type": "RPC_SECURITY_QOS*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_BINDING_HANDLE_SECURITY_V1_A",
+  "typedef_name": "_RPC_BINDING_HANDLE_SECURITY_V1_A",
+  "pointer_alias": "PRPC_BINDING_HANDLE_SECURITY_V1_A",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "AuthIdentity",
+    "type": "SEC_WINNT_AUTH_IDENTITY_A*"
+   },
+   {
+    "name": "SecurityQos",
+    "type": "RPC_SECURITY_QOS*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_BINDING_HANDLE_OPTIONS_V1",
+  "typedef_name": "_RPC_BINDING_HANDLE_OPTIONS_V1",
+  "pointer_alias": "PRPC_BINDING_HANDLE_OPTIONS_V1",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_CLIENT_INFORMATION1",
+  "pointer_alias": "_RPC_*PRPC_CLIENT_INFORMATION1",
+  "Members": [
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "char",
+    "type": "unsigned"
+   },
+   {
+    "name": "short",
+    "type": "unsigned"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_ENDPOINT_TEMPLATEW",
+  "pointer_alias": "PRPC_ENDPOINT_TEMPLATEW",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProtSeq",
+    "type": "RPC_WSTR"
+   },
+   {
+    "name": "Endpoint",
+    "type": "RPC_WSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_ENDPOINT_TEMPLATEA",
+  "pointer_alias": "PRPC_ENDPOINT_TEMPLATEA",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProtSeq",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "Endpoint",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_ENDPOINT_TEMPLATE",
+  "pointer_alias": "PRPC_ENDPOINT_TEMPLATE",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "ProtSeq",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "Endpoint",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   },
+   {
+    "name": "long",
+    "type": "unsigned"
+   }
+  ]
+ },
+ {
+  "name": "RPC_INTERFACE_TEMPLATEA",
+  "pointer_alias": "PRPC_INTERFACE_TEMPLATEA",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfSpec",
+    "type": "RPC_IF_HANDLE"
+   },
+   {
+    "name": "MgrTypeUuid",
+    "type": "UUID*"
+   },
+   {
+    "name": "MgrEpv",
+    "type": "RPC_MGR_EPV*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfCallback",
+    "type": "RPC_IF_CALLBACK_FN*"
+   },
+   {
+    "name": "UuidVector",
+    "type": "UUID_VECTOR*"
+   },
+   {
+    "name": "Annotation",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_INTERFACE_TEMPLATEW",
+  "pointer_alias": "PRPC_INTERFACE_TEMPLATEW",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfSpec",
+    "type": "RPC_IF_HANDLE"
+   },
+   {
+    "name": "MgrTypeUuid",
+    "type": "UUID*"
+   },
+   {
+    "name": "MgrEpv",
+    "type": "RPC_MGR_EPV*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfCallback",
+    "type": "RPC_IF_CALLBACK_FN*"
+   },
+   {
+    "name": "UuidVector",
+    "type": "UUID_VECTOR*"
+   },
+   {
+    "name": "Annotation",
+    "type": "RPC_WSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   }
+  ]
+ },
+ {
+  "name": "RPC_INTERFACE_TEMPLATE",
+  "pointer_alias": "PRPC_INTERFACE_TEMPLATE",
+  "Members": [
+   {
+    "name": "long",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfSpec",
+    "type": "RPC_IF_HANDLE"
+   },
+   {
+    "name": "MgrTypeUuid",
+    "type": "UUID*"
+   },
+   {
+    "name": "MgrEpv",
+    "type": "RPC_MGR_EPV*"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "int",
+    "type": "unsigned"
+   },
+   {
+    "name": "IfCallback",
+    "type": "RPC_IF_CALLBACK_FN*"
+   },
+   {
+    "name": "UuidVector",
+    "type": "UUID_VECTOR*"
+   },
+   {
+    "name": "Annotation",
+    "type": "RPC_CSTR"
+   },
+   {
+    "name": "SecurityDescriptor",
+    "type": "void*"
+   }
+  ]
+ },
+ {
   "name": "PARSEDURLA",
   "typedef_name": "tagPARSEDURLA",
   "pointer_alias": "PPARSEDURLA",

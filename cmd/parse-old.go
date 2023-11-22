@@ -108,7 +108,7 @@ func runOld() {
 	var winStructs []parser.Struct
 	funcPtrs := make([]string, 0)
 	var interestingHeaders = []string{
-		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h",
+		"\\fileapi.h", "\\processthreadsapi.h", "\\winreg.h", "\\bcrypt.h", "\\rpcdce.h",
 		"\\winbase.h", "\\urlmon.h", "\\memoryapi.h", "\\tlhelp32.h", "\\debugapi.h",
 		"\\handleapi.h", "\\heapapi.h", "\\winsvc.h", "\\wincrypt.h", "\\wow64apiset.h",
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
@@ -163,7 +163,7 @@ func runOld() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "getaddrinfo") {
+			if strings.Contains(v, "CreateToolhelp32Snapshot") {
 				log.Print(v)
 			}
 

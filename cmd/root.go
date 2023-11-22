@@ -40,5 +40,5 @@ func Execute() error {
 func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(parseCmd)
-	//rootCmd.AddCommand(parseCmdOld)
+	rootCmd.AddCommand(parseCmdOld)
 }

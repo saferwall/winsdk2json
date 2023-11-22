@@ -178,11 +178,90 @@ func FindClosingBracket(text []byte, openPos int) int {
 	return closePos
 }
 
+func FindClosingParenthesis(text []byte, openPos int) int {
+	closePos := openPos
+	counter := 1
+	for counter > 0 {
+		closePos++
+		c := text[closePos]
+		if c == '(' {
+			counter++
+		} else if c == ')' {
+			counter--
+		}
+	}
+	return closePos
+}
+
 func FindClosingSemicolon(text []byte, pos int) int {
 	for text[pos] != ';' {
 		pos++
 	}
 	return pos
+}
+
+func KeepOnlyParenthesis(s string) string {
+	open := map[rune]bool{
+		'(': true,
+		')': true,
+		'[': true,
+		']': true,
+		'{': true,
+		'}': true,
+	}
+
+	result := ""
+	for _, c := range s {
+		if _, ok := open[c]; ok {
+			result += string(c)
+			continue
+		}
+	}
+	return result
+}
+
+func IsValid(s string) bool {
+
+	s = KeepOnlyParenthesis(s)
+	// if the string isn't of even length,
+	// it can't be valid so we can return early
+	if len(s)%2 != 0 {
+		return false
+	}
+
+	// set up stack and map
+	st := []rune{}
+	open := map[rune]rune{
+		'(': ')',
+		'[': ']',
+		'{': '}',
+	}
+
+	// loop over string
+	for _, r := range s {
+
+		// if the current character is in the open map,
+		// put its closer into the stack and continue
+		if closer, ok := open[r]; ok {
+			st = append(st, closer)
+			continue
+		}
+
+		// otherwise, we're dealing with a closer
+		// check to make sure the stack isn't empty
+		// and whether the top of the stack matches
+		// the current character
+		l := len(st) - 1
+		if l < 0 || r != st[l] {
+			return false
+		}
+
+		// take the last element off the stack
+		st = st[:l]
+	}
+
+	// if the stack is empty, return true, otherwise false
+	return len(st) == 0
 }
 
 // ReadAll reads the entire file into memory.
@@ -272,6 +351,7 @@ func RemoveAnnotations(apiPrototype string) string {
 	apiPrototype = strings.Replace(apiPrototype, "_Post_ptr_invalid_", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, "__out_data_source(FILE)", "", -1)
 	apiPrototype = strings.Replace(apiPrototype, " OPTIONAL", "", -1)
+	apiPrototype = strings.Replace(apiPrototype, " __RPC_FAR", "", -1)
 
 	return apiPrototype
 }

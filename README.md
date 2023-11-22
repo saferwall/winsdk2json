@@ -75,6 +75,7 @@ This package tries to stay up to date with the latest [Windows SDK](https://deve
 
 - SAL annotations
 - Some Windows APIs does not have a ANSI alternative: i.e OpenMutexW
+- API like `CreateToolhelp32Snapshot` does not have annotations.
 
 ## References
 

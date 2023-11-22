@@ -1,4 +1,4 @@
-// Copyright 2022 Saferwall. All rights reserved.
+// Copyright 2018 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -13,13 +13,6 @@ import (
 	"strings"
 
 	"github.com/saferwall/winsdk2json/internal/utils"
-)
-
-const (
-	oneByte = iota
-	twoBytes
-	fourBytes
-	eightBytes
 )
 
 const (
@@ -72,10 +65,12 @@ var (
 	}
 
 	// Void* types + HANDLE-types + XYZ_PTR like types.
-	// The `Handle` types was declated with `DECLARE_HANDLE` macro
+	// The `Handle` types was declared with `DECLARE_HANDLE` macro
 	// instead of a direct typedef. We hardcode them here for now.
 	voidPtrTypes = []string{
-		"void*", "VOID*", "HANDLE", "HKEY", "HMETAFILE", "HINSTANCE", "HRGN", "HRSRC", "HSPRITE", "HLSURF", "HSTR", "HTASK", "SC_HANDLE", "ULONG_PTR", "LONG_PTR",
+		"void*", "VOID*", "HANDLE", "HKEY", "HMETAFILE", "HINSTANCE", "HRGN",
+		"HRSRC", "HSPRITE", "HLSURF", "HSTR", "HTASK", "SC_HANDLE", "ULONG_PTR",
+		"LONG_PTR", "RPC_BINDING_HANDLE",
 	}
 
 	// ASCIIStrTypes represents the null terminated string types.

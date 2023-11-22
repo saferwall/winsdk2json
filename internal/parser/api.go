@@ -1,4 +1,4 @@
-// Copyright 2022 Saferwall. All rights reserved.
+// Copyright 2018 Saferwall. All rights reserved.
 // Use of this source code is governed by Apache v2 license
 // license that can be found in the LICENSE file.
 
@@ -15,10 +15,10 @@ import (
 
 const (
 	// RegAPIs is a regex that extract API prototypes.
-	RegAPIs = `(_Success_|HANDLE|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|NTAPI|WINSOCK_API_LINKAGE|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|:]+;`
+	RegAPIs = `(_Success_|HANDLE|RPCRTAPI|INTERNETAPI|WINHTTPAPI|BOOLAPI|BOOL|STDAPI|SHSTDAPI|LWSTDAPI|WINUSERAPI|WINBASEAPI|WINADVAPI|NTSTATUS|NTAPI|WINSOCK_API_LINKAGE|_Must_inspect_result_|BOOLEAN|int|errno_t|wchar_t\*)[\w\s\)\(,\[\]\!*+=&<>/|:]+;`
 
 	// RegProto extracts API information.
-	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI)?( )?(?P<RetValType>[A-Za-z]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI|NTAPI) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
+	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI|RPCRTAPI)?( )?(?P<RetValType>[A-Za-z_]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI|NTAPI|RPC_ENTRY) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
 
 	// RegAPIParams parses params.
 	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_Frees_ptr_opt_|_(O|o)ut[\w(),+ *]+|_In[\w()]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`
@@ -84,29 +84,24 @@ func ParseAPI(apiPrototype string) API {
 
 	re := regexp.MustCompile(RegParam)
 	split := re.Split(m["Params"], -1)
-	for i, v := range split {
-		// Quick hack:
+	for i := 0; i < len(split); i++ {
+		v := split[i]
+
+		// Quick hack: some API like CreateToolhelp32Snapshot don't have SAL
+		// annotations, so assume its _In_,
 		ss := strings.Split(utils.StandardizeSpaces(v), " ")
 		if len(ss) == 2 {
-			// Force In for API without annotations.
 			v = "_In_ " + v
-		} else {
-			if i+1 < len(split) {
-				vv := utils.StandardizeSpaces(split[i+1])
-				if !strings.HasPrefix(vv, "In") &&
-					!strings.HasPrefix(vv, "Out") &&
-					!strings.HasPrefix(vv, "_In") &&
-					!strings.HasPrefix(vv, "IN") &&
-					!strings.HasPrefix(vv, "OUT") &&
-					!strings.HasPrefix(vv, "_Reserved") &&
-					!strings.HasPrefix(vv, "_Frees_ptr_opt_") &&
-					!strings.HasPrefix(vv, "_When") &&
-					!strings.HasPrefix(vv, "__out") &&
-					!strings.HasPrefix(vv, "_Out") {
-					v += ", " + split[i+1]
-					split[i+1] = v
-					continue
+		}
+
+		if strings.Contains(v, "(") {
+			if !utils.IsValid(v) {
+				v = v + ", " + split[i+1]
+				if !utils.IsValid(v) {
+					utils.IsValid(v + split[i+1])
 				}
+				i++
+
 			}
 		}
 		api.Params = append(api.Params, parseAPIParameter("_"+v))
