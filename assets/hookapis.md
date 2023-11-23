@@ -267,9 +267,14 @@ GetTempPathA
 GetTempPathW
 LockFile
 LockFileEx
+UnlockFile
+UnlockFileEx
 FreeLibrary
 MultiByteToWideChar
 WideCharToMultiByte
 GetComputerNameW
 GetTempFileNameA
 GetTempFileNameW
+GetNativeSystemInfo
+GetLocalTime
+GetSystemTime

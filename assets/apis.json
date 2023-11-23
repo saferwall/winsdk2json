@@ -3626,6 +3626,18 @@
     }
    ]
   },
+  "GetLocalTime": {
+   "callconv": "WINAPI",
+   "name": "GetLocalTime",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEMTIME",
+     "name": "lpSystemTime"
+    }
+   ]
+  },
   "GetLogicalDriveStringsA": {
    "callconv": "WINAPI",
    "name": "GetLogicalDriveStringsA",
@@ -3687,6 +3699,18 @@
      "anno": "_In_opt_",
      "type": "LPCWSTR",
      "name": "lpModuleName"
+    }
+   ]
+  },
+  "GetNativeSystemInfo": {
+   "callconv": "WINAPI",
+   "name": "GetNativeSystemInfo",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEM_INFO",
+     "name": "lpSystemInfo"
     }
    ]
   },
@@ -4924,6 +4948,70 @@
      "anno": "_In_",
      "type": "LPTHREADENTRY32",
      "name": "lpte"
+    }
+   ]
+  },
+  "UnlockFile": {
+   "callconv": "WINAPI",
+   "name": "UnlockFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockHigh"
+    }
+   ]
+  },
+  "UnlockFileEx": {
+   "callconv": "WINAPI",
+   "name": "UnlockFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwReserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockHigh"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
     }
    ]
   },
