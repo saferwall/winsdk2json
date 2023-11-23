@@ -129,8 +129,10 @@ LookupAccountSidA
 LookupAccountSidW
 LookupPrivilegeValueA
 LookupPrivilegeValueW
+lstrcmpA
 lstrcmpW
 lstrlenW
+lstrlenA
 MoveFileA
 MoveFileExA
 MoveFileExW
@@ -261,3 +263,13 @@ GlobalLock
 GlobalUnlock
 ExitThread
 RpcBindingFree
+GetTempPathA
+GetTempPathW
+LockFile
+LockFileEx
+FreeLibrary
+MultiByteToWideChar
+WideCharToMultiByte
+GetComputerNameW
+GetTempFileNameA
+GetTempFileNameW

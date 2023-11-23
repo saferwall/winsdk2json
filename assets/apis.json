@@ -3301,6 +3301,18 @@
     }
    ]
   },
+  "FreeLibrary": {
+   "callconv": "WINAPI",
+   "name": "FreeLibrary",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HMODULE",
+     "name": "hLibModule"
+    }
+   ]
+  },
   "GetCommandLineA": {
    "callconv": "WINAPI",
    "name": "GetCommandLineA",
@@ -3312,6 +3324,23 @@
    "name": "GetCommandLineW",
    "retVal": "LPWSTR",
    "params": []
+  },
+  "GetComputerNameW": {
+   "callconv": "WINAPI",
+   "name": "GetComputerNameW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(*nSize, *nSize + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "nSize"
+    }
+   ]
   },
   "GetCurrentProcessId": {
    "callconv": "WINAPI",
@@ -3736,6 +3765,94 @@
     }
    ]
   },
+  "GetTempFileNameA": {
+   "callconv": "WINAPI",
+   "name": "GetTempFileNameA",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpPrefixString"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uUnique"
+    },
+    {
+     "anno": "_Out_writes_(MAX_PATH)",
+     "type": "LPSTR",
+     "name": "lpTempFileName"
+    }
+   ]
+  },
+  "GetTempFileNameW": {
+   "callconv": "WINAPI",
+   "name": "GetTempFileNameW",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpPrefixString"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uUnique"
+    },
+    {
+     "anno": "_Out_writes_(MAX_PATH)",
+     "type": "LPWSTR",
+     "name": "lpTempFileName"
+    }
+   ]
+  },
+  "GetTempPathA": {
+   "callconv": "WINAPI",
+   "name": "GetTempPathA",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength,return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
+    }
+   ]
+  },
+  "GetTempPathW": {
+   "callconv": "WINAPI",
+   "name": "GetTempPathW",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    }
+   ]
+  },
   "GetThreadContext": {
    "callconv": "WINAPI",
    "name": "GetThreadContext",
@@ -4102,6 +4219,75 @@
     }
    ]
   },
+  "LockFile": {
+   "callconv": "WINAPI",
+   "name": "LockFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockHigh"
+    }
+   ]
+  },
+  "LockFileEx": {
+   "callconv": "WINAPI",
+   "name": "LockFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwReserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockHigh"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    }
+   ]
+  },
   "LockResource": {
    "callconv": "WINAPI",
    "name": "LockResource",
@@ -4221,6 +4407,43 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpNewFileName"
+    }
+   ]
+  },
+  "MultiByteToWideChar": {
+   "callconv": "WINAPI",
+   "name": "MultiByteToWideChar",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "CodePage"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_NLS_string_(cbMultiByte)",
+     "type": "LPCCH",
+     "name": "lpMultiByteStr"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "cbMultiByte"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(cchWideChar,return)",
+     "type": "LPWSTR",
+     "name": "lpWideCharStr"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "cchWideChar"
     }
    ]
   },
@@ -5087,6 +5310,53 @@
     }
    ]
   },
+  "WideCharToMultiByte": {
+   "callconv": "WINAPI",
+   "name": "WideCharToMultiByte",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "CodePage"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_NLS_string_(cchWideChar)",
+     "type": "LPCWCH",
+     "name": "lpWideCharStr"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "cchWideChar"
+    },
+    {
+     "anno": "_Out_writes_bytes_to_opt_(cbMultiByte,return)",
+     "type": "LPSTR",
+     "name": "lpMultiByteStr"
+    },
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "cbMultiByte"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCCH",
+     "name": "lpDefaultChar"
+    },
+    {
+     "anno": "_Out_opt_",
+     "type": "LPBOOL",
+     "name": "lpUsedDefaultChar"
+    }
+   ]
+  },
   "WinExec": {
    "callconv": "WINAPI",
    "name": "WinExec",
@@ -5192,6 +5462,23 @@
     }
    ]
   },
+  "lstrcmpA": {
+   "callconv": "WINAPI",
+   "name": "lstrcmpA",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString1"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString2"
+    }
+   ]
+  },
   "lstrcmpW": {
    "callconv": "WINAPI",
    "name": "lstrcmpW",
@@ -5206,6 +5493,18 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpString2"
+    }
+   ]
+  },
+  "lstrlenA": {
+   "callconv": "WINAPI",
+   "name": "lstrlenA",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString"
     }
    ]
   },
