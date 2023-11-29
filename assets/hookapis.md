@@ -22,6 +22,8 @@ CreateDirectoryA
 CreateDirectoryExA
 CreateDirectoryExW
 CreateDirectoryW
+OpenEventA
+OpenEventW
 CreateEventA
 CreateEventW
 CreateFileA
@@ -31,6 +33,7 @@ CreateMutexA
 CreateMutexExA
 CreateMutexExW
 CreateMutexW
+ReleaseMutex
 CreateProcessA
 CreateProcessAsUserA
 CreateProcessAsUserW
@@ -270,11 +273,18 @@ LockFileEx
 UnlockFile
 UnlockFileEx
 FreeLibrary
-MultiByteToWideChar
-WideCharToMultiByte
 GetComputerNameW
 GetTempFileNameA
 GetTempFileNameW
 GetNativeSystemInfo
 GetLocalTime
 GetSystemTime
+EnumWindows
+ExitWindowsEx
+FindWindowA
+FindWindowW
+GetCursorPos
+GetAsyncKeyState
+GetActiveWindow
+WaitForSingleObject
+WaitForSingleObjectEx

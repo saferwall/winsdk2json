@@ -3777,6 +3777,18 @@
     }
    ]
   },
+  "GetSystemTime": {
+   "callconv": "WINAPI",
+   "name": "GetSystemTime",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEMTIME",
+     "name": "lpSystemTime"
+    }
+   ]
+  },
   "GetSystemTimeAsFileTime": {
    "callconv": "WINAPI",
    "name": "GetSystemTimeAsFileTime",
@@ -4434,40 +4446,47 @@
     }
    ]
   },
-  "MultiByteToWideChar": {
+  "OpenEventA": {
    "callconv": "WINAPI",
-   "name": "MultiByteToWideChar",
-   "retVal": "int",
+   "name": "OpenEventA",
+   "retVal": "HANDLE",
    "params": [
     {
      "anno": "_In_",
-     "type": "UINT",
-     "name": "CodePage"
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
     },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "OpenEventW": {
+   "callconv": "WINAPI",
+   "name": "OpenEventW",
+   "retVal": "HANDLE",
+   "params": [
     {
      "anno": "_In_",
      "type": "DWORD",
-     "name": "dwFlags"
-    },
-    {
-     "anno": "_In_NLS_string_(cbMultiByte)",
-     "type": "LPCCH",
-     "name": "lpMultiByteStr"
+     "name": "dwDesiredAccess"
     },
     {
      "anno": "_In_",
-     "type": "int",
-     "name": "cbMultiByte"
-    },
-    {
-     "anno": "_Out_writes_to_opt_(cchWideChar,return)",
-     "type": "LPWSTR",
-     "name": "lpWideCharStr"
+     "type": "BOOL",
+     "name": "bInheritHandle"
     },
     {
      "anno": "_In_",
-     "type": "int",
-     "name": "cchWideChar"
+     "type": "LPCWSTR",
+     "name": "lpName"
     }
    ]
   },
@@ -4676,6 +4695,18 @@
      "anno": "_Out_opt_",
      "type": "SIZE_T*",
      "name": "lpNumberOfBytesRead"
+    }
+   ]
+  },
+  "ReleaseMutex": {
+   "callconv": "WINAPI",
+   "name": "ReleaseMutex",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hMutex"
     }
    ]
   },
@@ -5398,50 +5429,42 @@
     }
    ]
   },
-  "WideCharToMultiByte": {
+  "WaitForSingleObject": {
    "callconv": "WINAPI",
-   "name": "WideCharToMultiByte",
-   "retVal": "int",
+   "name": "WaitForSingleObject",
+   "retVal": "DWORD",
    "params": [
     {
      "anno": "_In_",
-     "type": "UINT",
-     "name": "CodePage"
+     "type": "HANDLE",
+     "name": "hHandle"
     },
     {
      "anno": "_In_",
      "type": "DWORD",
-     "name": "dwFlags"
-    },
+     "name": "dwMilliseconds"
+    }
+   ]
+  },
+  "WaitForSingleObjectEx": {
+   "callconv": "WINAPI",
+   "name": "WaitForSingleObjectEx",
+   "retVal": "DWORD",
+   "params": [
     {
-     "anno": "_In_NLS_string_(cchWideChar)",
-     "type": "LPCWCH",
-     "name": "lpWideCharStr"
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hHandle"
     },
     {
      "anno": "_In_",
-     "type": "int",
-     "name": "cchWideChar"
-    },
-    {
-     "anno": "_Out_writes_bytes_to_opt_(cbMultiByte,return)",
-     "type": "LPSTR",
-     "name": "lpMultiByteStr"
+     "type": "DWORD",
+     "name": "dwMilliseconds"
     },
     {
      "anno": "_In_",
-     "type": "int",
-     "name": "cbMultiByte"
-    },
-    {
-     "anno": "_In_opt_",
-     "type": "LPCCH",
-     "name": "lpDefaultChar"
-    },
-    {
-     "anno": "_Out_opt_",
-     "type": "LPBOOL",
-     "name": "lpUsedDefaultChar"
+     "type": "BOOL",
+     "name": "bAlertable"
     }
    ]
   },
@@ -5839,6 +5862,112 @@
      "anno": "_In_",
      "type": "PCWSTR",
      "name": "pszSrch"
+    }
+   ]
+  }
+ },
+ "user32.dll": {
+  "EnumWindows": {
+   "callconv": "WINAPI",
+   "name": "EnumWindows",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "WNDENUMPROC",
+     "name": "lpEnumFunc"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPARAM",
+     "name": "lParam"
+    }
+   ]
+  },
+  "ExitWindowsEx": {
+   "callconv": "WINAPI",
+   "name": "ExitWindowsEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwReason"
+    }
+   ]
+  },
+  "FindWindowA": {
+   "callconv": "WINAPI",
+   "name": "FindWindowA",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpClassName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpWindowName"
+    }
+   ]
+  },
+  "FindWindowW": {
+   "callconv": "WINAPI",
+   "name": "FindWindowW",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpClassName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpWindowName"
+    }
+   ]
+  },
+  "GetActiveWindow": {
+   "callconv": "WINAPI",
+   "name": "GetActiveWindow",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "",
+     "type": "",
+     "name": ""
+    }
+   ]
+  },
+  "GetAsyncKeyState": {
+   "callconv": "WINAPI",
+   "name": "GetAsyncKeyState",
+   "retVal": "SHORT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "vKey"
+    }
+   ]
+  },
+  "GetCursorPos": {
+   "callconv": "WINAPI",
+   "name": "GetCursorPos",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPPOINT",
+     "name": "lpPoint"
     }
    ]
   }

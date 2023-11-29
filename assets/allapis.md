@@ -279,3 +279,6 @@ GetModuleFileNameW
 
 lstrcatA
 lstrcatW
+
+MultiByteToWideChar
+WideCharToMultiByte
