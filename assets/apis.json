@@ -3301,6 +3301,18 @@
     }
    ]
   },
+  "FreeLibrary": {
+   "callconv": "WINAPI",
+   "name": "FreeLibrary",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HMODULE",
+     "name": "hLibModule"
+    }
+   ]
+  },
   "GetCommandLineA": {
    "callconv": "WINAPI",
    "name": "GetCommandLineA",
@@ -3312,6 +3324,23 @@
    "name": "GetCommandLineW",
    "retVal": "LPWSTR",
    "params": []
+  },
+  "GetComputerNameW": {
+   "callconv": "WINAPI",
+   "name": "GetComputerNameW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(*nSize, *nSize + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "nSize"
+    }
+   ]
   },
   "GetCurrentProcessId": {
    "callconv": "WINAPI",
@@ -3597,6 +3626,24 @@
     }
    ]
   },
+  "GetLastError": {
+   "callconv": "WINAPI",
+   "name": "GetLastError",
+   "retVal": "DWORD",
+   "params": []
+  },
+  "GetLocalTime": {
+   "callconv": "WINAPI",
+   "name": "GetLocalTime",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEMTIME",
+     "name": "lpSystemTime"
+    }
+   ]
+  },
   "GetLogicalDriveStringsA": {
    "callconv": "WINAPI",
    "name": "GetLogicalDriveStringsA",
@@ -3658,6 +3705,18 @@
      "anno": "_In_opt_",
      "type": "LPCWSTR",
      "name": "lpModuleName"
+    }
+   ]
+  },
+  "GetNativeSystemInfo": {
+   "callconv": "WINAPI",
+   "name": "GetNativeSystemInfo",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEM_INFO",
+     "name": "lpSystemInfo"
     }
    ]
   },
@@ -3724,6 +3783,18 @@
     }
    ]
   },
+  "GetSystemTime": {
+   "callconv": "WINAPI",
+   "name": "GetSystemTime",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEMTIME",
+     "name": "lpSystemTime"
+    }
+   ]
+  },
   "GetSystemTimeAsFileTime": {
    "callconv": "WINAPI",
    "name": "GetSystemTimeAsFileTime",
@@ -3733,6 +3804,94 @@
      "anno": "_Out_",
      "type": "LPFILETIME",
      "name": "lpSystemTimeAsFileTime"
+    }
+   ]
+  },
+  "GetTempFileNameA": {
+   "callconv": "WINAPI",
+   "name": "GetTempFileNameA",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpPrefixString"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uUnique"
+    },
+    {
+     "anno": "_Out_writes_(MAX_PATH)",
+     "type": "LPSTR",
+     "name": "lpTempFileName"
+    }
+   ]
+  },
+  "GetTempFileNameW": {
+   "callconv": "WINAPI",
+   "name": "GetTempFileNameW",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpPathName"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpPrefixString"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uUnique"
+    },
+    {
+     "anno": "_Out_writes_(MAX_PATH)",
+     "type": "LPWSTR",
+     "name": "lpTempFileName"
+    }
+   ]
+  },
+  "GetTempPathA": {
+   "callconv": "WINAPI",
+   "name": "GetTempPathA",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength,return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
+    }
+   ]
+  },
+  "GetTempPathW": {
+   "callconv": "WINAPI",
+   "name": "GetTempPathW",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nBufferLength"
+    },
+    {
+     "anno": "_Out_writes_to_opt_(nBufferLength,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
     }
    ]
   },
@@ -4102,6 +4261,75 @@
     }
    ]
   },
+  "LockFile": {
+   "callconv": "WINAPI",
+   "name": "LockFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockHigh"
+    }
+   ]
+  },
+  "LockFileEx": {
+   "callconv": "WINAPI",
+   "name": "LockFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwReserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToLockHigh"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
+    }
+   ]
+  },
   "LockResource": {
    "callconv": "WINAPI",
    "name": "LockResource",
@@ -4221,6 +4449,50 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpNewFileName"
+    }
+   ]
+  },
+  "OpenEventA": {
+   "callconv": "WINAPI",
+   "name": "OpenEventA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpName"
+    }
+   ]
+  },
+  "OpenEventW": {
+   "callconv": "WINAPI",
+   "name": "OpenEventW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpName"
     }
    ]
   },
@@ -4429,6 +4701,30 @@
      "anno": "_Out_opt_",
      "type": "SIZE_T*",
      "name": "lpNumberOfBytesRead"
+    }
+   ]
+  },
+  "ReleaseMutex": {
+   "callconv": "WINAPI",
+   "name": "ReleaseMutex",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hMutex"
+    }
+   ]
+  },
+  "ResetEvent": {
+   "callconv": "WINAPI",
+   "name": "ResetEvent",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hEvent"
     }
    ]
   },
@@ -4701,6 +4997,70 @@
      "anno": "_In_",
      "type": "LPTHREADENTRY32",
      "name": "lpte"
+    }
+   ]
+  },
+  "UnlockFile": {
+   "callconv": "WINAPI",
+   "name": "UnlockFile",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFileOffsetHigh"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockHigh"
+    }
+   ]
+  },
+  "UnlockFileEx": {
+   "callconv": "WINAPI",
+   "name": "UnlockFileEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFile"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwReserved"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockLow"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "nNumberOfBytesToUnlockHigh"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPOVERLAPPED",
+     "name": "lpOverlapped"
     }
    ]
   },
@@ -5087,6 +5447,45 @@
     }
    ]
   },
+  "WaitForSingleObject": {
+   "callconv": "WINAPI",
+   "name": "WaitForSingleObject",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMilliseconds"
+    }
+   ]
+  },
+  "WaitForSingleObjectEx": {
+   "callconv": "WINAPI",
+   "name": "WaitForSingleObjectEx",
+   "retVal": "DWORD",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwMilliseconds"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bAlertable"
+    }
+   ]
+  },
   "WinExec": {
    "callconv": "WINAPI",
    "name": "WinExec",
@@ -5192,6 +5591,23 @@
     }
    ]
   },
+  "lstrcmpA": {
+   "callconv": "WINAPI",
+   "name": "lstrcmpA",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString1"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString2"
+    }
+   ]
+  },
   "lstrcmpW": {
    "callconv": "WINAPI",
    "name": "lstrcmpW",
@@ -5206,6 +5622,18 @@
      "anno": "_In_",
      "type": "LPCWSTR",
      "name": "lpString2"
+    }
+   ]
+  },
+  "lstrlenA": {
+   "callconv": "WINAPI",
+   "name": "lstrlenA",
+   "retVal": "int",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString"
     }
    ]
   },
@@ -5452,6 +5880,112 @@
      "anno": "_In_",
      "type": "PCWSTR",
      "name": "pszSrch"
+    }
+   ]
+  }
+ },
+ "user32.dll": {
+  "EnumWindows": {
+   "callconv": "WINAPI",
+   "name": "EnumWindows",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "WNDENUMPROC",
+     "name": "lpEnumFunc"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPARAM",
+     "name": "lParam"
+    }
+   ]
+  },
+  "ExitWindowsEx": {
+   "callconv": "WINAPI",
+   "name": "ExitWindowsEx",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwReason"
+    }
+   ]
+  },
+  "FindWindowA": {
+   "callconv": "WINAPI",
+   "name": "FindWindowA",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpClassName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCSTR",
+     "name": "lpWindowName"
+    }
+   ]
+  },
+  "FindWindowW": {
+   "callconv": "WINAPI",
+   "name": "FindWindowW",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpClassName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpWindowName"
+    }
+   ]
+  },
+  "GetActiveWindow": {
+   "callconv": "WINAPI",
+   "name": "GetActiveWindow",
+   "retVal": "HWND",
+   "params": [
+    {
+     "anno": "",
+     "type": "",
+     "name": ""
+    }
+   ]
+  },
+  "GetAsyncKeyState": {
+   "callconv": "WINAPI",
+   "name": "GetAsyncKeyState",
+   "retVal": "SHORT",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "int",
+     "name": "vKey"
+    }
+   ]
+  },
+  "GetCursorPos": {
+   "callconv": "WINAPI",
+   "name": "GetCursorPos",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_Out_",
+     "type": "LPPOINT",
+     "name": "lpPoint"
     }
    ]
   }

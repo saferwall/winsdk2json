@@ -114,7 +114,8 @@ func runOld() {
 		"\\libloaderapi.h", "\\sysinfoapi.h", "\\synchapi.h", "\\winuser.h", "\\ioapiset.h",
 		"\\winhttp.h", "\\minwinbase.h", "\\minwindef.h", "\\winnt.h", "\\shellapi.h", "\\shlwapi.h",
 		"\\ntdef.h", "\\basetsd.h", "\\wininet.h", "winsock.h", "securitybaseapi.h", "winsock2.h",
-		"\\ws2tcpip.h", "\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h", "custom-def.h",
+		"\\ws2tcpip.h", "\\corecrt_wstring.h", "\\corecrt_malloc.h", "processenv.h",
+		"stringapiset.h", "errhandlingapi.h", "custom-def.h",
 	}
 
 	parsedAPI := 0
@@ -163,7 +164,7 @@ func runOld() {
 			prototype = utils.Standardize(prototype)
 			prototypes = append(prototypes, prototype)
 
-			if strings.Contains(v, "CreateToolhelp32Snapshot") {
+			if strings.Contains(v, "lstrcatA") {
 				log.Print(v)
 			}
 

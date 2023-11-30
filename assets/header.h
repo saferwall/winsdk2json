@@ -7,13 +7,15 @@
 #define _M_AMD64
 #define _M_X64
 #define __unaligned
-#define _MSC_FULL_VER 192930133
+#define _MSC_FULL_VER 192930133 # https://dev.to/yumetodo/list-of-mscver-and-mscfullver-8nd
 #define _CTYPE_DISABLE_MACROS
 
 #define XSTR(x) STR(x)
 #define STR(x) #x
 
 #include<sal.h>
+
+# https://github.com/nemequ/salieri/blob/master/salieri.h
 
 #if defined(_In_)
 #undef _In_

@@ -21,7 +21,7 @@ const (
 	RegProto = `(?P<Attr>WINBASEAPI|WINADVAPI|WSAAPI|RPCRTAPI)?( )?(?P<RetValType>[A-Za-z_]+) (?P<CallConv>WINAPI|APIENTRY|WSAAPI|SHSTDAPI|LWSTDAPI|NTAPI|RPC_ENTRY) (?P<ApiName>[a-zA-Z0-9]+)( )?\((?P<Params>.*)\);`
 
 	// RegAPIParams parses params.
-	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_Frees_ptr_opt_|_(O|o)ut[\w(),+ *]+|_In[\w()]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`
+	RegAPIParams = `(?P<Anno>_In_|IN|OUT|_In_opt_|_Inout_opt_|_Out_|_Inout_|_Out_opt_|_Outptr_opt_|_Reserved_|_Frees_ptr_opt_|_(O|o)ut[\w(),+ *]+|_In[\w()+]+|_When[\w() =,!*]+) (?P<Type>[\w *]+) (?P<Name>[*a-zA-Z0-9]+)`
 
 	// RegParam extacts API parameters.
 	RegParam = `, `
@@ -57,7 +57,6 @@ func parseAPIParameter(params string) APIParam {
 		apiParam.Name = apiParam.Name[1:]
 		apiParam.Type += "*"
 	}
-
 	return apiParam
 }
 

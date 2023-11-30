@@ -273,3 +273,12 @@ GetModuleFileNameW
 ## special treatement, don't include in generic logging
 
 - HeapFree
+
+
+# emotet issue param parsing
+
+lstrcatA
+lstrcatW
+
+MultiByteToWideChar
+WideCharToMultiByte
