@@ -3626,6 +3626,12 @@
     }
    ]
   },
+  "GetLastError": {
+   "callconv": "WINAPI",
+   "name": "GetLastError",
+   "retVal": "DWORD",
+   "params": []
+  },
   "GetLocalTime": {
    "callconv": "WINAPI",
    "name": "GetLocalTime",

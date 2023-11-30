@@ -289,3 +289,4 @@ GetActiveWindow
 WaitForSingleObject
 WaitForSingleObjectEx
 ResetEvent
+GetLastError
