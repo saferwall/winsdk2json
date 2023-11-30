@@ -30,9 +30,9 @@ CreateFileA
 CreateFileW
 CreateFile2
 CreateMutexA
+CreateMutexW
 CreateMutexExA
 CreateMutexExW
-CreateMutexW
 ReleaseMutex
 CreateProcessA
 CreateProcessAsUserA
@@ -288,3 +288,4 @@ GetAsyncKeyState
 GetActiveWindow
 WaitForSingleObject
 WaitForSingleObjectEx
+ResetEvent

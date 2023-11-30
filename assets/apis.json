@@ -4710,6 +4710,18 @@
     }
    ]
   },
+  "ResetEvent": {
+   "callconv": "WINAPI",
+   "name": "ResetEvent",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hEvent"
+    }
+   ]
+  },
   "ResumeThread": {
    "callconv": "WINAPI",
    "name": "ResumeThread",
