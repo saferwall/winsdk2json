@@ -12787,6 +12787,85 @@
   ]
  },
  {
+  "name": "TIME_ZONE_INFORMATION",
+  "typedef_name": "_TIME_ZONE_INFORMATION",
+  "pointer_alias": "PTIME_ZONE_INFORMATION",
+  "_pointer_alias": "LPTIME_ZONE_INFORMATION",
+  "Members": [
+   {
+    "name": "Bias",
+    "type": "LONG"
+   },
+   {
+    "name": "StandardName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "StandardDate",
+    "type": "SYSTEMTIME"
+   },
+   {
+    "name": "StandardBias",
+    "type": "LONG"
+   },
+   {
+    "name": "DaylightName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "DaylightDate",
+    "type": "SYSTEMTIME"
+   },
+   {
+    "name": "DaylightBias",
+    "type": "LONG"
+   }
+  ]
+ },
+ {
+  "name": "DYNAMIC_TIME_ZONE_INFORMATION",
+  "typedef_name": "_TIME_DYNAMIC_ZONE_INFORMATION",
+  "pointer_alias": "PDYNAMIC_TIME_ZONE_INFORMATION",
+  "Members": [
+   {
+    "name": "Bias",
+    "type": "LONG"
+   },
+   {
+    "name": "StandardName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "StandardDate",
+    "type": "SYSTEMTIME"
+   },
+   {
+    "name": "StandardBias",
+    "type": "LONG"
+   },
+   {
+    "name": "DaylightName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "DaylightDate",
+    "type": "SYSTEMTIME"
+   },
+   {
+    "name": "DaylightBias",
+    "type": "LONG"
+   },
+   {
+    "name": "TimeZoneKeyName",
+    "type": "WCHAR"
+   },
+   {
+    "name": "DynamicDaylightTimeDisabled",
+    "type": "BOOLEAN"
+   }
+  ]
+ },
+ {
   "name": "IPersistMonikerVtbl",
   "typedef_name": "IPersistMonikerVtbl",
   "Members": [

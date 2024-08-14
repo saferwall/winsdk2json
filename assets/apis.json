@@ -3194,6 +3194,23 @@
     }
    ]
   },
+  "FileTimeToSystemTime": {
+   "callconv": "WINAPI",
+   "name": "FileTimeToSystemTime",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "CONST FILETIME*",
+     "name": "lpFileTime"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPSYSTEMTIME",
+     "name": "lpSystemTime"
+    }
+   ]
+  },
   "FindClose": {
    "callconv": "WINAPI",
    "name": "FindClose",
