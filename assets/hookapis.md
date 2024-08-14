@@ -136,6 +136,8 @@ lstrcmpA
 lstrcmpW
 lstrlenW
 lstrlenA
+lstrcpyA
+lstrcpyW
 MoveFileA
 MoveFileExA
 MoveFileExW
@@ -279,6 +281,7 @@ GetTempFileNameW
 GetNativeSystemInfo
 GetLocalTime
 GetSystemTime
+FileTimeToSystemTime
 EnumWindows
 ExitWindowsEx
 FindWindowA
@@ -290,3 +293,7 @@ WaitForSingleObject
 WaitForSingleObjectEx
 ResetEvent
 GetLastError
+OutputDebugStringW
+AddVectoredExceptionHandler
+GetWindowsDirectoryA
+GetWindowsDirectoryW

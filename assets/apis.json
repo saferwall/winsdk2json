@@ -2320,6 +2320,23 @@
   }
  },
  "kernel32.dll": {
+  "AddVectoredExceptionHandler": {
+   "callconv": "WINAPI",
+   "name": "AddVectoredExceptionHandler",
+   "retVal": "PVOID",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "ULONG",
+     "name": "First"
+    },
+    {
+     "anno": "_In_",
+     "type": "PVECTORED_EXCEPTION_HANDLER",
+     "name": "Handler"
+    }
+   ]
+  },
   "BeginUpdateResourceA": {
    "callconv": "WINAPI",
    "name": "BeginUpdateResourceA",
@@ -4050,6 +4067,40 @@
     }
    ]
   },
+  "GetWindowsDirectoryA": {
+   "callconv": "WINAPI",
+   "name": "GetWindowsDirectoryA",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(uSize,return + 1)",
+     "type": "LPSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uSize"
+    }
+   ]
+  },
+  "GetWindowsDirectoryW": {
+   "callconv": "WINAPI",
+   "name": "GetWindowsDirectoryW",
+   "retVal": "UINT",
+   "params": [
+    {
+     "anno": "_Out_writes_to_opt_(uSize,return + 1)",
+     "type": "LPWSTR",
+     "name": "lpBuffer"
+    },
+    {
+     "anno": "_In_",
+     "type": "UINT",
+     "name": "uSize"
+    }
+   ]
+  },
   "GlobalAlloc": {
    "callconv": "WINAPI",
    "name": "GlobalAlloc",
@@ -4554,6 +4605,18 @@
      "anno": "_In_",
      "type": "DWORD",
      "name": "dwProcessId"
+    }
+   ]
+  },
+  "OutputDebugStringW": {
+   "callconv": "WINAPI",
+   "name": "OutputDebugStringW",
+   "retVal": "VOID",
+   "params": [
+    {
+     "anno": "_In_opt_",
+     "type": "LPCWSTR",
+     "name": "lpOutputString"
     }
    ]
   },
@@ -5633,6 +5696,40 @@
     {
      "anno": "_In_",
      "type": "LPCWSTR",
+     "name": "lpString1"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpString2"
+    }
+   ]
+  },
+  "lstrcpyA": {
+   "callconv": "WINAPI",
+   "name": "lstrcpyA",
+   "retVal": "LPSTR",
+   "params": [
+    {
+     "anno": "_Out_writes_(_String_length_(lpString2) + 1)",
+     "type": "LPSTR",
+     "name": "lpString1"
+    },
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpString2"
+    }
+   ]
+  },
+  "lstrcpyW": {
+   "callconv": "WINAPI",
+   "name": "lstrcpyW",
+   "retVal": "LPWSTR",
+   "params": [
+    {
+     "anno": "_Out_writes_(_String_length_(lpString2) + 1)",
+     "type": "LPWSTR",
      "name": "lpString1"
     },
     {
