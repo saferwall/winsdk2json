@@ -3240,6 +3240,316 @@
     }
    ]
   },
+  "FindFirstFileA": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPWIN32_FIND_DATAA",
+     "name": "lpFindFileData"
+    }
+   ]
+  },
+  "FindFirstFileExA": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileExA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAA))",
+     "type": "LPVOID",
+     "name": "lpFindFileData"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_SEARCH_OPS",
+     "name": "fSearchOp"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPVOID",
+     "name": "lpSearchFilter"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAdditionalFlags"
+    }
+   ]
+  },
+  "FindFirstFileExW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileExW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAW))",
+     "type": "LPVOID",
+     "name": "lpFindFileData"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_SEARCH_OPS",
+     "name": "fSearchOp"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPVOID",
+     "name": "lpSearchFilter"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAdditionalFlags"
+    }
+   ]
+  },
+  "FindFirstFileNameTransactedW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileNameTransactedW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "StringLength"
+    },
+    {
+     "anno": "_Out_writes_(*StringLength)",
+     "type": "PWSTR",
+     "name": "LinkName"
+    },
+    {
+     "anno": "_In_opt_",
+     "type": "HANDLE",
+     "name": "hTransaction"
+    }
+   ]
+  },
+  "FindFirstFileNameW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileNameW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "StringLength"
+    },
+    {
+     "anno": "_Out_writes_(*StringLength)",
+     "type": "PWSTR",
+     "name": "LinkName"
+    }
+   ]
+  },
+  "FindFirstFileTransactedA": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileTransactedA",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAA))",
+     "type": "LPVOID",
+     "name": "lpFindFileData"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_SEARCH_OPS",
+     "name": "fSearchOp"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPVOID",
+     "name": "lpSearchFilter"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAdditionalFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hTransaction"
+    }
+   ]
+  },
+  "FindFirstFileTransactedW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileTransactedW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_INFO_LEVELS",
+     "name": "fInfoLevelId"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAW))",
+     "type": "LPVOID",
+     "name": "lpFindFileData"
+    },
+    {
+     "anno": "_In_",
+     "type": "FINDEX_SEARCH_OPS",
+     "name": "fSearchOp"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "LPVOID",
+     "name": "lpSearchFilter"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwAdditionalFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hTransaction"
+    }
+   ]
+  },
+  "FindFirstFileW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstFileW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPWIN32_FIND_DATAW",
+     "name": "lpFindFileData"
+    }
+   ]
+  },
+  "FindFirstStreamTransactedW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstStreamTransactedW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "STREAM_INFO_LEVELS",
+     "name": "InfoLevel"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_STREAM_DATA))",
+     "type": "LPVOID",
+     "name": "lpFindStreamData"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    },
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hTransaction"
+    }
+   ]
+  },
+  "FindFirstStreamW": {
+   "callconv": "WINAPI",
+   "name": "FindFirstStreamW",
+   "retVal": "HANDLE",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "LPCWSTR",
+     "name": "lpFileName"
+    },
+    {
+     "anno": "_In_",
+     "type": "STREAM_INFO_LEVELS",
+     "name": "InfoLevel"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_STREAM_DATA))",
+     "type": "LPVOID",
+     "name": "lpFindStreamData"
+    },
+    {
+     "anno": "_Reserved_",
+     "type": "DWORD",
+     "name": "dwFlags"
+    }
+   ]
+  },
   "FindFirstVolumeW": {
    "callconv": "WINAPI",
    "name": "FindFirstVolumeW",
@@ -3254,6 +3564,91 @@
      "anno": "_In_",
      "type": "DWORD",
      "name": "cchBufferLength"
+    }
+   ]
+  },
+  "FindNextChangeNotification": {
+   "callconv": "WINAPI",
+   "name": "FindNextChangeNotification",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hChangeHandle"
+    }
+   ]
+  },
+  "FindNextFileA": {
+   "callconv": "WINAPI",
+   "name": "FindNextFileA",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFindFile"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPWIN32_FIND_DATAA",
+     "name": "lpFindFileData"
+    }
+   ]
+  },
+  "FindNextFileNameW": {
+   "callconv": "APIENTRY",
+   "name": "FindNextFileNameW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFindStream"
+    },
+    {
+     "anno": "_Inout_",
+     "type": "LPDWORD",
+     "name": "StringLength"
+    },
+    {
+     "anno": "_Out_writes_(*StringLength)",
+     "type": "PWSTR",
+     "name": "LinkName"
+    }
+   ]
+  },
+  "FindNextFileW": {
+   "callconv": "WINAPI",
+   "name": "FindNextFileW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFindFile"
+    },
+    {
+     "anno": "_Out_",
+     "type": "LPWIN32_FIND_DATAW",
+     "name": "lpFindFileData"
+    }
+   ]
+  },
+  "FindNextStreamW": {
+   "callconv": "APIENTRY",
+   "name": "FindNextStreamW",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hFindStream"
+    },
+    {
+     "anno": "_Out_writes_bytes_(sizeof(WIN32_FIND_STREAM_DATA))",
+     "type": "LPVOID",
+     "name": "lpFindStreamData"
     }
    ]
   },
