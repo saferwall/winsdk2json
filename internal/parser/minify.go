@@ -61,8 +61,9 @@ var (
 	reAnnotationIntOut   = regexp.MustCompile(`(?i)_Inout[\w]+`)
 	reAnnotationReserved = regexp.MustCompile(`(?i)Reserved`)
 
-	reOutWritesBytesTo    = `\w+\((?P<s>[*\w]+), (?P<c>[*\w]+)\)`
-	reInOutReadWriteBytes = `\w+\((?P<s>\w+)\)`
+	reOutWritesBytesTo       = `\w+\((?P<s>[*\w]+), (?P<c>[*\w]+)\)`
+	reInOutReadWriteBytes    = `_In_reads_bytes_opt_\((?P<s>\w+)\)`
+	reOutWritesBytesToSizeOf = `_Out_writes_bytes_\(sizeof\((?P<s>\w+)\)`
 )
 
 func findParamIndexByName(api API, target string) int {
@@ -75,11 +76,15 @@ func findParamIndexByName(api API, target string) int {
 }
 
 func getNameFromAnnotation(param APIParam) string {
+	// Example: "_Out_writes_bytes_opt_(nNumberOfBytesToRead)"
+	// TODO: "_Out_writes_bytes_to_(dwNumberOfBytesToRead, *lpdwNumberOfBytesRead) __out_data_source(NETWORK)",
 	m := utils.RegSubMatchToMapString(reOutWritesBytesTo, param.Annotation)
 	if len(m) > 0 {
 		return m["c"]
 	}
 
+	// "_In_reads_opt_(dwHeadersLength)"
+	// "_In_reads_bytes_opt_(dwOptionalLength)"
 	m = utils.RegSubMatchToMapString(reInOutReadWriteBytes, param.Annotation)
 	if len(m) > 0 {
 		return m["s"]
@@ -88,8 +93,26 @@ func getNameFromAnnotation(param APIParam) string {
 	return ""
 }
 
+func getSizeFromAnnotation(param APIParam, winStructs []Struct, isX64 bool) uint8 {
+	// "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAA))"
+	m := utils.RegSubMatchToMapString(reOutWritesBytesToSizeOf, param.Annotation)
+	if len(m) == 0 {
+		// TODO: what to return here.
+		return 0
+	}
+
+	t := m["s"]
+	for _, winStruct := range winStructs {
+		if winStruct.Name == t {
+			return winStruct.Size(isX64)
+		}
+	}
+	return 0
+
+}
+
 func getBytePtrIndex(api API, param APIParam, dt dataType,
-	parammini *APIParamMini) uint8 {
+	parammini *APIParamMini, winStructs []Struct) uint8 {
 	if dt.Kind == typeBytePtr {
 		// log.Printf("API: %s, Name: %s, Type: %s, Anno: %s\n", api.Name,
 		// 	param.Name, param.Type, param.Annotation)
@@ -112,6 +135,11 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 			idx := findParamIndexByName(api, name)
 			parammini.Type = typeBytePtr
 			return uint8(idx)
+		} else {
+			// We have cases also: "_Out_writes_bytes_(sizeof(WIN32_FIND_DATAA))"
+			// Where the size of the buffer is not to be found in another variable.
+			size := getSizeFromAnnotation(param, winStructs)
+			return size
 		}
 
 	}
@@ -120,15 +148,16 @@ func getBytePtrIndex(api API, param APIParam, dt dataType,
 
 }
 
-func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string) map[string]map[string]APIMini {
+func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string,
+	winStructs []Struct) map[string]map[string]APIMini {
 	mapis := make(map[string]map[string]APIMini)
 	for dllname, v := range apis {
 		if _, ok := mapis[dllname]; !ok {
 			mapis[dllname] = make(map[string]APIMini)
 		}
 		for apiname, vv := range v {
-			if apiname == "RpcBindingFree" {
-				log.Print("RpcBindingFree")
+			if apiname == "FindFirstFileExW" {
+				log.Print("FindFirstFileExW")
 			}
 
 			// Return type.
@@ -159,9 +188,9 @@ func MinifyAPIs(apis map[string]map[string]API, customHookHHandlerAPIs []string)
 				}
 
 				// Get the param type.
-				dataType := typefromString(param.Type)
+				dataType := typeFromString(param.Type)
 				parammini.Type = dataType.Kind
-				parammini.BufferSizeOrIndex = getBytePtrIndex(vv, param, dataType, &parammini)
+				parammini.BufferSizeOrIndex = getBytePtrIndex(vv, param, dataType, &parammini, winStructs)
 				parammini.Name = param.Name
 				paramsMini = append(paramsMini, parammini)
 			}

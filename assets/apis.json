@@ -3187,6 +3187,48 @@
     }
    ]
   },
+  "DuplicateHandle": {
+   "callconv": "WINAPI",
+   "name": "DuplicateHandle",
+   "retVal": "BOOL",
+   "params": [
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hSourceProcessHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hSourceHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "HANDLE",
+     "name": "hTargetProcessHandle"
+    },
+    {
+     "anno": "_Outptr_",
+     "type": "LPHANDLE",
+     "name": "lpTargetHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwDesiredAccess"
+    },
+    {
+     "anno": "_In_",
+     "type": "BOOL",
+     "name": "bInheritHandle"
+    },
+    {
+     "anno": "_In_",
+     "type": "DWORD",
+     "name": "dwOptions"
+    }
+   ]
+  },
   "ExitProcess": {
    "callconv": "WINAPI",
    "name": "ExitProcess",
@@ -4054,12 +4096,6 @@
      "name": "lpFileSize"
     }
    ]
-  },
-  "GetLastError": {
-   "callconv": "WINAPI",
-   "name": "GetLastError",
-   "retVal": "DWORD",
-   "params": []
   },
   "GetLocalTime": {
    "callconv": "WINAPI",

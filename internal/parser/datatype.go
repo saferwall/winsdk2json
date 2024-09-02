@@ -8,6 +8,7 @@
 package parser
 
 import (
+	"fmt"
 	"log"
 	"regexp"
 	"strings"
@@ -208,6 +209,9 @@ func InitCustomTypes(winStructs []Struct) {
 
 	// Init struct types.
 	for _, winStruct := range winStructs {
+		if winStruct.Name == "WIN32_FIND_DATAW" {
+			fmt.Print(winStruct.Name)
+		}
 		if len(winStruct.Name) > 0 {
 			dt := dataType{Name: winStruct.Name, Size: 0, Kind: typeStruct}
 			dataTypes[winStruct.Name] = dt
@@ -226,7 +230,7 @@ func InitCustomTypes(winStructs []Struct) {
 	}
 }
 
-func typefromString(t string) dataType {
+func typeFromString(t string) dataType {
 
 	// Remove non-important C language modifiers like CONST ...
 	t = strings.ReplaceAll(t, "CONST ", "")

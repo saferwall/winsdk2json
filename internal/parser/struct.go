@@ -135,7 +135,7 @@ func parseStruct(structBeg, structBody, structEnd string) Struct {
 
 	winStruct := Struct{}
 
-	// Start by deleteing unecessery characters like comments and whitespaces.
+	// Start by deleting unnecessary characters like comments and whitespaces.
 	structBody = stripStruct(structBody)
 
 	// Remove "FAR *" like expressions.
@@ -241,4 +241,10 @@ func UnionSize(members []StructMember, is64 bool) uint8 {
 		}
 	}
 	return max
+}
+
+// Size returns the size of the struct.
+// TODO: Implement size.
+func (s *Struct) Size(isX64 bool) uint8 {
+	return 0
 }

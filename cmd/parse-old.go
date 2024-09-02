@@ -299,7 +299,7 @@ func runOld() {
 
 		if minify {
 			// Minifi APIs.
-			data, _ := json.Marshal(parser.MinifyAPIs(apis, customHookHHandlerAPIs))
+			data, _ := json.Marshal(parser.MinifyAPIs(apis, customHookHHandlerAPIs, winStructs))
 			utils.WriteBytesFile("./assets/mini-apis.json", bytes.NewReader(data))
 
 			// Minify Structs/Unions.

@@ -55,6 +55,7 @@ CryptGenRandom
 DeleteFileA
 DeleteFileW
 DeviceIoControl
+DuplicateHandle
 DuplicateToken
 DuplicateTokenEx
 ExitProcess
@@ -292,7 +293,6 @@ GetActiveWindow
 WaitForSingleObject
 WaitForSingleObjectEx
 ResetEvent
-GetLastError
 OutputDebugStringW
 AddVectoredExceptionHandler
 GetWindowsDirectoryA
